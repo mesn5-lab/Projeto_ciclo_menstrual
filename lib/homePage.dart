@@ -128,7 +128,7 @@ class _HomePage extends State<HomePage>{
                                 textStyle: GoogleFonts.libreBaskerville(
                                   color: Color.fromRGBO(240, 138, 166, 1.0),
                                   fontSize: 20,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWexsxight.bold,
                                 ),
                               ),
                             ),
