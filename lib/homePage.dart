@@ -75,7 +75,10 @@ class _HomePage extends State<HomePage>{
                     children: [
                       IconButton(
                         icon: const Icon(Icons.arrow_back_ios, color: Color.fromRGBO(157, 88, 209, 1.0), size: 30, fontWeight: FontWeight.bold,),
-                        onPressed: () {},
+                        onPressed: () {
+                          //voltar para a biblioteca
+                          Navigator.pop(context);
+                        },
                       ),
                       Expanded(
                         child: Padding(

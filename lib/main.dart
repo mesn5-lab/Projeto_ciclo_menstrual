@@ -1,6 +1,6 @@
+import 'package:ciclo_menstrual/bibliotecaPage.dart';
 import 'package:flutter/material.dart';
-import 'package:ciclo_menstrual/homePage.dart';
 
 void main() {
-  runApp(MaterialApp(home: HomePage(), debugShowCheckedModeBanner: false));
+  runApp(MaterialApp(home: BibliotecaPage(), debugShowCheckedModeBanner: false));
 }
