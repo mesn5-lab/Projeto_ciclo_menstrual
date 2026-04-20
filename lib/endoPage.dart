@@ -1,50 +1,15 @@
+import 'package:ciclo_menstrual/bibliotecaPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomePage extends StatefulWidget{
-  const HomePage({super.key});
+class EndoPage extends StatefulWidget{
+  const EndoPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePage();
+  State<EndoPage> createState() => _EndoPage();
 }
 
-/*
-class _HomePage extends State<HomePage>{
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      backgroundColor: Color.fromRGBO(167, 123, 173, 1),
-      body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Transform.translate(
-                offset: Offset(0, -170),
-                child: Cartao(),
-              ),
-            ],
-          )
-      ),
-    );
-  }
-
-  Cartao(){
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      width: 250,
-      height: 100,
-      child: Center(
-        child: Text("oi"),
-      ),
-    );
-  }
-}*/
-
-class _HomePage extends State<HomePage>{
+class _EndoPage extends State<EndoPage>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -84,7 +49,7 @@ class _HomePage extends State<HomePage>{
                         child: Padding(
                           padding: const EdgeInsets.only(right: 40.0),
                           child: Text(
-                            "Síndrome do Ovário Policístico - SOP",
+                            "Endometriose e Adenomiose",
                             style: GoogleFonts.openSans(
                               textStyle: GoogleFonts.openSans(
                                 color: Color.fromRGBO(157, 88, 209, 1.0),
@@ -93,7 +58,7 @@ class _HomePage extends State<HomePage>{
                                 shadows: [Shadow(color: Colors.black26, blurRadius: 4)],
                               ),
                             ),
-                        ),
+                          ),
                         ),
                       ),
                     ],
@@ -123,7 +88,7 @@ class _HomePage extends State<HomePage>{
                           Padding(
                             padding: const EdgeInsets.only(bottom: 8.0),
                             child: Text(
-                              "O que é a SOP?",
+                              "O que é a Endometriose?",
                               style: GoogleFonts.libreBaskerville(
                                 textStyle: GoogleFonts.libreBaskerville(
                                   color: Color.fromRGBO(240, 138, 166, 1.0),
@@ -134,11 +99,12 @@ class _HomePage extends State<HomePage>{
                             ),
                           ),
                           Text(
-                            "A Síndrome dos Ovários Policísticos, amplamente conhecida pela sigla SOP, é um distúrbio endócrino que afeta o equilíbrio hormonal feminino, "
-                                "atingindo cerca de 5% a 10% das mulheres em idade reprodutiva. Ela se caracteriza essencialmente por um desequilíbrio na produção de hormônios, "
-                                "onde os ovários produzem uma quantidade maior de andrógenos (hormônios masculinos) do que o habitual. Essa alteração interfere diretamente no processo de "
-                                "ovulação: em vez de liberar um óvulo maduro todos os meses, o corpo pode falhar nesse ciclo, fazendo com que os folículos que deveriam liberar os óvulos fiquem "
-                                "retidos e se transformem em pequenos cistos, dando o aspecto ""policístico"" visualizado em exames de imagem.",
+                            "A endometriose é uma doença inflamatória crônica caracterizada pelo crescimento de tecido semelhante ao endométrio "
+                                "- a camada que reveste internamente o útero - em locais fora da cavidade uterina. Normalmente, esse tecido descama "
+                                "e é expelido durante a menstruação, mas, na endometriose, ele pode se fixar nos ovários, trompas de Falópio, intestino, "
+                                "bexiga e outros tecidos pélvicos. Mesmo fora do útero, essas células continuam respondendo aos hormônios do ciclo menstrual, "
+                                "inflamando e sangrando mensalmente. Como esse sangue não tem por onde sair, ele causa dor intensa, inflamação e a formação de "
+                                "cicatrizes ou aderências entre os órgãos.",
                             style: GoogleFonts.openSans(
                               textStyle: TextStyle(
                                 color: Color.fromRGBO(240, 138, 166, 1.0),
@@ -150,10 +116,67 @@ class _HomePage extends State<HomePage>{
 
                           //Seção: Sintomas de alerta
                           _buildSecaoTitulo("Sintomas de Alerta"),
-                          _buildItemComIcone(Icons.calendar_month, "Irregularidade menstrual"),
-                          _buildItemComIcone(Icons.content_cut, "Excesso de pelos"),
-                          _buildItemComIcone(Icons.face, "Acne persistente"),
-                          _buildItemComIcone(Icons.monitor_weight, "Ganho de peso"),
+                          _buildItemComIcone(Icons.bolt, "Cólicas menstruais intensas"),
+                          _buildItemComIcone(Icons.monitor_heart, "Dor pélvica crônica"),
+                          _buildItemComIcone(Icons.child_care, "Dificuldade para engravidar"),
+                          _buildItemComIcone(Icons.battery_alert, "Fadiga Extrema"),
+
+                          const Divider(height: 40, thickness: 1, color: Colors.black),
+
+                          //Seção: Como identificar
+                          _buildSecaoTitulo("Como Identificar"),
+                          _buildItemComBolinha("Histórico clínico"),
+                          _buildItemComBolinha("Exame do toque"),
+                          _buildItemComBolinha("Ultrassom transvaginal com preparo intestinal"),
+                          _buildItemComBolinha("Ressonância magnética"),
+                          _buildItemComBolinha("Laparoscopia"),
+
+                          const Divider(height: 40, thickness: 1, color: Colors.black),
+
+                          _buildSecaoTitulo("Formas de Tratamento"),
+                          _buildItemComBolinha("Recomendação médica"),
+                          _buildItemComBolinha("Dieta anti-inflamatória"),
+                          _buildItemComBolinha("Fisioterapia pélvica"),
+                          _buildItemComBolinha("Exercícios físicos"),
+
+                          const Divider(height: 40, thickness: 1, color: Colors.black),
+
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: Text(
+                              "O que é a Adenomiose?",
+                              style: GoogleFonts.libreBaskerville(
+                                textStyle: GoogleFonts.libreBaskerville(
+                                  color: Color.fromRGBO(240, 138, 166, 1.0),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "A adenomiose é uma condição ginecológica caracterizada pela infiltração do endométrio "
+                                "— o tecido que reveste a cavidade interna do útero — nas paredes musculares do próprio órgão, "
+                                "chamadas de miométrio. Em um ciclo normal, o endométrio engrossa para receber um embrião e, caso não ocorra gravidez, "
+                                "é expelido na menstruação. Na adenomiose, esse tecido que ""entrou"" no músculo continua se comportando da "
+                                "mesma forma: ele sangra e inflama a cada ciclo, mas como o sangue está preso dentro da musculatura uterina, ele causa uma "
+                                "irritação profunda e um aumento significativo do volume do útero.",
+                            style: GoogleFonts.openSans(
+                              textStyle: TextStyle(
+                                color: Color.fromRGBO(240, 138, 166, 1.0),
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                          const Divider(height: 40, thickness: 1, color: Colors.black),
+
+                          //Seção: Sintomas de alerta
+                          _buildSecaoTitulo("Sintomas de Alerta"),
+                          _buildItemComIcone(Icons.opacity, "Fluxo menstrual muito intenso"),
+                          _buildItemComIcone(Icons.bolt, "Cólicas incapacitantes"),
+                          _buildItemComIcone(Icons.add_circle_outline, "Inchaço abdominal"),
+                          _buildItemComIcone(Icons.monitor_heart, "Dor crônica"),
+                          _buildItemComIcone(Icons.hourglass_bottom, "Longos períodos de sangramento"),
 
                           const Divider(height: 40, thickness: 1, color: Colors.black),
 
@@ -161,15 +184,16 @@ class _HomePage extends State<HomePage>{
                           _buildSecaoTitulo("Como Identificar"),
                           _buildItemComBolinha("Exame físico"),
                           _buildItemComBolinha("Ultrassom transvaginal"),
-                          _buildItemComBolinha("Exames de sangue"),
+                          _buildItemComBolinha("Ressonância magnética da pelve"),
 
                           const Divider(height: 40, thickness: 1, color: Colors.black),
 
                           _buildSecaoTitulo("Formas de Tratamento"),
-                          _buildItemComBolinha("Recomendação médica"),
-                          _buildItemComBolinha("Anticoncepcionais"),
-                          _buildItemComBolinha("Dieta e exercícios"),
-                          _buildItemComBolinha("Medicamentos"),
+                          _buildItemComBolinha("Medicamentos hormonais"),
+                          _buildItemComBolinha("Anti-inflamatórios"),
+                          _buildItemComBolinha("Embolização da artéria uterina"),
+                          _buildItemComBolinha("Ablação de endométrio"),
+                          _buildItemComBolinha("Histerectomia"),
                         ],
                       ),
                     ),
@@ -182,7 +206,7 @@ class _HomePage extends State<HomePage>{
       ),
     );
   }
-  
+
   Widget _buildSecaoTitulo(String titulo){
     return Padding(
       padding: const EdgeInsets.only(bottom: 10.0),
@@ -221,17 +245,22 @@ class _HomePage extends State<HomePage>{
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            margin: EdgeInsets.only(top: 8),
             width: 8,
             height: 8,
             decoration: BoxDecoration(color: Color.fromRGBO(240, 138, 166, 1.0), shape: BoxShape.circle),
           ),
           const SizedBox(width: 10),
-          Text(
-            texto,
-            style: GoogleFonts.openSans(
-              textStyle: TextStyle(color: Color.fromRGBO(240, 138, 166, 1.0), fontSize: 16),
+
+          Expanded(
+            child: Text(
+              texto,
+              style: GoogleFonts.openSans(
+                textStyle: TextStyle(color: Color.fromRGBO(240, 138, 166, 1.0), fontSize: 16),
+              ),
             ),
           ),
         ],

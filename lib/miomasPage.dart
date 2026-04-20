@@ -1,50 +1,15 @@
+import 'package:ciclo_menstrual/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomePage extends StatefulWidget{
-  const HomePage({super.key});
+class MiomasPage extends StatefulWidget{
+  const MiomasPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePage();
+  State<MiomasPage> createState() => _MiomasPage();
 }
 
-/*
-class _HomePage extends State<HomePage>{
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      backgroundColor: Color.fromRGBO(167, 123, 173, 1),
-      body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Transform.translate(
-                offset: Offset(0, -170),
-                child: Cartao(),
-              ),
-            ],
-          )
-      ),
-    );
-  }
-
-  Cartao(){
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      width: 250,
-      height: 100,
-      child: Center(
-        child: Text("oi"),
-      ),
-    );
-  }
-}*/
-
-class _HomePage extends State<HomePage>{
+class _MiomasPage extends State<MiomasPage>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -93,7 +58,7 @@ class _HomePage extends State<HomePage>{
                                 shadows: [Shadow(color: Colors.black26, blurRadius: 4)],
                               ),
                             ),
-                        ),
+                          ),
                         ),
                       ),
                     ],
@@ -134,11 +99,7 @@ class _HomePage extends State<HomePage>{
                             ),
                           ),
                           Text(
-                            "A Síndrome dos Ovários Policísticos, amplamente conhecida pela sigla SOP, é um distúrbio endócrino que afeta o equilíbrio hormonal feminino, "
-                                "atingindo cerca de 5% a 10% das mulheres em idade reprodutiva. Ela se caracteriza essencialmente por um desequilíbrio na produção de hormônios, "
-                                "onde os ovários produzem uma quantidade maior de andrógenos (hormônios masculinos) do que o habitual. Essa alteração interfere diretamente no processo de "
-                                "ovulação: em vez de liberar um óvulo maduro todos os meses, o corpo pode falhar nesse ciclo, fazendo com que os folículos que deveriam liberar os óvulos fiquem "
-                                "retidos e se transformem em pequenos cistos, dando o aspecto ""policístico"" visualizado em exames de imagem.",
+                            "Uma condição hormonal comum que afeta a ovulação...",
                             style: GoogleFonts.openSans(
                               textStyle: TextStyle(
                                 color: Color.fromRGBO(240, 138, 166, 1.0),
@@ -182,7 +143,7 @@ class _HomePage extends State<HomePage>{
       ),
     );
   }
-  
+
   Widget _buildSecaoTitulo(String titulo){
     return Padding(
       padding: const EdgeInsets.only(bottom: 10.0),
