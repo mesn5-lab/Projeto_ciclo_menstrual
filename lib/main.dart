@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ciclo_menstrual/main.dart';
+import 'package:ciclo_menstrual/homePage.dart';
 
 void main() {
-  runApp(ciclo_mesntrual());
+  runApp(MaterialApp(home: HomePage(), debugShowCheckedModeBanner: false));
 }
-
-class ciclo_menstrual
