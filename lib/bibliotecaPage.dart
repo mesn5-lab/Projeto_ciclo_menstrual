@@ -106,7 +106,7 @@ class _BibliotecaPage extends State<BibliotecaPage>{
             Container(
               width: 100,
               height: 90,
-              decoration: BoxDecoration(
+              decoration: BoxDecoration(cdcd
                 color: Color.fromRGBO(223, 203, 222, 1.0),
                 borderRadius: BorderRadius.circular(15),
               ),
