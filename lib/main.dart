@@ -1,79 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:projeto_ciclo_menstrual/home.page.dart';
+import 'package:projeto_ciclo_menstrual/home_fixed.dart';
 
-void main() {
-  runApp(app_ciclo_mestrual());
+void main(){
+  runApp(AppCicloMenstrual());
 }
 
-class app_ciclo_mestrual extends StatelessWidget{
+class AppCicloMenstrual extends StatelessWidget{
+  const AppCicloMenstrual({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TelaInicial(),
-
+      home: HomeFixed(),
     );
   }
-}
-
-class TelaInicial extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromRGBO(167, 123, 173, 1),
-      body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Transform.translate(
-                offset: Offset(0, -170),
-                child: Cartao(),
-              ),
-            ],
-          )
-      ),
-    );
-
-  }
-}
-class Cartao extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        width: 250,
-        height: 400,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-        ),
-
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(height: 30),
-            Container(
-                height: 150,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.deepPurple,
-                      width: 3,
-                    )
-                ),
-                child: Center(
-                    child: Text("18",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          fontFamily:
-                      ),)
-
-                )
-            ),
-          ],
-        )
-    );
-  }
-
-
 }
