@@ -1,4 +1,3 @@
-import 'package:ciclo_menstrual/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -49,7 +48,7 @@ class _MiomasPage extends State<MiomasPage>{
                         child: Padding(
                           padding: const EdgeInsets.only(right: 40.0),
                           child: Text(
-                            "Síndrome do Ovário Policístico - SOP",
+                            "Miomas Uterinos",
                             style: GoogleFonts.openSans(
                               textStyle: GoogleFonts.openSans(
                                 color: Color.fromRGBO(157, 88, 209, 1.0),
@@ -88,7 +87,7 @@ class _MiomasPage extends State<MiomasPage>{
                           Padding(
                             padding: const EdgeInsets.only(bottom: 8.0),
                             child: Text(
-                              "O que é a SOP?",
+                              "O que são Miomas Uterinos?",
                               style: GoogleFonts.libreBaskerville(
                                 textStyle: GoogleFonts.libreBaskerville(
                                   color: Color.fromRGBO(240, 138, 166, 1.0),
@@ -99,7 +98,18 @@ class _MiomasPage extends State<MiomasPage>{
                             ),
                           ),
                           Text(
-                            "Uma condição hormonal comum que afeta a ovulação...",
+                            "Os miomas uterinos, também denominados leiomiomas ou fibromas, são tumores sólidos e "
+                                "benignos que se originam no tecido muscular do útero, o miométrio. Eles representam a "
+                                "condição ginecológica não cancerígena mais frequente entre mulheres em idade reprodutiva, "
+                                "sendo influenciados diretamente pela dinâmica hormonal do organismo, especialmente pela ação "
+                                "do estrogênio e da progesterona. Essa dependência hormonal explica por que esses nódulos tendem "
+                                "a se desenvolver após a puberdade, crescer durante o período fértil ou na gestação e, frequentemente, "
+                                "regredir de tamanho de forma natural após a menopausa. Embora sua causa exata ainda seja objeto de estudo, "
+                                "sabe-se que existe uma forte predisposição genética, além de fatores como a obesidade e o histórico familiar que "
+                                "aumentam a probabilidade de seu surgimento."
+                                "A manifestação clínica dos miomas é extremamente variada e depende quase inteiramente de sua localização e tamanho. "
+                                "Eles são classificados como submucosos, quando crescem para dentro da cavidade uterina e costumam causar hemorragias intensas; "
+                                "intramurais, quando se desenvolvem dentro das paredes musculares; ou subserosos, quando se projetam para a parte externa do órgão.",
                             style: GoogleFonts.openSans(
                               textStyle: TextStyle(
                                 color: Color.fromRGBO(240, 138, 166, 1.0),
@@ -111,10 +121,11 @@ class _MiomasPage extends State<MiomasPage>{
 
                           //Seção: Sintomas de alerta
                           _buildSecaoTitulo("Sintomas de Alerta"),
-                          _buildItemComIcone(Icons.calendar_month, "Irregularidade menstrual"),
-                          _buildItemComIcone(Icons.content_cut, "Excesso de pelos"),
-                          _buildItemComIcone(Icons.face, "Acne persistente"),
-                          _buildItemComIcone(Icons.monitor_weight, "Ganho de peso"),
+                          _buildItemComIcone(Icons.opacity, "Sangramento menstrual excessivo"),
+                          _buildItemComIcone(Icons.bolt, "Cólica intensa"),
+                          _buildItemComIcone(Icons.sentiment_very_dissatisfied, "Anemia"),
+                          _buildItemComIcone(Icons.add_circle_outline, "Aumento abdominal"),
+                          _buildItemComIcone(Icons.speed, "Sintomas compressivos"),
 
                           const Divider(height: 40, thickness: 1, color: Colors.black),
 
@@ -122,15 +133,17 @@ class _MiomasPage extends State<MiomasPage>{
                           _buildSecaoTitulo("Como Identificar"),
                           _buildItemComBolinha("Exame físico"),
                           _buildItemComBolinha("Ultrassom transvaginal"),
-                          _buildItemComBolinha("Exames de sangue"),
+                          _buildItemComBolinha("Ressonância magnética"),
+                          _buildItemComBolinha("Histeroscopia",)
 
                           const Divider(height: 40, thickness: 1, color: Colors.black),
 
                           _buildSecaoTitulo("Formas de Tratamento"),
-                          _buildItemComBolinha("Recomendação médica"),
-                          _buildItemComBolinha("Anticoncepcionais"),
-                          _buildItemComBolinha("Dieta e exercícios"),
+                          _buildItemComBolinha("Expectante"),
+                          _buildItemComBolinha("Embolização"),
+                          _buildItemComBolinha("Miomectomia"),
                           _buildItemComBolinha("Medicamentos"),
+                          _buildItemComBolinha("Histerectomia"),
                         ],
                       ),
                     ),
