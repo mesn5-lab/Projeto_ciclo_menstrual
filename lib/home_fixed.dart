@@ -21,12 +21,10 @@ class _HomeFixedState extends State<HomeFixed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //a barra de ícones que vai ficar fixa nas telas
+      // 1. A barra de navegação fica aqui embaixo, fora do body
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _indiceAtual,
-        //diz ao flutter qual ícone destacar
         onTap: (index) {
-          //atualiza o estado para mudar de tela
           setState(() {
             _indiceAtual = index;
           });
@@ -34,30 +32,58 @@ class _HomeFixedState extends State<HomeFixed> {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.purple,
         unselectedItemColor: Colors.grey,
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.water_drop), label: 'Diário'),
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.water_drop), label: 'Diário'),
           BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Biblioteca'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.rocket_launch), label: 'Soluções'),
+          BottomNavigationBarItem(icon: Icon(Icons.rocket_launch), label: 'Soluções'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
         ],
       ),
 
-      //O corpo da tela muda conforme o ícone
-      body: Stack(
-        children: [
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: const Color.fromRGBO(212, 181, 210, 1.0),
-          ),
-          //colocamos aqui para não recarregar nunca
-          _buildFundoFixo(),
+      // 2. APENAS UM body para tudo
+      body: SizedBox.expand(
+        child: Stack(
+          children: [
+            // Camada 1: O fundo colorido (base)
+            Container(
+              color: const Color(0xFFD8B4E2),
+            ),
 
-          //Exibe a tela conforme o índice correspondente
-          _telas[_indiceAtual],
-        ],
+            // Camada 2: Imagem do Topo
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: IgnorePointer(
+                child: Image.asset(
+                  'assets/images/topo.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+
+            // Camada 3: Imagem do Rodapé (ajustei para bottom: 0)
+            Positioned(
+              bottom: 0, // Mudei de top para bottom para ser um rodapé real
+              left: 0,
+              right: 0,
+              child: IgnorePointer(
+                child: Image.asset(
+                  'assets/images/rodape.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+
+            // Camada 4: O fundo fixo extra (se você ainda precisar dele)
+            _buildFundoFixo(),
+
+            // Camada 5: A TELA ATUAL (fica por cima de tudo)
+            // Se quiser que o conteúdo da tela fique abaixo das imagens,
+            // mude a ordem desta linha na lista.
+            _telas[_indiceAtual],
+          ],
+        ),
       ),
     );
   }
