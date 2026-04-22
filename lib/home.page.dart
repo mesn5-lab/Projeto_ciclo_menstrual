@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
                 padding: const EdgeInsets.all(25),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.black,
                   borderRadius: BorderRadius.circular(35), //arrendondar as bordas
                   boxShadow: [
                     BoxShadow( //serve para dar a sensação que o círculo está flutuando
