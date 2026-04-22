@@ -134,7 +134,7 @@ class _MiomasPage extends State<MiomasPage>{
                           _buildItemComBolinha("Exame físico"),
                           _buildItemComBolinha("Ultrassom transvaginal"),
                           _buildItemComBolinha("Ressonância magnética"),
-                          _buildItemComBolinha("Histeroscopia",)
+                          _buildItemComBolinha("Histeroscopia"),
 
                           const Divider(height: 40, thickness: 1, color: Colors.black),
 

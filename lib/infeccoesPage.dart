@@ -49,7 +49,7 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                         child: Padding(
                           padding: const EdgeInsets.only(right: 40.0),
                           child: Text(
-                            "Síndrome do Ovário Policístico - SOP",
+                            "Infecções Comuns (Cervicite, etc.)",
                             style: GoogleFonts.openSans(
                               textStyle: GoogleFonts.openSans(
                                 color: Color.fromRGBO(157, 88, 209, 1.0),
@@ -88,7 +88,7 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                           Padding(
                             padding: const EdgeInsets.only(bottom: 8.0),
                             child: Text(
-                              "O que é a SOP?",
+                              "O que é a Cervicite?",
                               style: GoogleFonts.libreBaskerville(
                                 textStyle: GoogleFonts.libreBaskerville(
                                   color: Color.fromRGBO(240, 138, 166, 1.0),
@@ -99,7 +99,12 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                             ),
                           ),
                           Text(
-                            "Uma condição hormonal comum que afeta a ovulação...",
+                            "É a inflamação que atinge especificamente o colo do útero "
+                                "(a extremidade inferior que se abre para a vagina). "
+                                "Geralmente é causada por infecções sexualmente transmissíveis, "
+                                "como clamídia e gonorreia, mas também pode ser provocada por "
+                                "irritações químicas, uso de dispositivos como diafragmas ou alergia "
+                                "ao látex do preservativo.",
                             style: GoogleFonts.openSans(
                               textStyle: TextStyle(
                                 color: Color.fromRGBO(240, 138, 166, 1.0),
@@ -111,26 +116,116 @@ class _InfeccoesPage extends State<InfeccoesPage>{
 
                           //Seção: Sintomas de alerta
                           _buildSecaoTitulo("Sintomas de Alerta"),
-                          _buildItemComIcone(Icons.calendar_month, "Irregularidade menstrual"),
-                          _buildItemComIcone(Icons.content_cut, "Excesso de pelos"),
-                          _buildItemComIcone(Icons.face, "Acne persistente"),
-                          _buildItemComIcone(Icons.monitor_weight, "Ganho de peso"),
+                          _buildItemComIcone(Icons.water_drop_rounded, "Corrimento vaginal anormal"),
+                          _buildItemComIcone(Icons.bolt, "Dor pélvica"),
+                          _buildItemComIcone(Icons.priority_high, "Dor ao urinar"),
+                          _buildItemComIcone(Icons.opacity, "Sangramento vaginal inusitado"),
 
                           const Divider(height: 40, thickness: 1, color: Colors.black),
 
                           //Seção: Como identificar
                           _buildSecaoTitulo("Como Identificar"),
-                          _buildItemComBolinha("Exame físico"),
-                          _buildItemComBolinha("Ultrassom transvaginal"),
-                          _buildItemComBolinha("Exames de sangue"),
+                          _buildItemComBolinha("Exame ginecológico"),
+                          _buildItemComBolinha("Exame de urina"),
+                          _buildItemComBolinha("Cultura de secreção"),
 
                           const Divider(height: 40, thickness: 1, color: Colors.black),
 
                           _buildSecaoTitulo("Formas de Tratamento"),
-                          _buildItemComBolinha("Recomendação médica"),
-                          _buildItemComBolinha("Anticoncepcionais"),
-                          _buildItemComBolinha("Dieta e exercícios"),
-                          _buildItemComBolinha("Medicamentos"),
+                          _buildItemComBolinha("Antibióticos"),
+                          _buildItemComBolinha("Antivirais"),
+                          _buildItemComBolinha("Antifúngicos"),
+
+                          const Divider(height: 40, thickness: 1, color: Colors.black),
+
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: Text(
+                              "O que é a Endometrite?",
+                              style: GoogleFonts.libreBaskerville(
+                                textStyle: GoogleFonts.libreBaskerville(
+                                  color: Color.fromRGBO(240, 138, 166, 1.0),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "Trata-se da inflamação ou infecção do endométrio, que "
+                                "é o tecido que reveste a parte interna do útero. "
+                                "Diferente da endometriose, a endometrite é quase sempre "
+                                "causada por bactérias que sobem do trato vaginal, sendo "
+                                "muito comum após o parto (especialmente cesáreas), abortos, "
+                                "ou procedimentos médicos que atravessam o colo do útero, como a "
+                                "biópsia uterina.",
+                            style: GoogleFonts.openSans(
+                              textStyle: TextStyle(
+                                color: Color.fromRGBO(240, 138, 166, 1.0),
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                          const Divider(height: 40, thickness: 1, color: Colors.black),
+                          
+                          //Seção: sintomas de alerta
+                          _buildSecaoTitulo("Sintomas de Alerta"),
+                          _buildItemComIcone(Icons.import_contacts, "Febre"),
+                          _buildItemComIcone(Icons.eighteen_mp, "Dor abdominal"),
+                          _buildItemComIcone(Icons.eighteen_mp, "Útero amolecido ou dolorido"),
+                          _buildItemComIcone(Icons.eighteen_mp, "Corrimento com odor fétido"),
+                          
+                          const Divider(height: 40, thickness: 1, color: Colors.black),
+                          
+                          //Seção: como identificar
+                          _buildSecaoTitulo("Como Identificar"),
+                          _buildItemComBolinha("Histórico médico"),
+                          _buildItemComBolinha("Exames de sangue"),
+                          _buildItemComBolinha("Biópsia do endométrio"),
+                          
+                          const Divider(height: 40, thickness: 1, color: Colors.black),
+                          
+                          //Seção: formas de tratamento
+                          _buildSecaoTitulo("Formas de Tratamento"),
+                          _buildItemComBolinha("Antibióticos"),
+                          _buildItemComBolinha("Anti-inflamatório"),
+                          _buildItemComBolinha("Tratamento da causa base"),
+
+                          const Divider(height: 40, thickness: 1, color: Colors.black),
+
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: Text(
+                              "O que é a Doença Inflamatória Pélvica?",
+                              style: GoogleFonts.libreBaskerville(
+                                textStyle: GoogleFonts.libreBaskerville(
+                                  color: Color.fromRGBO(240, 138, 166, 1.0),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "É uma infecção que começa no colo do útero ou na vagina e "
+                                "sobe"" para os órgãos reprodutores superiores. Ela não "
+                                "afeta apenas o útero, mas também as trompas de Falópio e os "
+                                "ovários. É considerada uma evolução grave de infecções não "
+                                "tratadas e é uma das principais causas de dor pélvica crônica e "
+                                "infertilidade feminina, pois pode causar cicatrizes e obstruções "
+                                "nas trompas.",
+                            style: GoogleFonts.openSans(
+                              textStyle: TextStyle(
+                                color: Color.fromRGBO(240, 138, 166, 1.0),
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                          const Divider(height: 40, thickness: 1, color: Colors.black),
+
+                          //seção: sintomas de alerta
+                          _buildSecaoTitulo("Sintomas de Alerta"),
+
                         ],
                       ),
                     ),
