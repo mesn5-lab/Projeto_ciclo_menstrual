@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home.page.dart';
+import 'home_page.dart';
 //importar as outras telas aqui
 
 //criando uma classe para o arquivo

@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget{
   State<HomePage> createState() => _HomePageState();
 }
 //estrutura padrão para iniciar a tela
-class HomePage extends StatelessWidget {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea( //usamos essa função para que o conteúdo não bata na câmera
