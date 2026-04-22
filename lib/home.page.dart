@@ -66,7 +66,7 @@ class HomePage extends StatelessWidget {
                       minimumSize: const Size(double.infinity,60),
                     ),
                     child:  Text(
-                      "+Registrar seus Sintomas",
+                      "+Registrar Sintomas",
                       style: GoogleFonts.roboto(fontSize: 27, fontWeight: FontWeight.bold),
                     ),
               ),

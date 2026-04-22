@@ -56,7 +56,7 @@ class _HomeFixedState extends State<HomeFixed> {
           _buildFundoFixo(),
 
           //Exibe a tela conforme o índice correspondente
-          _telas[_indiceAtual],gghh
+          _telas[_indiceAtual],
         ],
       ),
     );
