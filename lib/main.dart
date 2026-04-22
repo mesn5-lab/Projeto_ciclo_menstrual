@@ -14,5 +14,5 @@ class AppCicloMenstrual extends StatelessWidget{
       debugShowCheckedModeBanner: false,
       home: HomeFixed(),
     );
-  }
+  }gg
 }
