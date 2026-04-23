@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projeto_ciclo_menstrual/sintomas_page.dart';
 
 class HomePage extends StatefulWidget{
   const HomePage({super.key});
@@ -61,7 +62,12 @@ class _HomePageState extends State<HomePage> {
               Padding(
                   padding: const EdgeInsets.only(top: 20, bottom: 20),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SintomasPage()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromRGBO(173, 51, 193, 1.0),
                       foregroundColor: Colors.black,
@@ -69,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25),
                       ),
-                      minimumSize: const Size(double.infinity,60),
+                      minimumSize: const Size(double.infinity,30),
                     ),
                     child:  Text(
                       "+Registrar Sintomas",

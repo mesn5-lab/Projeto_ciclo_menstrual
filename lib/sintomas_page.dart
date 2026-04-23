@@ -12,8 +12,7 @@ class SintomasPage extends StatefulWidget{
 class _SintomasPageState extends State<SintomasPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return HomeFixed(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -78,7 +77,7 @@ class _SintomasPageState extends State<SintomasPage> {
                 "Salvar Registro",
                 style: GoogleFonts.poppins(fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.white),
+                color: Colors.black),
               ),
               ),
 
@@ -86,8 +85,7 @@ class _SintomasPageState extends State<SintomasPage> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 
   //criar os widgets para os builds

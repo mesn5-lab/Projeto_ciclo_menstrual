@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_ciclo_menstrual/sintomas_page.dart';
 import 'home_page.dart';
 //importar as outras telas aqui
 
 //criando uma classe para o arquivo
 class HomeFixed extends StatefulWidget {
+  final Widget? child;
+  const HomeFixed({super.key, this.child});
+
   @override
   _HomeFixedState createState() => _HomeFixedState();
 }
@@ -14,7 +18,10 @@ class _HomeFixedState extends State<HomeFixed> {
 
   //agora cria uma lista das telas que serão exibidas no corpo(body)
   final List<Widget> _telas = [
-    HomePage(), //a tela que eu criei
+    HomePage(),
+    const Center(child: Text("Biblioteca")),
+    const Center(child: Text("Soluções")),
+    const Center(child: Text("Relatórios")),//a tela que eu criei
     //as telas que serão criadas
   ];
 
@@ -81,7 +88,9 @@ class _HomeFixedState extends State<HomeFixed> {
             // Camada 5: A TELA ATUAL (fica por cima de tudo)
             // Se quiser que o conteúdo da tela fique abaixo das imagens,
             // mude a ordem desta linha na lista.
-            _telas[_indiceAtual],
+            SafeArea(
+                child: widget.child ?? _telas[_indiceAtual],
+            ),
           ],
         ),
       ),
