@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_ciclo_menstrual/sintomas_page.dart';
+import 'package:ciclo_menstrual/sintomas_page.dart';
 import 'home_page.dart';
 //importar as outras telas aqui
 

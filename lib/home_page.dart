@@ -2,7 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:projeto_ciclo_menstrual/sintomas_page.dart';
+import 'package:ciclo_menstrual/sintomas_page.dart';
 
 class HomePage extends StatefulWidget{
   const HomePage({super.key});
