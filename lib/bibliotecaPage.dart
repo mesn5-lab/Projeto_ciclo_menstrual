@@ -16,86 +16,102 @@ class _BibliotecaPage extends State<BibliotecaPage>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor: Color.fromRGBO(167, 123, 173, 1),
-      body: Stack(
-        children: [
-          //Background Floral
-          Container(
-            height: 250,
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(167, 123, 173, 1),
-              image: const DecorationImage(
-                image: AssetImage('assets/images/widht_740.png'),
-                fit: BoxFit.cover,
-                opacity: 0.4,
+      body: SizedBox.expand(
+        child: Stack(
+          children: [
+            //background floral
+            Container(
+              color: const Color.fromRGBO(216, 180, 226, 1),
+            ),
+
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: IgnorePointer(
+                child: Image.asset(
+                  'assets/images/topo.png',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
 
-          SafeArea(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.all(20.0),
-               child: Column(
-                 crossAxisAlignment: CrossAxisAlignment.start,
-                 children: [
-                   //Ícone de voltar e título
-                   Row(
-                     children: [
-                       IconButton(
-                         icon: const Icon(Icons.arrow_back_ios, color: Color.fromRGBO(157, 88, 209, 1), size: 30, fontWeight: FontWeight.bold),
-                         onPressed: () {},
-                       ),
-                       Expanded(
-                         child: Padding(
-                           padding: EdgeInsets.only(left: 15.0),
-                           child: Text(
-                             "Biblioteca de Saúde Feminina",
-                             style: GoogleFonts.openSans(
-                               textStyle: GoogleFonts.openSans(
-                                 color: Color.fromRGBO(157, 88, 209, 1),
-                                 fontSize: 30,
-                                 fontWeight: FontWeight.bold,
-                                 shadows: [Shadow(color: Colors.black26, blurRadius: 4.0)],
-                               ),
-                             ),
-                           ),
-                         ),
-                       ),
-                     ],
-                   ),
-                   const SizedBox(height: 20),
-
-                   //Condições e suas respectivas telas
-                   _buildCondicoes(
-                     context,
-                     "Síndrome do Ovário Policístico - SOP",
-                     'assets/images/width_740.png',
-                     const HomePage(),
-                   ),
-                   _buildCondicoes(
-                     context,
-                     "Endometriose e Adenomiose",
-                     'assets/images/width_740.png',
-                     const EndoPage(),
-                   ),
-                   _buildCondicoes(
-                     context,
-                     "Miomas Uterinos",
-                     'assets/images/width_740.png',
-                     const MiomasPage(),
-                   ),
-                   _buildCondicoes(
-                     context,
-                     "Infecções Comuns (Cervicite, etc.)",
-                     'assets/images/width_740.png',
-                     const InfeccoesPage(),
-                   ),
-                 ],
-               ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: IgnorePointer(
+                child: Image.asset(
+                  'assets/images/rodape.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-          ),
 
-        ],
+            SafeArea(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //Ícone de voltar e título
+                    Row(
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.arrow_back_ios, color: Color.fromRGBO(157, 88, 209, 1), size: 30, fontWeight: FontWeight.bold),
+                          onPressed: () {},
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 15.0),
+                            child: Text(
+                              "Biblioteca de Saúde Feminina",
+                              style: GoogleFonts.libreBaskerville(
+                                textStyle: GoogleFonts.libreBaskerville(
+                                  color: Color.fromRGBO(157, 88, 209, 1),
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                  shadows: [Shadow(color: Colors.black26, blurRadius: 4.0)],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 15),
+
+                    //Condições e suas respectivas telas
+                    _buildCondicoes(
+                      context,
+                      "Síndrome do Ovário Policístico - SOP",
+                      'assets/images/sop.png',
+                      const HomePage(),
+                    ),
+                    _buildCondicoes(
+                      context,
+                      "Endometriose e Adenomiose",
+                      'assets/images/endo.png',
+                      const EndoPage(),
+                    ),
+                    _buildCondicoes(
+                      context,
+                      "Miomas Uterinos",
+                      'assets/images/miomas.png',
+                      const MiomasPage(),
+                    ),
+                    _buildCondicoes(
+                      context,
+                      "Infecções Comuns (Cervicite, etc.)",
+                      'assets/images/infeccoes.png',
+                      const InfeccoesPage(),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: _buildMenuInferior(),
     );
