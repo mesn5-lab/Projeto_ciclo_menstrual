@@ -20,33 +20,6 @@ class _BibliotecaPage extends State<BibliotecaPage>{
         child: Stack(
           children: [
             //background floral
-            Container(
-              color: const Color.fromRGBO(216, 180, 226, 1.0),
-            ),
-
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: IgnorePointer(
-                child: Image.asset(
-                  'assets/images/topo.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: IgnorePointer(
-                child: Image.asset(
-                  'assets/images/rodape.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
 
             SafeArea(
               child: SingleChildScrollView(
