@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child:  Text(
                       "+Registrar Sintomas",
-                      style: GoogleFonts.roboto(fontSize: 27, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.libreBaskerville(fontSize: 27, fontWeight: FontWeight.bold),
                     ),
               ),
               ),

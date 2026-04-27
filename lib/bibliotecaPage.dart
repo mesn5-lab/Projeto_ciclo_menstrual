@@ -4,6 +4,7 @@ import 'package:ciclo_menstrual/infeccoesPage.dart';
 import 'package:ciclo_menstrual/miomasPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ciclo_menstrual/home_fixed.dart';
 
 class BibliotecaPage extends StatefulWidget{
   const BibliotecaPage({super.key});
@@ -15,26 +16,8 @@ class BibliotecaPage extends StatefulWidget{
 class _BibliotecaPage extends State<BibliotecaPage>{
   @override
   Widget build(BuildContext context){
-    return Scaffold(
-      backgroundColor: Color.fromRGBO(167, 123, 173, 1),
-      body: Stack(
-        children: [
-          //Background Floral
-          Container(
-            height: 250,
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(167, 123, 173, 1),
-              image: const DecorationImage(
-                image: AssetImage('assets/images/widht_740.png'),
-                fit: BoxFit.cover,
-                opacity: 0.4,
-              ),
-            ),
-          ),
-
-          SafeArea(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.all(20.0),
+    return  SingleChildScrollView(
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                child: Column(
                  crossAxisAlignment: CrossAxisAlignment.start,
                  children: [
@@ -47,14 +30,16 @@ class _BibliotecaPage extends State<BibliotecaPage>{
                        ),
                        Expanded(
                          child: Padding(
-                           padding: EdgeInsets.only(left: 15.0),
+                           padding: EdgeInsets.only(right: 20),
                            child: Text(
                              "Biblioteca de Saúde Feminina",
-                             style: GoogleFonts.openSans(
-                               textStyle: GoogleFonts.openSans(
+                             textAlign: TextAlign.center,
+                             style: GoogleFonts.libreBaskerville(
+                               textStyle: GoogleFonts.libreBaskerville(
                                  color: Color.fromRGBO(157, 88, 209, 1),
                                  fontSize: 30,
                                  fontWeight: FontWeight.bold,
+                                 height: 1.3,
                                  shadows: [Shadow(color: Colors.black26, blurRadius: 4.0)],
                                ),
                              ),
@@ -63,7 +48,7 @@ class _BibliotecaPage extends State<BibliotecaPage>{
                        ),
                      ],
                    ),
-                   const SizedBox(height: 20),
+                   const SizedBox(height: 15),
 
                    //Condições e suas respectivas telas
                    _buildCondicoes(
@@ -92,12 +77,6 @@ class _BibliotecaPage extends State<BibliotecaPage>{
                    ),
                  ],
                ),
-            ),
-          ),
-
-        ],
-      ),
-      bottomNavigationBar: _buildMenuInferior(),
     );
   }
 
@@ -112,7 +91,7 @@ class _BibliotecaPage extends State<BibliotecaPage>{
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 16),
-        padding: EdgeInsets.all(12),
+        padding: EdgeInsets.all(17),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
@@ -128,7 +107,7 @@ class _BibliotecaPage extends State<BibliotecaPage>{
           children: [
             Container(
               width: 100,
-              height: 90,
+              height: 100,
               decoration: BoxDecoration(
                 color: Color.fromRGBO(223, 203, 222, 1.0),
                 borderRadius: BorderRadius.circular(15),
@@ -144,7 +123,7 @@ class _BibliotecaPage extends State<BibliotecaPage>{
             Expanded(
               child: Text(
                 titulo,
-                style: GoogleFonts.openSans(
+                style: GoogleFonts.libreBaskerville(
                   color: Color.fromRGBO(240, 138, 166, 1.0),
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -157,50 +136,4 @@ class _BibliotecaPage extends State<BibliotecaPage>{
       ),
     );
   }
-
-  Widget _buildMenuInferior(){
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 12),
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(223, 203, 222, 1.0),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          _buildIconeRedondo(Icons.water_drop_outlined, Color.fromRGBO(223, 203, 222, 1.0), "Diário"),
-          _buildIconeRedondo(Icons.menu_book, Color.fromRGBO(223, 203, 222, 1.0), "Biblioteca"),
-          _buildIconeRedondo(Icons.rocket_launch, Color.fromRGBO(223, 203, 222, 1.0), "Soluções"),
-          _buildIconeRedondo(Icons.person, Color.fromRGBO(223, 203, 222, 1.0), "Relatórios"),
-        ],
-      ),
-    );
   }
-
-  Widget _buildIconeRedondo(IconData icone, Color cor, String rotulo) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          padding: EdgeInsets.all(6),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.3),
-                blurRadius: 2,
-                offset: Offset(0, 1),
-              ),
-            ],
-          ),
-          child: Icon(icone, color: cor, size: 35),
-        ),
-        const SizedBox(height: 2),
-        Text(
-          rotulo,
-          style: GoogleFonts.openSans(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
-        ),
-      ],
-    );
-  }
-}

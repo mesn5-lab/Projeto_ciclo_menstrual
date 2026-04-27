@@ -12,25 +12,7 @@ class EndoPage extends StatefulWidget{
 class _EndoPage extends State<EndoPage>{
   @override
   Widget build(BuildContext context){
-    return Scaffold(
-      backgroundColor: Color.fromRGBO(167, 123, 173, 1),
-      body: Stack(
-        children: [
-          //Background Floral
-          Container(
-            height: 250,
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(167, 123, 173, 1),
-              image: const DecorationImage(
-                image: AssetImage('assets/images/widht_740.png'),
-                fit: BoxFit.cover,
-                opacity: 0.4,
-              ),
-            ),
-          ),
-
-          SafeArea(
-            child: SingleChildScrollView(
+    return SingleChildScrollView(
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,8 +32,8 @@ class _EndoPage extends State<EndoPage>{
                           padding: const EdgeInsets.only(right: 40.0),
                           child: Text(
                             "Endometriose e Adenomiose",
-                            style: GoogleFonts.openSans(
-                              textStyle: GoogleFonts.openSans(
+                            style: GoogleFonts.libreBaskerville(
+                              textStyle: GoogleFonts.libreBaskerville(
                                 color: Color.fromRGBO(157, 88, 209, 1.0),
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
@@ -105,13 +87,11 @@ class _EndoPage extends State<EndoPage>{
                                 "bexiga e outros tecidos pélvicos. Mesmo fora do útero, essas células continuam respondendo aos hormônios do ciclo menstrual, "
                                 "inflamando e sangrando mensalmente. Como esse sangue não tem por onde sair, ele causa dor intensa, inflamação e a formação de "
                                 "cicatrizes ou aderências entre os órgãos.",
-                            style: GoogleFonts.openSans(
-                              textStyle: TextStyle(
+                            style: GoogleFonts.libreBaskerville(
                                 color: Color.fromRGBO(240, 138, 166, 1.0),
                                 fontSize: 16,
                               ),
                             ),
-                          ),
                           const Divider(height: 40, thickness: 1, color: Colors.black),
 
                           //Seção: Sintomas de alerta
@@ -161,7 +141,7 @@ class _EndoPage extends State<EndoPage>{
                                 "é expelido na menstruação. Na adenomiose, esse tecido que ""entrou"" no músculo continua se comportando da "
                                 "mesma forma: ele sangra e inflama a cada ciclo, mas como o sangue está preso dentro da musculatura uterina, ele causa uma "
                                 "irritação profunda e um aumento significativo do volume do útero.",
-                            style: GoogleFonts.openSans(
+                            style: GoogleFonts.libreBaskerville(
                               textStyle: TextStyle(
                                 color: Color.fromRGBO(240, 138, 166, 1.0),
                                 fontSize: 16,
@@ -200,11 +180,7 @@ class _EndoPage extends State<EndoPage>{
                   ),
                 ],
               ),
-            ),
-          ),
-        ],
-      ),
-    );
+            );
   }
 
   Widget _buildSecaoTitulo(String titulo){
