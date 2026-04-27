@@ -33,25 +33,25 @@ class _BibliotecaPage extends State<BibliotecaPage>{
                           icon: const Icon(Icons.arrow_back_ios, color: Color.fromRGBO(157, 88, 209, 1), size: 30, fontWeight: FontWeight.bold),
                           onPressed: () {}, //volta para a tela anterior
                         ),
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(right: 10),
+                        Expanded( // faz com que o conteúdo ocupe o espaço sem explodir a tela
+                          child: Padding( //margem interna
+                            padding: EdgeInsets.only(right: 10), //10px para longe da borda direita
                             child: Text(
                               "Biblioteca de Saúde Feminina",
-                              textAlign: TextAlign.center,
+                              textAlign: TextAlign.center, //alinha o titulo no centro da página, com interferência do padding
                               style: GoogleFonts.libreBaskerville(
                                 color: const Color.fromRGBO(157, 88, 209, 1),
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
-                                height: 1.3,
-                                shadows: [Shadow(color: Colors.black26, blurRadius: 4.0)],
+                                height: 1.3, //distância entre as linhas do titulo
+                                shadows: [Shadow(color: Colors.black26, blurRadius: 4.0)], //sombra preta atrás da letra para dar profundidade
                               ),
                             ),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 15), //espaço constante/fixo vazio que promove distância entre o titulo da página e o conteudo da lista
 
                     //Condições e suas respectivas telas
                     _buildCondicoes(
@@ -90,24 +90,24 @@ class _BibliotecaPage extends State<BibliotecaPage>{
 
   //Função: condições e suas respectivas telas
   Widget _buildCondicoes(BuildContext context, String titulo, String imagem, Widget telaDestino){
-    return GestureDetector(
+    return GestureDetector( //detecta o toque do dedo
       onTap: () {
-        Navigator.push(
+        Navigator.push( //coloca a nova tela por cima da atual, mudando para a tela desejada
           context,
-          MaterialPageRoute(builder: (context) => telaDestino),
+          MaterialPageRoute(builder: (context) => telaDestino), //transição da tela atual para a tela seguinte (destino)
         );
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 10),
         padding: EdgeInsets.all(17),
-        decoration: BoxDecoration(
+        decoration: BoxDecoration( //visual do container
           color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20), //arredonda as pontas
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.25),
-              blurRadius: 10,
-              offset: Offset(0, 4),
+              color: Colors.black.withValues(alpha: 0.25), //cor da sombra com transparência sutil
+              blurRadius: 10, //nível de "borrado"
+              offset: Offset(0, 4), //posição da sombra, como se a "luz" viesse de cima
             ),
           ],
         ),
@@ -120,17 +120,17 @@ class _BibliotecaPage extends State<BibliotecaPage>{
                 color: Color.fromRGBO(223, 203, 222, 1.0),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Transform.scale(
+              child: Transform.scale( //altera a escala da imagem
                 scale: 0.98,
-                child: Image.asset(
-                  'assets/images/$imagem',
-                  fit: BoxFit.contain,
+                child: Image.asset( //carrega a imagem da pasta de arquivos localizada na raiz do projeto
+                  'assets/images/$imagem', //$imagem: muda de acordo com a imagem desejada
+                  fit: BoxFit.contain, //ajusta a foto para que ela cresça o suficiente sem encostar nas bordas do container
                 ),
               ),
             ),
             const SizedBox(width: 15),
 
-            Expanded(
+            Expanded( //texto irá ocupar o espaço do meio, empurrando a seta para o canto direito
               child: Text(
                 titulo,
                 style: GoogleFonts.libreBaskerville(

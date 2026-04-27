@@ -1,107 +1,78 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//Estrutura da página: Stateful = widget com estado => pode "mudar de estado"
 class HomePage extends StatefulWidget{
-  const HomePage({super.key});
+  const HomePage({super.key}); //identifica a tela, específico
 
   @override
-  State<HomePage> createState() => _HomePage();
+  State<HomePage> createState() => _HomePage(); //"cérebro" da página
 }
 
 class _HomePage extends State<HomePage>{
   @override
+  //corpo da página
   Widget build(BuildContext context){
-    return Scaffold(
-      body: SizedBox.expand(
-        child: Stack(
+    return Scaffold( //estrutura básica
+      body: SizedBox.expand( //faz com que o conteúdo ocupe a tela inteira, sem deixar espaço vazio
+        child: Stack( //permite colocar uma coisa em cima da outra, formar camadas
           children: [
-            //Background floral
-            Container(
-              color: const Color.fromRGBO(216, 180, 226, 1.0),
-            ),
-
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: IgnorePointer(
-                child: Image.asset(
-                  'assets/images/topo.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: IgnorePointer(
-                child: Image.asset(
-                  'assets/images/rodape.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-
-            SafeArea(
-              child: SingleChildScrollView(
+            SafeArea( //evita com que o conteúdo fique escondido na barra superior do celular ou na câmera
+              child: SingleChildScrollView( //permite arrastar o dedo para cima e para baixo
                 padding: const EdgeInsets.only(left: 20.0, right: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Column( //organiza os elementos um embaixo do outro
+                  crossAxisAlignment: CrossAxisAlignment.start, //alinha o conteúdo na horizontal do lado esquerdo
                   children: [
-                    //ícone de voltar e título
-                    Row(
+                    Row( //organiza o ícone e o texto horizontalmente
                       children: [
-                        IconButton(
+                        IconButton( //botão de voltar
                           icon: const Icon(Icons.arrow_back_ios, color: Color.fromRGBO(157, 88, 209, 1.0), size: 30, fontWeight: FontWeight.bold,),
                           onPressed: () {
-                            //voltar para a biblioteca
+                            //voltar para a biblioteca; context: tela inicial
                             Navigator.pop(context);
                           },
                         ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 15.0),
+                        Expanded( // faz com que o conteúdo ocupe o espaço sem explodir a tela
+                          child: Padding( //margem interna
+                            padding: const EdgeInsets.only(right: 15.0), //15px de distância da borda direita
                             child: Text(
                               "Síndrome do Ovário Policístico - SOP",
-
                               style: GoogleFonts.libreBaskerville(
                                 color: Color.fromRGBO(157, 88, 209, 1.0),
                                 fontSize: 27,
                                 fontWeight: FontWeight.bold,
-                                height: 1.3,
-                                shadows: [Shadow(color: Colors.black26, blurRadius: 4)],
+                                height: 1.3, //distância entre as linhas do título
+                                shadows: [Shadow(color: Colors.black26, blurRadius: 4)], //sombra preta atrás da letra para dar profundidade
                               ),
                             ),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 20), //espaço constante/fixo vazio que promove distância entre o titulo da página e o conteudo da lista
 
                     //Cartão branco
                     Container(
-                      width: double.infinity,
+                      width: double.infinity, //ocupa toda a largura da tela, de acordo com o padding
                       height: 560,
-                      padding: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.all(20), //distância igual para todas as bordas
+                      decoration: BoxDecoration( //visual do container
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20), //arredondamento das bordas
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.25),
-                            blurRadius: 10,
-                            offset: Offset(0, 5),
+                            color: Colors.black.withValues(alpha: 0.25), //cor da sombra com transparência sutil
+                            blurRadius: 10, //nível de "borrado"
+                            offset: Offset(0, 5), //posição da sombra, como se a "luz" viesse de cima
                           )
                         ],
                       ),
-                      child: SingleChildScrollView(
+                      child: SingleChildScrollView( //permite a rolagem da tela para cima e para baixo
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start, //alinha o conteúdo na horizontal do lado esquerdo
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
+                            Padding( //margem interna
+                              padding: const EdgeInsets.only(bottom: 8.0), //distância apenas da borda inferior
                               child: Text(
                                 "O que é a SOP?",
                                 style: GoogleFonts.libreBaskerville(
@@ -122,11 +93,11 @@ class _HomePage extends State<HomePage>{
                                 fontSize: 16,
                               ),
                             ),
-                            const Divider(height: 40, thickness: 1, color: Colors.black),
+                            const Divider(height: 40, thickness: 1, color: Colors.black), //linha de divisão de seção; height: espaço entre os texto de cima e de baixo; thickness: grossura da linha
 
                             //Seção: Sintomas de alerta
-                            _buildSecaoTitulo("Sintomas de Alerta"),
-                            _buildItemComIcone(Icons.calendar_month, "Irregularidade menstrual"),
+                            _buildSecaoTitulo("Sintomas de Alerta"), //função que cria o titulo da seção
+                            _buildItemComIcone(Icons.calendar_month, "Irregularidade menstrual"), //função que insere um ícone com um texto ao lado
                             _buildItemComIcone(Icons.content_cut, "Excesso de pelos"),
                             _buildItemComIcone(Icons.face, "Acne persistente"),
                             _buildItemComIcone(Icons.monitor_weight, "Ganho de peso"),
@@ -135,7 +106,7 @@ class _HomePage extends State<HomePage>{
 
                             //Seção: Como identificar
                             _buildSecaoTitulo("Como Identificar"),
-                            _buildItemComBolinha("Exame físico"),
+                            _buildItemComBolinha("Exame físico"), //função que insere uma "bolinha" e um texto ao lado, usado em listas de "tópicos"
                             _buildItemComBolinha("Ultrassom transvaginal"),
                             _buildItemComBolinha("Exames de sangue"),
 
@@ -174,9 +145,9 @@ class _HomePage extends State<HomePage>{
     );
   }
 
-  Widget _buildItemComIcone(IconData icone, String texto){
+  Widget _buildItemComIcone(IconData icone, String texto){ //cria linhas padronizadas com um icone e um texto
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5.0),
+      padding: const EdgeInsets.symmetric(vertical: 5.0), //deixa um sintoma embaixo do outro
       child: Row(
         children: [
           Icon(icone, color: Colors.grey, size: 18),
@@ -195,15 +166,15 @@ class _HomePage extends State<HomePage>{
 
   Widget _buildItemComBolinha(String texto){
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      padding: const EdgeInsets.symmetric(vertical: 4.0), //espaço vertical livre entre as linhas de sintoma
       child: Row(
         children: [
-          Container(
+          Container( //container da bolinha com suas propriedades
             width: 8,
             height: 8,
-            decoration: BoxDecoration(color: Color.fromRGBO(240, 138, 166, 1.0), shape: BoxShape.circle),
+            decoration: BoxDecoration(color: Color.fromRGBO(240, 138, 166, 1.0), shape: BoxShape.circle), // define um círculo
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 10), //espaço vazio entre a bolinha e o texto
           Text(
             texto,
             style: GoogleFonts.libreBaskerville(
