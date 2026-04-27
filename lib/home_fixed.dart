@@ -5,6 +5,8 @@ import 'home_page.dart';
 import 'package:ciclo_menstrual/bibliotecaPage.dart';
 import 'package:ciclo_menstrual/infeccoesPage.dart';
 import 'package:ciclo_menstrual/Telacalen.dart';
+import 'package:ciclo_menstrual/Telaconfig.dart';
+import 'package:ciclo_menstrual/Telarelatorio.dart';
 //importar as outras telas aqui
 
 //criando uma classe para o arquivo
@@ -24,9 +26,10 @@ class _HomeFixedState extends State<HomeFixed> {
   final List<Widget> _telas = [
     const HomePage(),
     const BibliotecaPage(),
-    const EndoPage(),
-    const InfeccoesPage(),
-    const MiomasPage(),
+    const Calendario(),
+    const TelaRelatorio(),
+    const TelaConfig(),
+
     //a tela que eu criei
     //as telas que serão criadas
   ];
@@ -48,8 +51,9 @@ class _HomeFixedState extends State<HomeFixed> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.water_drop), label: 'Diário'),
           BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Biblioteca'),
-          BottomNavigationBarItem(icon: Icon(Icons.rocket_launch), label: 'Soluções'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
+          BottomNavigationBarItem(icon: Icon(Icons.calendar_month_outlined), label: 'Calendário'),
+          BottomNavigationBarItem(icon: Icon(Icons.assessment_outlined), label: "Relatório"),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Configurações'),
         ],
       ),
 

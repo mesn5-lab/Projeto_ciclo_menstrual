@@ -14,39 +14,7 @@ class _TelaConfigState extends State<TelaConfig> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SizedBox.expand(
-        child: Stack(
-          children: [
-            Container(
-              color: const Color(0xFFD8B4E2),
-            ),
-
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: IgnorePointer(
-                child: Image.asset(
-                  'assets/images/topo.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: IgnorePointer(
-                child: Image.asset(
-                  'assets/images/rodape.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-
-            SafeArea(
+    return SafeArea(
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(18),
@@ -163,11 +131,7 @@ class _TelaConfigState extends State<TelaConfig> {
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
-    );
+            );
   }
 
   Widget itemSwitch({
