@@ -5,34 +5,33 @@ import 'package:ciclo_menstrual/miomasPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//Estrutura da página: Stateful = widget com estado => pode "mudar de estado"
 class BibliotecaPage extends StatefulWidget{
-  const BibliotecaPage({super.key});
+  const BibliotecaPage({super.key}); //identifica a tela, específico
 
   @override
-  State<BibliotecaPage> createState() => _BibliotecaPage();
+  State<BibliotecaPage> createState() => _BibliotecaPage(); //"cérebro" da página
 }
 
 class _BibliotecaPage extends State<BibliotecaPage>{
   @override
+  //corpo da página
   Widget build(BuildContext context){
-    return Scaffold(
-      body: SizedBox.expand(
-        child: Stack(
+    return Scaffold( //estrutura básica
+      body: SizedBox.expand( //faz com que o conteúdo ocupe a tela inteira, sem deixar espaço vazio
+        child: Stack( //permite colocar uma coisa em cima da outra, formar camadas
           children: [
-            //background floral
-
-            SafeArea(
-              child: SingleChildScrollView(
+            SafeArea( //evita com que o conteúdo fique escondido na barra superior do celular ou na câmera
+              child: SingleChildScrollView( //permite arrastar o dedo para cima e para baixo
                 padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Column( //organiza os elementos um embaixo do outro
+                  crossAxisAlignment: CrossAxisAlignment.start, //alinha o conteúdo na horizontal do lado esquerdo
                   children: [
-                    //Ícone de voltar e título
-                    Row(
+                    Row( //organiza o ícone e o texto horizontalmente
                       children: [
-                        IconButton(
+                        IconButton( //botão de voltar
                           icon: const Icon(Icons.arrow_back_ios, color: Color.fromRGBO(157, 88, 209, 1), size: 30, fontWeight: FontWeight.bold),
-                          onPressed: () {},
+                          onPressed: () {}, //volta para a tela anterior
                         ),
                         Expanded(
                           child: Padding(
@@ -99,8 +98,8 @@ class _BibliotecaPage extends State<BibliotecaPage>{
         );
       },
       child: Container(
-        margin: EdgeInsets.only(bottom: 16),
-        padding: EdgeInsets.all(12),
+        margin: EdgeInsets.only(bottom: 10),
+        padding: EdgeInsets.all(17),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
@@ -116,7 +115,7 @@ class _BibliotecaPage extends State<BibliotecaPage>{
           children: [
             Container(
               width: 100,
-              height: 90,
+              height: 100,
               decoration: BoxDecoration(
                 color: Color.fromRGBO(223, 203, 222, 1.0),
                 borderRadius: BorderRadius.circular(15),
@@ -145,36 +144,6 @@ class _BibliotecaPage extends State<BibliotecaPage>{
           ],
         ),
       ),
-    );
-  }
-
-
-
-  Widget _buildIconeRedondo(IconData icone, Color cor, String rotulo) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          padding: EdgeInsets.all(6),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.3),
-                blurRadius: 2,
-                offset: Offset(0, 1),
-              ),
-            ],
-          ),
-          child: Icon(icone, color: cor, size: 35),
-        ),
-        const SizedBox(height: 2),
-        Text(
-          rotulo,
-          style: GoogleFonts.openSans(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
-        ),
-      ],
     );
   }
 }
