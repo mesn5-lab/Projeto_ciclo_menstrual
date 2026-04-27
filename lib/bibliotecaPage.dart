@@ -5,53 +5,47 @@ import 'package:ciclo_menstrual/miomasPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-//Estrutura da página: Stateful = widget com estado => pode "mudar de estado"
 class BibliotecaPage extends StatefulWidget{
-  const BibliotecaPage({super.key}); //identifica a tela, específico
+  const BibliotecaPage({super.key});
 
   @override
-  State<BibliotecaPage> createState() => _BibliotecaPage(); //"cérebro" da página
+  State<BibliotecaPage> createState() => _BibliotecaPage();
 }
 
 class _BibliotecaPage extends State<BibliotecaPage>{
   @override
-  //corpo da página
   Widget build(BuildContext context){
-    return Scaffold( //estrutura básica
-      body: SizedBox.expand( //faz com que o conteúdo ocupe a tela inteira, sem deixar espaço vazio
-        child: Stack( //permite colocar uma coisa em cima da outra, formar camadas
-          children: [
-            SafeArea( //evita com que o conteúdo fique escondido na barra superior do celular ou na câmera
-              child: SingleChildScrollView( //permite arrastar o dedo para cima e para baixo
+    return  SingleChildScrollView(
                 padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                child: Column( //organiza os elementos um embaixo do outro
-                  crossAxisAlignment: CrossAxisAlignment.start, //alinha o conteúdo na horizontal do lado esquerdo
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row( //organiza o ícone e o texto horizontalmente
+                    //Ícone de voltar e título
+                    Row(
                       children: [
-                        IconButton( //botão de voltar
+                        IconButton(
                           icon: const Icon(Icons.arrow_back_ios, color: Color.fromRGBO(157, 88, 209, 1), size: 30, fontWeight: FontWeight.bold),
-                          onPressed: () {}, //volta para a tela anterior
+                          onPressed: () {},
                         ),
-                        Expanded( // faz com que o conteúdo ocupe o espaço sem explodir a tela
-                          child: Padding( //margem interna
-                            padding: EdgeInsets.only(right: 10), //10px para longe da borda direita
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(right: 10),
                             child: Text(
                               "Biblioteca de Saúde Feminina",
-                              textAlign: TextAlign.center, //alinha o titulo no centro da página, com interferência do padding
+                              textAlign: TextAlign.center,
                               style: GoogleFonts.libreBaskerville(
                                 color: const Color.fromRGBO(157, 88, 209, 1),
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
-                                height: 1.3, //distância entre as linhas do titulo
-                                shadows: [Shadow(color: Colors.black26, blurRadius: 4.0)], //sombra preta atrás da letra para dar profundidade
+                                height: 1.3,
+                                shadows: [Shadow(color: Colors.black26, blurRadius: 4.0)],
                               ),
                             ),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 15), //espaço constante/fixo vazio que promove distância entre o titulo da página e o conteudo da lista
+                    const SizedBox(height: 15),
 
                     //Condições e suas respectivas telas
                     _buildCondicoes(
@@ -80,34 +74,29 @@ class _BibliotecaPage extends State<BibliotecaPage>{
                     ),
                   ],
                 ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+              );
   }
 
   //Função: condições e suas respectivas telas
   Widget _buildCondicoes(BuildContext context, String titulo, String imagem, Widget telaDestino){
-    return GestureDetector( //detecta o toque do dedo
+    return GestureDetector(
       onTap: () {
-        Navigator.push( //coloca a nova tela por cima da atual, mudando para a tela desejada
+        Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => telaDestino), //transição da tela atual para a tela seguinte (destino)
+          MaterialPageRoute(builder: (context) => telaDestino),
         );
       },
       child: Container(
-        margin: EdgeInsets.only(bottom: 10),
-        padding: EdgeInsets.all(17),
-        decoration: BoxDecoration( //visual do container
+        margin: EdgeInsets.only(bottom: 16),
+        padding: EdgeInsets.all(12),
+        decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(20), //arredonda as pontas
+          borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.25), //cor da sombra com transparência sutil
-              blurRadius: 10, //nível de "borrado"
-              offset: Offset(0, 4), //posição da sombra, como se a "luz" viesse de cima
+              color: Colors.black.withValues(alpha: 0.25),
+              blurRadius: 10,
+              offset: Offset(0, 4),
             ),
           ],
         ),
@@ -115,22 +104,22 @@ class _BibliotecaPage extends State<BibliotecaPage>{
           children: [
             Container(
               width: 100,
-              height: 100,
+              height: 90,
               decoration: BoxDecoration(
                 color: Color.fromRGBO(223, 203, 222, 1.0),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Transform.scale( //altera a escala da imagem
+              child: Transform.scale(
                 scale: 0.98,
-                child: Image.asset( //carrega a imagem da pasta de arquivos localizada na raiz do projeto
-                  'assets/images/$imagem', //$imagem: muda de acordo com a imagem desejada
-                  fit: BoxFit.contain, //ajusta a foto para que ela cresça o suficiente sem encostar nas bordas do container
+                child: Image.asset(
+                  'assets/images/$imagem',
+                  fit: BoxFit.contain,
                 ),
               ),
             ),
             const SizedBox(width: 15),
 
-            Expanded( //texto irá ocupar o espaço do meio, empurrando a seta para o canto direito
+            Expanded(
               child: Text(
                 titulo,
                 style: GoogleFonts.libreBaskerville(
@@ -144,6 +133,36 @@ class _BibliotecaPage extends State<BibliotecaPage>{
           ],
         ),
       ),
+    );
+  }
+
+
+
+  Widget _buildIconeRedondo(IconData icone, Color cor, String rotulo) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          padding: EdgeInsets.all(6),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.3),
+                blurRadius: 2,
+                offset: Offset(0, 1),
+              ),
+            ],
+          ),
+          child: Icon(icone, color: cor, size: 35),
+        ),
+        const SizedBox(height: 2),
+        Text(
+          rotulo,
+          style: GoogleFonts.openSans(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+        ),
+      ],
     );
   }
 }
