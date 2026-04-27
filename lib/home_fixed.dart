@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'home_page.dart';
 import 'package:ciclo_menstrual/bibliotecaPage.dart';
 import 'package:ciclo_menstrual/infeccoesPage.dart';
+import 'package:ciclo_menstrual/Telacalen.dart';
 //importar as outras telas aqui
 
 //criando uma classe para o arquivo
@@ -33,6 +34,7 @@ class _HomeFixedState extends State<HomeFixed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold( // 1. A barra de navegação fica aqui embaixo, fora do body
+      backgroundColor: Color(0xFFD8B4E2),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _indiceAtual,
         onTap: (index) {

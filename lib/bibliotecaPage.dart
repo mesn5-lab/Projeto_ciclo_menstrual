@@ -15,14 +15,7 @@ class BibliotecaPage extends StatefulWidget{
 class _BibliotecaPage extends State<BibliotecaPage>{
   @override
   Widget build(BuildContext context){
-    return Scaffold(
-      body: SizedBox.expand(
-        child: Stack(
-          children: [
-            //background floral
-
-            SafeArea(
-              child: SingleChildScrollView(
+    return  SingleChildScrollView(
                 padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,12 +74,7 @@ class _BibliotecaPage extends State<BibliotecaPage>{
                     ),
                   ],
                 ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+              );
   }
 
   //Função: condições e suas respectivas telas
