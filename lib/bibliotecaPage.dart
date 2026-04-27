@@ -4,7 +4,6 @@ import 'package:ciclo_menstrual/infeccoesPage.dart';
 import 'package:ciclo_menstrual/miomasPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ciclo_menstrual/home_fixed.dart';
 
 class BibliotecaPage extends StatefulWidget{
   const BibliotecaPage({super.key});
@@ -16,67 +15,77 @@ class BibliotecaPage extends StatefulWidget{
 class _BibliotecaPage extends State<BibliotecaPage>{
   @override
   Widget build(BuildContext context){
-    return  SingleChildScrollView(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-               child: Column(
-                 crossAxisAlignment: CrossAxisAlignment.start,
-                 children: [
-                   //Ícone de voltar e título
-                   Row(
-                     children: [
-                       IconButton(
-                         icon: const Icon(Icons.arrow_back_ios, color: Color.fromRGBO(157, 88, 209, 1), size: 30, fontWeight: FontWeight.bold),
-                         onPressed: () {},
-                       ),
-                       Expanded(
-                         child: Padding(
-                           padding: EdgeInsets.only(right: 20),
-                           child: Text(
-                             "Biblioteca de Saúde Feminina",
-                             textAlign: TextAlign.center,
-                             style: GoogleFonts.libreBaskerville(
-                               textStyle: GoogleFonts.libreBaskerville(
-                                 color: Color.fromRGBO(157, 88, 209, 1),
-                                 fontSize: 30,
-                                 fontWeight: FontWeight.bold,
-                                 height: 1.3,
-                                 shadows: [Shadow(color: Colors.black26, blurRadius: 4.0)],
-                               ),
-                             ),
-                           ),
-                         ),
-                       ),
-                     ],
-                   ),
-                   const SizedBox(height: 15),
+    return Scaffold(
+      body: SizedBox.expand(
+        child: Stack(
+          children: [
+            //background floral
 
-                   //Condições e suas respectivas telas
-                   _buildCondicoes(
-                     context,
-                     "Síndrome do Ovário Policístico - SOP",
-                     'assets/images/width_740.png',
-                     const HomePage(),
-                   ),
-                   _buildCondicoes(
-                     context,
-                     "Endometriose e Adenomiose",
-                     'assets/images/width_740.png',
-                     const EndoPage(),
-                   ),
-                   _buildCondicoes(
-                     context,
-                     "Miomas Uterinos",
-                     'assets/images/width_740.png',
-                     const MiomasPage(),
-                   ),
-                   _buildCondicoes(
-                     context,
-                     "Infecções Comuns (Cervicite, etc.)",
-                     'assets/images/width_740.png',
-                     const InfeccoesPage(),
-                   ),
-                 ],
-               ),
+            SafeArea(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //Ícone de voltar e título
+                    Row(
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.arrow_back_ios, color: Color.fromRGBO(157, 88, 209, 1), size: 30, fontWeight: FontWeight.bold),
+                          onPressed: () {},
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(right: 10),
+                            child: Text(
+                              "Biblioteca de Saúde Feminina",
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.libreBaskerville(
+                                color: const Color.fromRGBO(157, 88, 209, 1),
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                height: 1.3,
+                                shadows: [Shadow(color: Colors.black26, blurRadius: 4.0)],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 15),
+
+                    //Condições e suas respectivas telas
+                    _buildCondicoes(
+                      context,
+                      "Síndrome do Ovário Policístico - SOP",
+                      'sop.png',
+                      const HomePage(),
+                    ),
+                    _buildCondicoes(
+                      context,
+                      "Endometriose e Adenomiose",
+                      'endo.png',
+                      const EndoPage(),
+                    ),
+                    _buildCondicoes(
+                      context,
+                      "Miomas Uterinos",
+                      'miomas.png',
+                      const MiomasPage(),
+                    ),
+                    _buildCondicoes(
+                      context,
+                      "Infecções Comuns (Cervicite, etc.)",
+                      'infeccoes.png',
+                      const InfeccoesPage(),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -91,13 +100,13 @@ class _BibliotecaPage extends State<BibliotecaPage>{
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 16),
-        padding: EdgeInsets.all(17),
+        padding: EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.25),
+              color: Colors.black.withValues(alpha: 0.25),
               blurRadius: 10,
               offset: Offset(0, 4),
             ),
@@ -107,15 +116,17 @@ class _BibliotecaPage extends State<BibliotecaPage>{
           children: [
             Container(
               width: 100,
-              height: 100,
+              height: 90,
               decoration: BoxDecoration(
                 color: Color.fromRGBO(223, 203, 222, 1.0),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Icon(
-                  Icons.female,
-                  color: Colors.pink,
-                  size: 40
+              child: Transform.scale(
+                scale: 0.98,
+                child: Image.asset(
+                  'assets/images/$imagem',
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
             const SizedBox(width: 15),
@@ -136,4 +147,34 @@ class _BibliotecaPage extends State<BibliotecaPage>{
       ),
     );
   }
+
+
+
+  Widget _buildIconeRedondo(IconData icone, Color cor, String rotulo) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          padding: EdgeInsets.all(6),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.3),
+                blurRadius: 2,
+                offset: Offset(0, 1),
+              ),
+            ],
+          ),
+          child: Icon(icone, color: cor, size: 35),
+        ),
+        const SizedBox(height: 2),
+        Text(
+          rotulo,
+          style: GoogleFonts.openSans(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+        ),
+      ],
+    );
   }
+}
