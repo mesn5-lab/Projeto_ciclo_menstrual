@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_ciclo_menstrual/home.page.dart';
-import 'package:projeto_ciclo_menstrual/home_fixed.dart';
+import 'package:projetoapp/Telarelatorio.dart';
+import 'Telaconfig.dart';
 
-void main(){
-  runApp(AppCicloMenstrual());
+void main() {
+  runApp(const MyApp());
 }
 
-class AppCicloMenstrual extends StatelessWidget{
-  const AppCicloMenstrual({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeFixed(),
+      home: TelaRelatorio(),
     );
   }
 }
