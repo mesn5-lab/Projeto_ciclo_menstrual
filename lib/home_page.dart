@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ciclo_menstrual/sintomas_page.dart';
+import 'package:ciclo_menstrual/home_fixed.dart';
 
 class HomePage extends StatefulWidget{
   const HomePage({super.key});
@@ -14,8 +15,7 @@ class HomePage extends StatefulWidget{
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea( //usamos essa função para que o conteúdo não bata na câmera
-        child: SingleChildScrollView( //função para a rolagem
+    return SingleChildScrollView( //função para a rolagem
           physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -85,8 +85,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-        ),
-    );
+        );
   }
 
   //criar agora os widgets dos builds para que eles funcionem, obrigatório

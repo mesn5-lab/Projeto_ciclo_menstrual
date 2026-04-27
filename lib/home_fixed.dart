@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ciclo_menstrual/sintomas_page.dart';
 import 'home_page.dart';
 //importar as outras telas aqui
 
@@ -27,8 +26,7 @@ class _HomeFixedState extends State<HomeFixed> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // 1. A barra de navegação fica aqui embaixo, fora do body
+    return Scaffold( // 1. A barra de navegação fica aqui embaixo, fora do body
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _indiceAtual,
         onTap: (index) {
@@ -100,9 +98,9 @@ class _HomeFixedState extends State<HomeFixed> {
   //criando o build usado acima
   Widget _buildFundoFixo() {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('asset/fundo floral.png'),
+            image: AssetImage('assets/fundo floral.png'),
           fit: BoxFit.cover,
       ),
     )
