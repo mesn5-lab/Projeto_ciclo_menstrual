@@ -1,5 +1,9 @@
+import 'package:ciclo_menstrual/endoPage.dart';
+import 'package:ciclo_menstrual/miomasPage.dart';
 import 'package:flutter/material.dart';
 import 'home_page.dart';
+import 'package:ciclo_menstrual/bibliotecaPage.dart';
+import 'package:ciclo_menstrual/infeccoesPage.dart';
 //importar as outras telas aqui
 
 //criando uma classe para o arquivo
@@ -17,10 +21,12 @@ class _HomeFixedState extends State<HomeFixed> {
 
   //agora cria uma lista das telas que serão exibidas no corpo(body)
   final List<Widget> _telas = [
-    HomePage(),
-    const Center(child: Text("Biblioteca")),
-    const Center(child: Text("Soluções")),
-    const Center(child: Text("Relatórios")),//a tela que eu criei
+    const HomePage(),
+    const BibliotecaPage(),
+    const EndoPage(),
+    const InfeccoesPage(),
+    const MiomasPage(),
+    //a tela que eu criei
     //as telas que serão criadas
   ];
 
