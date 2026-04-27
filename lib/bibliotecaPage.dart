@@ -86,7 +86,6 @@ class _BibliotecaPage extends State<BibliotecaPage>{
           ],
         ),
       ),
-      bottomNavigationBar: _buildMenuInferior(),
     );
   }
 
@@ -149,23 +148,7 @@ class _BibliotecaPage extends State<BibliotecaPage>{
     );
   }
 
-  Widget _buildMenuInferior(){
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 12),
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(223, 203, 222, 1.0),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          _buildIconeRedondo(Icons.water_drop_outlined, Color.fromRGBO(223, 203, 222, 1.0), "Diário"),
-          _buildIconeRedondo(Icons.menu_book, Color.fromRGBO(223, 203, 222, 1.0), "Biblioteca"),
-          _buildIconeRedondo(Icons.rocket_launch, Color.fromRGBO(223, 203, 222, 1.0), "Soluções"),
-          _buildIconeRedondo(Icons.person, Color.fromRGBO(223, 203, 222, 1.0), "Relatórios"),
-        ],
-      ),
-    );
-  }
+
 
   Widget _buildIconeRedondo(IconData icone, Color cor, String rotulo) {
     return Column(
