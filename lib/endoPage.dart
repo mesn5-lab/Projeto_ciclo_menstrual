@@ -18,7 +18,7 @@ class _EndoPage extends State<EndoPage>{
           children: [
             //Background floral
             Container(
-              color: const Color(0xFFD8B4E2),
+              color: const Color.fromRGBO(216, 180, 226, 1.0),
             ),
 
             Positioned(
@@ -66,13 +66,12 @@ class _EndoPage extends State<EndoPage>{
                             padding: const EdgeInsets.only(right: 40.0),
                             child: Text(
                               "Endometriose e Adenomiose",
-                              style: GoogleFonts.openSans(
-                                textStyle: GoogleFonts.openSans(
-                                  color: Color.fromRGBO(157, 88, 209, 1.0),
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                  shadows: [Shadow(color: Colors.black26, blurRadius: 4)],
-                                ),
+                              style: GoogleFonts.libreBaskerville(
+                                color: Color.fromRGBO(157, 88, 209, 1.0),
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                height: 1.3,
+                                shadows: [Shadow(color: Colors.black26, blurRadius: 4)],
                               ),
                             ),
                           ),
@@ -84,14 +83,14 @@ class _EndoPage extends State<EndoPage>{
                     //Cartão branco
                     Container(
                       width: double.infinity,
-                      height: 540,
+                      height: 560,
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.25),
+                            color: Colors.black.withValues(alpha: 0.25),
                             blurRadius: 10,
                             offset: Offset(0, 5),
                           )
@@ -106,11 +105,9 @@ class _EndoPage extends State<EndoPage>{
                               child: Text(
                                 "O que é a Endometriose?",
                                 style: GoogleFonts.libreBaskerville(
-                                  textStyle: GoogleFonts.libreBaskerville(
-                                    color: Color.fromRGBO(240, 138, 166, 1.0),
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  color: Color.fromRGBO(240, 138, 166, 1.0),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -121,11 +118,9 @@ class _EndoPage extends State<EndoPage>{
                                   "bexiga e outros tecidos pélvicos. Mesmo fora do útero, essas células continuam respondendo aos hormônios do ciclo menstrual, "
                                   "inflamando e sangrando mensalmente. Como esse sangue não tem por onde sair, ele causa dor intensa, inflamação e a formação de "
                                   "cicatrizes ou aderências entre os órgãos.",
-                              style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
-                                  color: Color.fromRGBO(240, 138, 166, 1.0),
-                                  fontSize: 16,
-                                ),
+                              style: GoogleFonts.libreBaskerville(
+                                color: Color.fromRGBO(240, 138, 166, 1.0),
+                                fontSize: 16,
                               ),
                             ),
                             const Divider(height: 40, thickness: 1, color: Colors.black),
@@ -162,11 +157,9 @@ class _EndoPage extends State<EndoPage>{
                               child: Text(
                                 "O que é a Adenomiose?",
                                 style: GoogleFonts.libreBaskerville(
-                                  textStyle: GoogleFonts.libreBaskerville(
-                                    color: Color.fromRGBO(240, 138, 166, 1.0),
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  color: Color.fromRGBO(240, 138, 166, 1.0),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -177,11 +170,9 @@ class _EndoPage extends State<EndoPage>{
                                   "é expelido na menstruação. Na adenomiose, esse tecido que ""entrou"" no músculo continua se comportando da "
                                   "mesma forma: ele sangra e inflama a cada ciclo, mas como o sangue está preso dentro da musculatura uterina, ele causa uma "
                                   "irritação profunda e um aumento significativo do volume do útero.",
-                              style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
-                                  color: Color.fromRGBO(240, 138, 166, 1.0),
-                                  fontSize: 16,
-                                ),
+                              style: GoogleFonts.libreBaskerville(
+                                color: Color.fromRGBO(240, 138, 166, 1.0),
+                                fontSize: 16,
                               ),
                             ),
                             const Divider(height: 40, thickness: 1, color: Colors.black),
@@ -230,11 +221,9 @@ class _EndoPage extends State<EndoPage>{
       child: Text(
         titulo,
         style: GoogleFonts.libreBaskerville(
-          textStyle: TextStyle(
-            color: Color.fromRGBO(240, 138, 166, 1.0),
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          color: Color.fromRGBO(240, 138, 166, 1.0),
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
@@ -250,8 +239,9 @@ class _EndoPage extends State<EndoPage>{
           Expanded(
             child: Text(
               texto,
-              style: GoogleFonts.openSans(
-                textStyle: TextStyle(color: Color.fromRGBO(240, 138, 166, 1.0), fontSize: 16),
+              style: GoogleFonts.libreBaskerville(
+                color: Color.fromRGBO(240, 138, 166, 1.0),
+                fontSize: 16,
               ),
               softWrap: true,
             ),
@@ -278,8 +268,9 @@ class _EndoPage extends State<EndoPage>{
           Expanded(
             child: Text(
               texto,
-              style: GoogleFonts.openSans(
-                textStyle: TextStyle(color: Color.fromRGBO(240, 138, 166, 1.0), fontSize: 16),
+              style: GoogleFonts.libreBaskerville(
+                color: Color.fromRGBO(240, 138, 166, 1.0),
+                fontSize: 16,
               ),
             ),
           ),

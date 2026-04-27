@@ -17,7 +17,7 @@ class _MiomasPage extends State<MiomasPage>{
           children: [
             //Background floral
             Container(
-              color: const Color(0xFFD8B4E2),
+              color: const Color.fromRGBO(216, 180, 226, 1.0),
             ),
 
             Positioned(
@@ -46,7 +46,7 @@ class _MiomasPage extends State<MiomasPage>{
 
             SafeArea(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -62,16 +62,14 @@ class _MiomasPage extends State<MiomasPage>{
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.only(right: 40.0),
+                            padding: const EdgeInsets.only(right: 1.0),
                             child: Text(
                               "Miomas Uterinos",
-                              style: GoogleFonts.openSans(
-                                textStyle: GoogleFonts.openSans(
-                                  color: Color.fromRGBO(157, 88, 209, 1.0),
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                  shadows: [Shadow(color: Colors.black26, blurRadius: 4)],
-                                ),
+                              style: GoogleFonts.libreBaskerville(
+                                color: Color.fromRGBO(157, 88, 209, 1.0),
+                                fontSize: 28.5,
+                                fontWeight: FontWeight.bold,
+                                shadows: [Shadow(color: Colors.black26, blurRadius: 4)],
                               ),
                             ),
                           ),
@@ -83,14 +81,14 @@ class _MiomasPage extends State<MiomasPage>{
                     //Cartão branco
                     Container(
                       width: double.infinity,
-                      height: 540,
+                      height: 600,
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.25),
+                            color: Colors.black.withValues(alpha: 0.25),
                             blurRadius: 10,
                             offset: Offset(0, 5),
                           )
@@ -105,11 +103,9 @@ class _MiomasPage extends State<MiomasPage>{
                               child: Text(
                                 "O que são Miomas Uterinos?",
                                 style: GoogleFonts.libreBaskerville(
-                                  textStyle: GoogleFonts.libreBaskerville(
-                                    color: Color.fromRGBO(240, 138, 166, 1.0),
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  color: Color.fromRGBO(240, 138, 166, 1.0),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -126,11 +122,9 @@ class _MiomasPage extends State<MiomasPage>{
                                   "A manifestação clínica dos miomas é extremamente variada e depende quase inteiramente de sua localização e tamanho. "
                                   "Eles são classificados como submucosos, quando crescem para dentro da cavidade uterina e costumam causar hemorragias intensas; "
                                   "intramurais, quando se desenvolvem dentro das paredes musculares; ou subserosos, quando se projetam para a parte externa do órgão.",
-                              style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
-                                  color: Color.fromRGBO(240, 138, 166, 1.0),
-                                  fontSize: 16,
-                                ),
+                              style: GoogleFonts.libreBaskerville(
+                                color: Color.fromRGBO(240, 138, 166, 1.0),
+                                fontSize: 16,
                               ),
                             ),
                             const Divider(height: 40, thickness: 1, color: Colors.black),
@@ -197,10 +191,14 @@ class _MiomasPage extends State<MiomasPage>{
         children: [
           Icon(icone, color: Colors.grey, size: 18),
           const SizedBox(width: 10),
-          Text(
-            texto,
-            style: GoogleFonts.openSans(
-              textStyle: TextStyle(color: Color.fromRGBO(240, 138, 166, 1.0), fontSize: 16),
+          Expanded(
+            child: Text(
+              texto,
+              style: GoogleFonts.libreBaskerville(
+                color: Color.fromRGBO(240, 138, 166, 1.0),
+                fontSize: 16,
+              ),
+              softWrap: true,
             ),
           ),
         ],
@@ -221,8 +219,9 @@ class _MiomasPage extends State<MiomasPage>{
           const SizedBox(width: 10),
           Text(
             texto,
-            style: GoogleFonts.openSans(
-              textStyle: TextStyle(color: Color.fromRGBO(240, 138, 166, 1.0), fontSize: 16),
+            style: GoogleFonts.libreBaskerville(
+              color: Color.fromRGBO(240, 138, 166, 1.0),
+              fontSize: 16,
             ),
           ),
         ],

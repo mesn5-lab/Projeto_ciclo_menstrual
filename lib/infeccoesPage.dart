@@ -18,7 +18,7 @@ class _InfeccoesPage extends State<InfeccoesPage>{
           children: [
             //Background floral
             Container(
-              color: const Color(0xFFD8B4E2),
+              color: const Color.fromRGBO(216, 180, 226, 1.0),
             ),
 
             Positioned(
@@ -48,7 +48,7 @@ class _InfeccoesPage extends State<InfeccoesPage>{
 
             SafeArea(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -64,16 +64,15 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.only(right: 40.0),
+                            padding: const EdgeInsets.only(right: 12.0),
                             child: Text(
                               "Infecções Comuns (Cervicite, etc.)",
-                              style: GoogleFonts.openSans(
-                                textStyle: GoogleFonts.openSans(
-                                  color: Color.fromRGBO(157, 88, 209, 1.0),
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                  shadows: [Shadow(color: Colors.black26, blurRadius: 4)],
-                                ),
+                              style: GoogleFonts.libreBaskerville(
+                                color: Color.fromRGBO(157, 88, 209, 1.0),
+                                fontSize: 28.5,
+                                fontWeight: FontWeight.bold,
+                                height: 1.3,
+                                shadows: [Shadow(color: Colors.black26, blurRadius: 4)],
                               ),
                             ),
                           ),
@@ -85,14 +84,14 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                     //Cartão branco
                     Container(
                       width: double.infinity,
-                      height: 540,
+                      height: 560,
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.25),
+                            color: Colors.black.withValues(alpha: 0.25),
                             blurRadius: 10,
                             offset: Offset(0, 5),
                           )
@@ -107,11 +106,9 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                               child: Text(
                                 "O que é a Cervicite?",
                                 style: GoogleFonts.libreBaskerville(
-                                  textStyle: GoogleFonts.libreBaskerville(
-                                    color: Color.fromRGBO(240, 138, 166, 1.0),
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  color: Color.fromRGBO(240, 138, 166, 1.0),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -122,11 +119,9 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                                   "como clamídia e gonorreia, mas também pode ser provocada por "
                                   "irritações químicas, uso de dispositivos como diafragmas ou alergia "
                                   "ao látex do preservativo.",
-                              style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
-                                  color: Color.fromRGBO(240, 138, 166, 1.0),
-                                  fontSize: 16,
-                                ),
+                              style: GoogleFonts.libreBaskerville(
+                                color: Color.fromRGBO(240, 138, 166, 1.0),
+                                fontSize: 16,
                               ),
                             ),
                             const Divider(height: 40, thickness: 1, color: Colors.black),
@@ -160,11 +155,9 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                               child: Text(
                                 "O que é a Endometrite?",
                                 style: GoogleFonts.libreBaskerville(
-                                  textStyle: GoogleFonts.libreBaskerville(
-                                    color: Color.fromRGBO(240, 138, 166, 1.0),
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  color: Color.fromRGBO(240, 138, 166, 1.0),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -176,11 +169,9 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                                   "muito comum após o parto (especialmente cesáreas), abortos, "
                                   "ou procedimentos médicos que atravessam o colo do útero, como a "
                                   "biópsia uterina.",
-                              style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
-                                  color: Color.fromRGBO(240, 138, 166, 1.0),
-                                  fontSize: 16,
-                                ),
+                              style: GoogleFonts.libreBaskerville(
+                                color: Color.fromRGBO(240, 138, 166, 1.0),
+                                fontSize: 16,
                               ),
                             ),
                             const Divider(height: 40, thickness: 1, color: Colors.black),
@@ -215,11 +206,9 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                               child: Text(
                                 "O que é a Doença Inflamatória Pélvica?",
                                 style: GoogleFonts.libreBaskerville(
-                                  textStyle: GoogleFonts.libreBaskerville(
-                                    color: Color.fromRGBO(240, 138, 166, 1.0),
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  color: Color.fromRGBO(240, 138, 166, 1.0),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -231,11 +220,9 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                                   "tratadas e é uma das principais causas de dor pélvica crônica e "
                                   "infertilidade feminina, pois pode causar cicatrizes e obstruções "
                                   "nas trompas.",
-                              style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
-                                  color: Color.fromRGBO(240, 138, 166, 1.0),
-                                  fontSize: 16,
-                                ),
+                              style: GoogleFonts.libreBaskerville(
+                                color: Color.fromRGBO(240, 138, 166, 1.0),
+                                fontSize: 16,
                               ),
                             ),
                             const Divider(height: 40, thickness: 1, color: Colors.black),
@@ -283,11 +270,9 @@ class _InfeccoesPage extends State<InfeccoesPage>{
       child: Text(
         titulo,
         style: GoogleFonts.libreBaskerville(
-          textStyle: TextStyle(
-            color: Color.fromRGBO(240, 138, 166, 1.0),
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          color: Color.fromRGBO(240, 138, 166, 1.0),
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
@@ -300,10 +285,14 @@ class _InfeccoesPage extends State<InfeccoesPage>{
         children: [
           Icon(icone, color: Colors.grey, size: 18),
           const SizedBox(width: 10),
-          Text(
-            texto,
-            style: GoogleFonts.openSans(
-              textStyle: TextStyle(color: Color.fromRGBO(240, 138, 166, 1.0), fontSize: 16),
+          Expanded(
+            child: Text(
+              texto,
+              style: GoogleFonts.libreBaskerville(
+                color: Color.fromRGBO(240, 138, 166, 1.0),
+                fontSize: 16,
+              ),
+              softWrap: true,
             ),
           ),
         ],
@@ -324,8 +313,9 @@ class _InfeccoesPage extends State<InfeccoesPage>{
           const SizedBox(width: 10),
           Text(
             texto,
-            style: GoogleFonts.openSans(
-              textStyle: TextStyle(color: Color.fromRGBO(240, 138, 166, 1.0), fontSize: 16),
+            style: GoogleFonts.libreBaskerville(
+              color: Color.fromRGBO(240, 138, 166, 1.0),
+                fontSize: 16,
             ),
           ),
         ],

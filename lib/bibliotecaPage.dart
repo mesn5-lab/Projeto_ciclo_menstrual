@@ -21,7 +21,7 @@ class _BibliotecaPage extends State<BibliotecaPage>{
           children: [
             //background floral
             Container(
-              color: const Color.fromRGBO(216, 180, 226, 1),
+              color: const Color.fromRGBO(216, 180, 226, 1.0),
             ),
 
             Positioned(
@@ -68,13 +68,11 @@ class _BibliotecaPage extends State<BibliotecaPage>{
                               "Biblioteca de Saúde Feminina",
                               textAlign: TextAlign.center,
                               style: GoogleFonts.libreBaskerville(
-                                textStyle: GoogleFonts.libreBaskerville(
-                                  color: Color.fromRGBO(157, 88, 209, 1),
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                  height: 1.3,
-                                  shadows: [Shadow(color: Colors.black26, blurRadius: 4.0)],
-                                ),
+                                color: const Color.fromRGBO(157, 88, 209, 1),
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                height: 1.3,
+                                shadows: [Shadow(color: Colors.black26, blurRadius: 4.0)],
                               ),
                             ),
                           ),
@@ -87,7 +85,7 @@ class _BibliotecaPage extends State<BibliotecaPage>{
                     _buildCondicoes(
                       context,
                       "Síndrome do Ovário Policístico - SOP",
-                      'sop_grande.png',
+                      'sop.png',
                       const HomePage(),
                     ),
                     _buildCondicoes(
@@ -164,7 +162,7 @@ class _BibliotecaPage extends State<BibliotecaPage>{
             Expanded(
               child: Text(
                 titulo,
-                style: GoogleFonts.openSans(
+                style: GoogleFonts.libreBaskerville(
                   color: Color.fromRGBO(240, 138, 166, 1.0),
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -207,7 +205,7 @@ class _BibliotecaPage extends State<BibliotecaPage>{
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.3),
+                color: Colors.black.withValues(alpha: 0.3),
                 blurRadius: 2,
                 offset: Offset(0, 1),
               ),

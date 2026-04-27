@@ -17,7 +17,7 @@ class _HomePage extends State<HomePage>{
           children: [
             //Background floral
             Container(
-              color: const Color(0xFFD8B4E2),
+              color: const Color.fromRGBO(216, 180, 226, 1.0),
             ),
 
             Positioned(
@@ -46,7 +46,7 @@ class _HomePage extends State<HomePage>{
 
             SafeArea(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.only(left: 20.0, right: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -62,16 +62,16 @@ class _HomePage extends State<HomePage>{
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.only(right: 40.0),
+                            padding: const EdgeInsets.only(right: 15.0),
                             child: Text(
                               "Síndrome do Ovário Policístico - SOP",
-                              style: GoogleFonts.openSans(
-                                textStyle: GoogleFonts.openSans(
-                                  color: Color.fromRGBO(157, 88, 209, 1.0),
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                  shadows: [Shadow(color: Colors.black26, blurRadius: 4)],
-                                ),
+
+                              style: GoogleFonts.libreBaskerville(
+                                color: Color.fromRGBO(157, 88, 209, 1.0),
+                                fontSize: 27,
+                                fontWeight: FontWeight.bold,
+                                height: 1.3,
+                                shadows: [Shadow(color: Colors.black26, blurRadius: 4)],
                               ),
                             ),
                           ),
@@ -83,14 +83,14 @@ class _HomePage extends State<HomePage>{
                     //Cartão branco
                     Container(
                       width: double.infinity,
-                      height: 540,
+                      height: 560,
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.25),
+                            color: Colors.black.withValues(alpha: 0.25),
                             blurRadius: 10,
                             offset: Offset(0, 5),
                           )
@@ -105,11 +105,9 @@ class _HomePage extends State<HomePage>{
                               child: Text(
                                 "O que é a SOP?",
                                 style: GoogleFonts.libreBaskerville(
-                                  textStyle: GoogleFonts.libreBaskerville(
-                                    color: Color.fromRGBO(240, 138, 166, 1.0),
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  color: Color.fromRGBO(240, 138, 166, 1.0),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -119,11 +117,9 @@ class _HomePage extends State<HomePage>{
                                   "onde os ovários produzem uma quantidade maior de andrógenos (hormônios masculinos) do que o habitual. Essa alteração interfere diretamente no processo de "
                                   "ovulação: em vez de liberar um óvulo maduro todos os meses, o corpo pode falhar nesse ciclo, fazendo com que os folículos que deveriam liberar os óvulos fiquem "
                                   "retidos e se transformem em pequenos cistos, dando o aspecto ""policístico"" visualizado em exames de imagem.",
-                              style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
-                                  color: Color.fromRGBO(240, 138, 166, 1.0),
-                                  fontSize: 16,
-                                ),
+                              style: GoogleFonts.libreBaskerville(
+                                color: Color.fromRGBO(240, 138, 166, 1.0),
+                                fontSize: 16,
                               ),
                             ),
                             const Divider(height: 40, thickness: 1, color: Colors.black),
@@ -170,11 +166,9 @@ class _HomePage extends State<HomePage>{
       child: Text(
         titulo,
         style: GoogleFonts.libreBaskerville(
-          textStyle: TextStyle(
-            color: Color.fromRGBO(240, 138, 166, 1.0),
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          color: Color.fromRGBO(240, 138, 166, 1.0),
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
@@ -189,8 +183,9 @@ class _HomePage extends State<HomePage>{
           const SizedBox(width: 10),
           Text(
             texto,
-            style: GoogleFonts.openSans(
-              textStyle: TextStyle(color: Color.fromRGBO(240, 138, 166, 1.0), fontSize: 16),
+            style: GoogleFonts.libreBaskerville(
+              color: Color.fromRGBO(240, 138, 166, 1.0),
+              fontSize: 16,
             ),
           ),
         ],
@@ -211,8 +206,9 @@ class _HomePage extends State<HomePage>{
           const SizedBox(width: 10),
           Text(
             texto,
-            style: GoogleFonts.openSans(
-              textStyle: TextStyle(color: Color.fromRGBO(240, 138, 166, 1.0), fontSize: 16),
+            style: GoogleFonts.libreBaskerville(
+              color: Color.fromRGBO(240, 138, 166, 1.0),
+              fontSize: 16,
             ),
           ),
         ],
