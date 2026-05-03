@@ -135,34 +135,4 @@ class _BibliotecaPage extends State<BibliotecaPage>{
       ),
     );
   }
-
-
-
-  Widget _buildIconeRedondo(IconData icone, Color cor, String rotulo) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          padding: EdgeInsets.all(6),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.3),
-                blurRadius: 2,
-                offset: Offset(0, 1),
-              ),
-            ],
-          ),
-          child: Icon(icone, color: cor, size: 35),
-        ),
-        const SizedBox(height: 2),
-        Text(
-          rotulo,
-          style: GoogleFonts.openSans(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
-        ),
-      ],
-    );
-  }
 }
