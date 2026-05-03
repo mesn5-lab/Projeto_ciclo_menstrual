@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ciclo_menstrual/bibliotecaPage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 //Estrutura da página: Stateful = widget com estado => pode "mudar de estado"
