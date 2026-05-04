@@ -1,15 +1,13 @@
-import 'package:ciclo_menstrual/endoPage.dart';
-import 'package:ciclo_menstrual/miomasPage.dart';
 import 'package:flutter/material.dart';
 import 'home_page.dart';
 import 'package:ciclo_menstrual/bibliotecaPage.dart';
-import 'package:ciclo_menstrual/infeccoesPage.dart';
 import 'package:ciclo_menstrual/Telacalen.dart';
 import 'package:ciclo_menstrual/Telaconfig.dart';
 import 'package:ciclo_menstrual/Telarelatorio.dart';
 //importar as outras telas aqui
 
-//criando uma classe para o arquivo
+//criando uma classe para o arquivo, no caso o arquivo que vai mudar confome
+//o usuário clique em algum botão
 class HomeFixed extends StatefulWidget {
   final Widget? child;
   const HomeFixed({super.key, this.child});
@@ -62,6 +60,7 @@ class _HomeFixedState extends State<HomeFixed> {
         child: Stack(
           children: [
             // Camada 1: O fundo colorido (base)
+            //esse primeiro container serve para deixar a cor lilás fixa
             Container(
               color: const Color(0xFFD8B4E2),
             ),
@@ -92,13 +91,13 @@ class _HomeFixedState extends State<HomeFixed> {
               ),
             ),
 
-            // Camada 4: O fundo fixo extra (se você ainda precisar dele)
+            //é uma função organizadora ela retorna o container com
+            //o fundo floral que cobre a tela toda
             _buildFundoFixo(),
 
-            // Camada 5: A TELA ATUAL (fica por cima de tudo)
-            // Se quiser que o conteúdo da tela fique abaixo das imagens,
-            // mude a ordem desta linha na lista.
             SafeArea(
+              //camada onde a tela real aparece , a função abaixo serve para
+              //mostrar a tela que eu escolhi
                 child: widget.child ?? _telas[_indiceAtual],
             ),
           ],
@@ -109,6 +108,8 @@ class _HomeFixedState extends State<HomeFixed> {
 
   //criando o build usado acima
   Widget _buildFundoFixo() {
+    //esse outro container serve para delimitar a imagem floral, garantido
+    //que ela fica por toda a tela
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(

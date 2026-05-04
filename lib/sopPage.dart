@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomePage extends StatefulWidget{
-  const HomePage({super.key});
+class SopPage extends StatefulWidget{
+  const SopPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePage();
+  State<SopPage> createState() => _SopPage();
 }
 
-class _HomePage extends State<HomePage>{
+class _SopPage extends State<SopPage>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -43,6 +43,7 @@ class _HomePage extends State<HomePage>{
                 ),
               ),
             ),
+
 
             SafeArea(
               child: SingleChildScrollView(

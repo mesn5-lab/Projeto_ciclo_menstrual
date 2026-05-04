@@ -9,6 +9,7 @@ class HomePage extends StatefulWidget{
   const HomePage({super.key});
 
   @override
+  //crio um state para a homepage
   State<HomePage> createState() => _HomePageState();
 }
 //estrutura padrão para iniciar a tela

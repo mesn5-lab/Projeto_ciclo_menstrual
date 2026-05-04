@@ -1,5 +1,5 @@
 import 'package:ciclo_menstrual/endoPage.dart';
-import 'package:ciclo_menstrual/homePage.dart';
+import 'package:ciclo_menstrual/sopPage.dart';
 import 'package:ciclo_menstrual/infeccoesPage.dart';
 import 'package:ciclo_menstrual/miomasPage.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +23,8 @@ class _BibliotecaPage extends State<BibliotecaPage>{
                     //Ícone de voltar e título
                     Row(
                       children: [
-                        IconButton(
-                          icon: const Icon(Icons.arrow_back_ios, color: Color.fromRGBO(157, 88, 209, 1), size: 30, fontWeight: FontWeight.bold),
+                         IconButton(
+                          icon: const Icon(Icons.arrow_back_ios, color: Color.fromRGBO(157, 88, 209, 1), size: 25, fontWeight: FontWeight.bold),
                           onPressed: () {},
                         ),
                         Expanded(
@@ -52,7 +52,7 @@ class _BibliotecaPage extends State<BibliotecaPage>{
                       context,
                       "Síndrome do Ovário Policístico - SOP",
                       'sop.png',
-                      const HomePage(),
+                      const SopPage(),
                     ),
                     _buildCondicoes(
                       context,
