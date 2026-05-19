@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ciclo_menstrual/home_fixed.dart';
+import 'package:ciclo_menstrual/pages/home_fixed.dart';
 import 'home_fixed.dart';
 
 class SintomasPage extends StatefulWidget{

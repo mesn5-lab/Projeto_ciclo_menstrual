@@ -1,20 +1,20 @@
-import 'package:ciclo_menstrual/sopPage.dart';
+import 'package:ciclo_menstrual/pages/bibliotecaPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class InfeccoesPage extends StatefulWidget{
-  const InfeccoesPage({super.key});
+class EndoPage extends StatefulWidget{
+  const EndoPage({super.key});
 
   @override
-  State<InfeccoesPage> createState() => _InfeccoesPage();
+  State<EndoPage> createState() => _EndoPage();
 }
 
-class _InfeccoesPage extends State<InfeccoesPage>{
+class _EndoPage extends State<EndoPage>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
       body: SizedBox.expand(
-        child:Stack(
+        child: Stack(
           children: [
             //Background floral
             Container(
@@ -45,10 +45,9 @@ class _InfeccoesPage extends State<InfeccoesPage>{
               ),
             ),
 
-
             SafeArea(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -64,12 +63,12 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.only(right: 12.0),
+                            padding: const EdgeInsets.only(right: 40.0),
                             child: Text(
-                              "Infecções Comuns (Cervicite, etc.)",
+                              "Endometriose e Adenomiose",
                               style: GoogleFonts.libreBaskerville(
                                 color: Color.fromRGBO(157, 88, 209, 1.0),
-                                fontSize: 28.5,
+                                fontSize: 30,
                                 fontWeight: FontWeight.bold,
                                 height: 1.3,
                                 shadows: [Shadow(color: Colors.black26, blurRadius: 4)],
@@ -104,7 +103,7 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                             Padding(
                               padding: const EdgeInsets.only(bottom: 8.0),
                               child: Text(
-                                "O que é a Cervicite?",
+                                "O que é a Endometriose?",
                                 style: GoogleFonts.libreBaskerville(
                                   color: Color.fromRGBO(240, 138, 166, 1.0),
                                   fontSize: 20,
@@ -113,12 +112,12 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                               ),
                             ),
                             Text(
-                              "É a inflamação que atinge especificamente o colo do útero "
-                                  "(a extremidade inferior que se abre para a vagina). "
-                                  "Geralmente é causada por infecções sexualmente transmissíveis, "
-                                  "como clamídia e gonorreia, mas também pode ser provocada por "
-                                  "irritações químicas, uso de dispositivos como diafragmas ou alergia "
-                                  "ao látex do preservativo.",
+                              "A endometriose é uma doença inflamatória crônica caracterizada pelo crescimento de tecido semelhante ao endométrio "
+                                  "- a camada que reveste internamente o útero - em locais fora da cavidade uterina. Normalmente, esse tecido descama "
+                                  "e é expelido durante a menstruação, mas, na endometriose, ele pode se fixar nos ovários, trompas de Falópio, intestino, "
+                                  "bexiga e outros tecidos pélvicos. Mesmo fora do útero, essas células continuam respondendo aos hormônios do ciclo menstrual, "
+                                  "inflamando e sangrando mensalmente. Como esse sangue não tem por onde sair, ele causa dor intensa, inflamação e a formação de "
+                                  "cicatrizes ou aderências entre os órgãos.",
                               style: GoogleFonts.libreBaskerville(
                                 color: Color.fromRGBO(240, 138, 166, 1.0),
                                 fontSize: 16,
@@ -128,32 +127,35 @@ class _InfeccoesPage extends State<InfeccoesPage>{
 
                             //Seção: Sintomas de alerta
                             _buildSecaoTitulo("Sintomas de Alerta"),
-                            _buildItemComIcone(Icons.water_drop_rounded, "Corrimento vaginal anormal"),
-                            _buildItemComIcone(Icons.bolt, "Dor pélvica"),
-                            _buildItemComIcone(Icons.priority_high, "Dor ao urinar"),
-                            _buildItemComIcone(Icons.opacity, "Sangramento vaginal inusitado"),
+                            _buildItemComIcone(Icons.bolt, "Cólicas menstruais intensas"),
+                            _buildItemComIcone(Icons.monitor_heart, "Dor pélvica crônica"),
+                            _buildItemComIcone(Icons.child_care, "Dificuldade para engravidar"),
+                            _buildItemComIcone(Icons.battery_alert, "Fadiga Extrema"),
 
                             const Divider(height: 40, thickness: 1, color: Colors.black),
 
                             //Seção: Como identificar
                             _buildSecaoTitulo("Como Identificar"),
-                            _buildItemComBolinha("Exame ginecológico"),
-                            _buildItemComBolinha("Exame de urina"),
-                            _buildItemComBolinha("Cultura de secreção"),
+                            _buildItemComBolinha("Histórico clínico"),
+                            _buildItemComBolinha("Exame do toque"),
+                            _buildItemComBolinha("Ultrassom transvaginal com preparo intestinal"),
+                            _buildItemComBolinha("Ressonância magnética"),
+                            _buildItemComBolinha("Laparoscopia"),
 
                             const Divider(height: 40, thickness: 1, color: Colors.black),
 
                             _buildSecaoTitulo("Formas de Tratamento"),
-                            _buildItemComBolinha("Antibióticos"),
-                            _buildItemComBolinha("Antivirais"),
-                            _buildItemComBolinha("Antifúngicos"),
+                            _buildItemComBolinha("Recomendação médica"),
+                            _buildItemComBolinha("Dieta anti-inflamatória"),
+                            _buildItemComBolinha("Fisioterapia pélvica"),
+                            _buildItemComBolinha("Exercícios físicos"),
 
                             const Divider(height: 40, thickness: 1, color: Colors.black),
 
                             Padding(
                               padding: const EdgeInsets.only(bottom: 8.0),
                               child: Text(
-                                "O que é a Endometrite?",
+                                "O que é a Adenomiose?",
                                 style: GoogleFonts.libreBaskerville(
                                   color: Color.fromRGBO(240, 138, 166, 1.0),
                                   fontSize: 20,
@@ -162,13 +164,12 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                               ),
                             ),
                             Text(
-                              "Trata-se da inflamação ou infecção do endométrio, que "
-                                  "é o tecido que reveste a parte interna do útero. "
-                                  "Diferente da endometriose, a endometrite é quase sempre "
-                                  "causada por bactérias que sobem do trato vaginal, sendo "
-                                  "muito comum após o parto (especialmente cesáreas), abortos, "
-                                  "ou procedimentos médicos que atravessam o colo do útero, como a "
-                                  "biópsia uterina.",
+                              "A adenomiose é uma condição ginecológica caracterizada pela infiltração do endométrio "
+                                  "— o tecido que reveste a cavidade interna do útero — nas paredes musculares do próprio órgão, "
+                                  "chamadas de miométrio. Em um ciclo normal, o endométrio engrossa para receber um embrião e, caso não ocorra gravidez, "
+                                  "é expelido na menstruação. Na adenomiose, esse tecido que ""entrou"" no músculo continua se comportando da "
+                                  "mesma forma: ele sangra e inflama a cada ciclo, mas como o sangue está preso dentro da musculatura uterina, ele causa uma "
+                                  "irritação profunda e um aumento significativo do volume do útero.",
                               style: GoogleFonts.libreBaskerville(
                                 color: Color.fromRGBO(240, 138, 166, 1.0),
                                 fontSize: 16,
@@ -176,80 +177,30 @@ class _InfeccoesPage extends State<InfeccoesPage>{
                             ),
                             const Divider(height: 40, thickness: 1, color: Colors.black),
 
-                            //Seção: sintomas de alerta
+                            //Seção: Sintomas de alerta
                             _buildSecaoTitulo("Sintomas de Alerta"),
-                            _buildItemComIcone(Icons.thermostat, "Febre"),
-                            _buildItemComIcone(Icons.bolt, "Dor abdominal"),
-                            _buildItemComIcone(Icons.local_hospital, "Útero amolecido ou dolorido"),
-                            _buildItemComIcone(Icons.warning_amber, "Corrimento com odor fétido"),
+                            _buildItemComIcone(Icons.opacity, "Fluxo menstrual muito intenso"),
+                            _buildItemComIcone(Icons.bolt, "Cólicas incapacitantes"),
+                            _buildItemComIcone(Icons.add_circle_outline, "Inchaço abdominal"),
+                            _buildItemComIcone(Icons.monitor_heart, "Dor crônica"),
+                            _buildItemComIcone(Icons.hourglass_bottom, "Longos períodos de sangramento"),
 
                             const Divider(height: 40, thickness: 1, color: Colors.black),
 
-                            //Seção: como identificar
-                            _buildSecaoTitulo("Como Identificar"),
-                            _buildItemComBolinha("Histórico médico"),
-                            _buildItemComBolinha("Exames de sangue"),
-                            _buildItemComBolinha("Biópsia do endométrio"),
-
-                            const Divider(height: 40, thickness: 1, color: Colors.black),
-
-                            //Seção: formas de tratamento
-                            _buildSecaoTitulo("Formas de Tratamento"),
-                            _buildItemComBolinha("Antibióticos"),
-                            _buildItemComBolinha("Anti-inflamatório"),
-                            _buildItemComBolinha("Tratamento da causa base"),
-
-                            const Divider(height: 40, thickness: 1, color: Colors.black),
-
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
-                              child: Text(
-                                "O que é a Doença Inflamatória Pélvica?",
-                                style: GoogleFonts.libreBaskerville(
-                                  color: Color.fromRGBO(240, 138, 166, 1.0),
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Text(
-                              "É uma infecção que começa no colo do útero ou na vagina e "
-                                  "sobe"" para os órgãos reprodutores superiores. Ela não "
-                                  "afeta apenas o útero, mas também as trompas de Falópio e os "
-                                  "ovários. É considerada uma evolução grave de infecções não "
-                                  "tratadas e é uma das principais causas de dor pélvica crônica e "
-                                  "infertilidade feminina, pois pode causar cicatrizes e obstruções "
-                                  "nas trompas.",
-                              style: GoogleFonts.libreBaskerville(
-                                color: Color.fromRGBO(240, 138, 166, 1.0),
-                                fontSize: 16,
-                              ),
-                            ),
-                            const Divider(height: 40, thickness: 1, color: Colors.black),
-
-                            //seção: sintomas de alerta
-                            _buildSecaoTitulo("Sintomas de Alerta"),
-                            _buildItemComIcone(Icons.bolt, "Dor pélvica"),
-                            _buildItemComIcone(Icons.warning_amber, "Corrimento atípico"),
-                            _buildItemComIcone(Icons.opacity, "Sangramento inesperado"),
-                            _buildItemComIcone(Icons.thermostat_auto_outlined, "Sinais de infecção aguda"),
-
-                            const Divider(height: 40, thickness: 1, color: Colors.black),
-
-                            //seção: como identificar
+                            //Seção: Como identificar
                             _buildSecaoTitulo("Como Identificar"),
                             _buildItemComBolinha("Exame físico"),
-                            _buildItemComBolinha("Análise de secreção"),
-                            _buildItemComBolinha("Exames de imagem"),
-                            _buildItemComBolinha("Exames de sangue"),
+                            _buildItemComBolinha("Ultrassom transvaginal"),
+                            _buildItemComBolinha("Ressonância magnética da pelve"),
 
                             const Divider(height: 40, thickness: 1, color: Colors.black),
 
-                            //seção: formas de tratamento
                             _buildSecaoTitulo("Formas de Tratamento"),
-                            _buildItemComBolinha("Antibióticos"),
-                            _buildItemComBolinha("Repouso e abstinência"),
-                            _buildItemComBolinha("Internação"),
+                            _buildItemComBolinha("Medicamentos hormonais"),
+                            _buildItemComBolinha("Anti-inflamatórios"),
+                            _buildItemComBolinha("Embolização da artéria uterina"),
+                            _buildItemComBolinha("Ablação de endométrio"),
+                            _buildItemComBolinha("Histerectomia"),
                           ],
                         ),
                       ),
@@ -304,18 +255,23 @@ class _InfeccoesPage extends State<InfeccoesPage>{
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            margin: EdgeInsets.only(top: 8),
             width: 8,
             height: 8,
             decoration: BoxDecoration(color: Color.fromRGBO(240, 138, 166, 1.0), shape: BoxShape.circle),
           ),
           const SizedBox(width: 10),
-          Text(
-            texto,
-            style: GoogleFonts.libreBaskerville(
-              color: Color.fromRGBO(240, 138, 166, 1.0),
+
+          Expanded(
+            child: Text(
+              texto,
+              style: GoogleFonts.libreBaskerville(
+                color: Color.fromRGBO(240, 138, 166, 1.0),
                 fontSize: 16,
+              ),
             ),
           ),
         ],

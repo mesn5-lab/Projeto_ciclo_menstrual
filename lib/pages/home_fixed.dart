@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'home_page.dart';
-import 'package:ciclo_menstrual/bibliotecaPage.dart';
-import 'package:ciclo_menstrual/Telacalen.dart';
-import 'package:ciclo_menstrual/Telaconfig.dart';
-import 'package:ciclo_menstrual/Telarelatorio.dart';
+import 'package:ciclo_menstrual/pages/bibliotecaPage.dart';
+import 'package:ciclo_menstrual/pages/Telacalen.dart';
+import 'package:ciclo_menstrual/pages/Telaconfig.dart';
+import 'package:ciclo_menstrual/pages/Telarelatorio.dart';
 //importar as outras telas aqui
 
 //criando uma classe para o arquivo, no caso o arquivo que vai mudar confome

@@ -1,7 +1,7 @@
-import 'package:ciclo_menstrual/endoPage.dart';
-import 'package:ciclo_menstrual/sopPage.dart';
-import 'package:ciclo_menstrual/infeccoesPage.dart';
-import 'package:ciclo_menstrual/miomasPage.dart';
+import 'package:ciclo_menstrual/pages/endoPage.dart';
+import 'package:ciclo_menstrual/pages/sopPage.dart';
+import 'package:ciclo_menstrual/pages/infeccoesPage.dart';
+import 'package:ciclo_menstrual/pages/miomasPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
