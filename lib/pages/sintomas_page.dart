@@ -46,7 +46,7 @@ class _SintomasPageState extends State<SintomasPage> {
                 _buildItemSintoma("Forte", Icons.water_drop),
               ]),
 
-              //seção dos sintomas
+              //seção dos sintomas'
               _buildCardSecao("Sintomas", [
                 _buildItemSintoma("Cólica", Icons.local_fire_department_outlined),
                 _buildItemSintoma("Fadiga", Icons.battery_alert),
