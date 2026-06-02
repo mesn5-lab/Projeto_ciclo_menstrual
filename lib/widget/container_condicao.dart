@@ -12,6 +12,8 @@ class ContainerCondicao extends StatefulWidget {
 }
 
 class _ContainerCondicaoState extends State<ContainerCondicao> {
+  String get titulo => null;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -47,7 +49,7 @@ class _ContainerCondicaoState extends State<ContainerCondicao> {
               child: Transform.scale(
                 scale: 0.98,
                 child: Image.asset(
-                  'assets/images/$imagem',
+                  'assets/images/',
                   fit: BoxFit.contain,
                 ),
               ),
