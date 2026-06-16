@@ -48,13 +48,14 @@ class _BibliotecaPage extends State<BibliotecaPage>{
                     ),
                     const SizedBox(height: 15),
 
-                    ListView.builder(
+                    /*ListView.builder(
                       itemCount: FakeDatabase.listaCondicoes.length,
 
                       itemBuilder: (context, i) {
 
                       },
                     ),
+*/
 
                     //Condições e suas respectivas telas
                     _buildCondicoes(

@@ -1,4 +1,4 @@
-import 'package:ciclo_menstrual/domain/Condicao.dart';
+ import 'package:ciclo_menstrual/domain/Condicao.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,7 +12,7 @@ class ContainerCondicao extends StatefulWidget {
 }
 
 class _ContainerCondicaoState extends State<ContainerCondicao> {
-  String get titulo => null;
+  String get titulo => '';
 
   @override
   Widget build(BuildContext context) {
