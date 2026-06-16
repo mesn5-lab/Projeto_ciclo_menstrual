@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'home_page.dart';
-import 'package:ciclo_menstrual/bibliotecaPage.dart';
-import 'package:ciclo_menstrual/Telacalen.dart';
-import 'package:ciclo_menstrual/Telaconfig.dart';
-import 'package:ciclo_menstrual/Telarelatorio.dart';
+import 'package:ciclo_menstrual/pages/bibliotecaPage.dart';
+import 'package:ciclo_menstrual/pages/Telacalen.dart';
+import 'package:ciclo_menstrual/pages/Telaconfig.dart';
+import 'package:ciclo_menstrual/pages/Telarelatorio.dart';
+import 'package:ciclo_menstrual/pages/lembretes_page.dart';
 //importar as outras telas aqui
 
 //criando uma classe para o arquivo, no caso o arquivo que vai mudar confome
@@ -27,6 +28,7 @@ class _HomeFixedState extends State<HomeFixed> {
     const Calendario(),
     const TelaRelatorio(),
     const TelaConfig(),
+    const LembretesPage(),
 
     //a tela que eu criei
     //as telas que serão criadas
@@ -52,6 +54,7 @@ class _HomeFixedState extends State<HomeFixed> {
           BottomNavigationBarItem(icon: Icon(Icons.calendar_month_outlined), label: 'Calendário'),
           BottomNavigationBarItem(icon: Icon(Icons.assessment_outlined), label: "Relatório"),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Configurações'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Lembretes'),
         ],
       ),
 
@@ -93,7 +96,7 @@ class _HomeFixedState extends State<HomeFixed> {
 
             //é uma função organizadora ela retorna o container com
             //o fundo floral que cobre a tela toda
-            _buildFundoFixo(),
+            // _buildFundoFixo(),
 
             SafeArea(
               //camada onde a tela real aparece , a função abaixo serve para

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ciclo_menstrual/home_fixed.dart';
+import 'package:ciclo_menstrual/pages/home_fixed.dart';
 import 'home_fixed.dart';
 
 class SintomasPage extends StatefulWidget{
@@ -46,7 +46,7 @@ class _SintomasPageState extends State<SintomasPage> {
                 _buildItemSintoma("Forte", Icons.water_drop),
               ]),
 
-              //seção dos sintomas
+              //seção dos sintomas'
               _buildCardSecao("Sintomas", [
                 _buildItemSintoma("Cólica", Icons.local_fire_department_outlined),
                 _buildItemSintoma("Fadiga", Icons.battery_alert),
