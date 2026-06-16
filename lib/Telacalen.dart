@@ -37,7 +37,6 @@ class _CalendarioState extends State<Calendario> {
       } else {
         mes++;
       }
-      diasSelecionados.clear();
     });
   }
 
@@ -49,7 +48,6 @@ class _CalendarioState extends State<Calendario> {
       } else {
         mes--;
       }
-      diasSelecionados.clear();
     });
   }
 
