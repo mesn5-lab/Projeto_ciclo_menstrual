@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ciclo_menstrual/pages/home_fixed.dart';
-import 'home_fixed.dart';
+import 'package:ciclo_menstrual/domain/sintomas.dart';
 
 class SintomasPage extends StatefulWidget{
-  const SintomasPage({super.key});
+  final Sintomas? sintomas;
+   SintomasPage({super.key, this.sintomas});
 
   @override
   State<SintomasPage> createState() => _SintomasPageState();
@@ -60,7 +61,8 @@ class _SintomasPageState extends State<SintomasPage> {
                 _buildItemSintoma("Triste", Icons.sentiment_dissatisfied),
                 _buildItemSintoma("Irritada", Icons.sentiment_very_dissatisfied_outlined),
                 _buildItemSintoma("Feliz", Icons.sentiment_satisfied_alt_rounded),
-                _buildItemSintoma("Ansiosa", Icons.sentiment_neutral_outlined),
+                _buildItemSintoma("Ansiosa", Icons.mood_bad_outlined),
+                _buildItemSintoma("Calma", Icons.self_improvement_outlined),
               ]),
               
               const SizedBox(height: 30),
