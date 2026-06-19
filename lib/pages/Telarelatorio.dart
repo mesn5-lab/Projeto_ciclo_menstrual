@@ -9,7 +9,7 @@ class TelaRelatorio extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
               child: Padding(
-                padding: const EdgeInsets.all(18),
+                padding: const EdgeInsets.all(10),
                 child: Column(
                   children: [
                     const SizedBox(height: 10),
