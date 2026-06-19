@@ -4,7 +4,7 @@ import 'package:ciclo_menstrual/pages/infeccoesPage.dart';
 import 'package:ciclo_menstrual/pages/miomasPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ciclo_menstrual/db/fake_db.dart';
+import 'package:ciclo_menstrual/db/fake_db_sintomas.dart';
 
 class BibliotecaPage extends StatefulWidget{
   const BibliotecaPage({super.key});

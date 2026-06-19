@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ciclo_menstrual/pages/home_fixed.dart';
-import 'home_fixed.dart';
+import 'package:ciclo_menstrual/domain/sintomas.dart';
+import 'package:ciclo_menstrual/db/fake_db_sintomas.dart';
 
 class SintomasPage extends StatefulWidget{
-  const SintomasPage({super.key});
+  final Sintomas? sintomas;
+   const SintomasPage({super.key, this.sintomas});
 
   @override
   State<SintomasPage> createState() => _SintomasPageState();
@@ -13,6 +15,10 @@ class SintomasPage extends StatefulWidget{
 class _SintomasPageState extends State<SintomasPage> {
   @override
   Widget build(BuildContext context) {
+    final listaDeFluxo = FakeDatabase.secaoFluxo;
+    final listaDeSintomas = FakeDatabase.secaoSintomas;
+    final listaDeHumor = FakeDatabase.secaoHumor;
+
     return HomeFixed(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -39,6 +45,22 @@ class _SintomasPageState extends State<SintomasPage> {
 
               const SizedBox(height: 20),
 
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: listaDeSintomas.length,
+                itemBuilder: (context, index) {
+                  final fluxo = listaDeFluxo[index];
+                  final sintomas = listaDeSintomas[index];
+                  final humor = listaDeHumor[index];
+
+                  return ListTile(
+                    leading: Icon(sintomas.icone, color: const Color(0xFF9C27B0)),
+                    title: Text(sintomas.nome),
+                  );
+                }
+              ),
+
               //seção do fluxo
               _buildCardSecao("Fluxo", [
                 _buildItemSintoma("Leve", Icons.water_drop_outlined),
@@ -60,7 +82,8 @@ class _SintomasPageState extends State<SintomasPage> {
                 _buildItemSintoma("Triste", Icons.sentiment_dissatisfied),
                 _buildItemSintoma("Irritada", Icons.sentiment_very_dissatisfied_outlined),
                 _buildItemSintoma("Feliz", Icons.sentiment_satisfied_alt_rounded),
-                _buildItemSintoma("Ansiosa", Icons.sentiment_neutral_outlined),
+                _buildItemSintoma("Ansiosa", Icons.mood_bad_outlined),
+                _buildItemSintoma("Calma", Icons.self_improvement_outlined),
               ]),
               
               const SizedBox(height: 30),
