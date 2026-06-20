@@ -19,13 +19,9 @@ class _LembretesPage extends State<LembretesPage>{
             //Ícone de voltar e título
             Row(
               children: [
-                IconButton(
-                  icon: const Icon(Icons.arrow_back_ios, color: Color.fromRGBO(157, 88, 209, 1), size: 25, fontWeight: FontWeight.bold),
-                  onPressed: () {},
-                ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.only(right: 10),
+                    padding: EdgeInsets.only(right: 13),
                     child: Text(
                       "Lembretes",
                       textAlign: TextAlign.center,
