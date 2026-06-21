@@ -6,7 +6,7 @@ import 'package:ciclo_menstrual/db/fake_db_sintomas.dart';
 
 class SintomasPage extends StatefulWidget{
   final Sintomas? sintomas;
-   const SintomasPage({super.key, this.sintomas});
+  const SintomasPage({super.key, this.sintomas});
 
   @override
   State<SintomasPage> createState() => _SintomasPageState();
@@ -20,78 +20,41 @@ class _SintomasPageState extends State<SintomasPage> {
     final listaDeHumor = FakeDatabase.secaoHumor;
 
     return HomeFixed(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              const SizedBox(height: 50),
-              //a cabeça, a seta e o título
-              Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF9C27B0)),
-                    onPressed: () => Navigator.pop(context),
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            const SizedBox(height: 50),
+            //a cabeça, a seta e o título
+            Row(
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF9C27B0)),
+                  onPressed: () => Navigator.pop(context),
+                ),
+                Text(
+                  "Registrar Sintomas",
+                  style: GoogleFonts.poppins(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFF9C27B0),
                   ),
-                  Text(
-                    "Registrar Sintomas",
-                    style: GoogleFonts.poppins(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: const Color(0xFF9C27B0),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
+            ),
 
-              const SizedBox(height: 20),
+            const SizedBox(height: 20),
 
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: listaDeSintomas.length,
-                itemBuilder: (context, index) {
-                  final fluxo = listaDeFluxo[index];
-                  final sintomas = listaDeSintomas[index];
-                  final humor = listaDeHumor[index];
+            _buildCardSecao("Fluxo", listaDeFluxo),
+            _buildCardSecao("Sintomas", listaDeSintomas),
+            _buildCardSecao("Humor", listaDeHumor),
 
-                  return ListTile(
-                    leading: Icon(sintomas.icone, color: const Color(0xFF9C27B0)),
-                    title: Text(sintomas.nome),
-                  );
-                }
-              ),
+            const SizedBox(height: 30),
 
-              //seção do fluxo
-              _buildCardSecao("Fluxo", [
-                _buildItemSintoma("Leve", Icons.water_drop_outlined),
-                _buildItemSintoma("Médio", Icons.opacity),
-                _buildItemSintoma("Forte", Icons.water_drop),
-              ]),
-
-              //seção dos sintomas'
-              _buildCardSecao("Sintomas", [
-                _buildItemSintoma("Cólica", Icons.local_fire_department_outlined),
-                _buildItemSintoma("Fadiga", Icons.battery_alert),
-                _buildItemSintoma("Dor de cabeça", Icons.psychology),
-                _buildItemSintoma("Acne", Icons.face),
-                _buildItemSintoma("Inchaço", Icons.monitor_weight_outlined),
-              ]),
-
-              //seção humor
-              _buildCardSecao("Humor", [
-                _buildItemSintoma("Triste", Icons.sentiment_dissatisfied),
-                _buildItemSintoma("Irritada", Icons.sentiment_very_dissatisfied_outlined),
-                _buildItemSintoma("Feliz", Icons.sentiment_satisfied_alt_rounded),
-                _buildItemSintoma("Ansiosa", Icons.mood_bad_outlined),
-                _buildItemSintoma("Calma", Icons.self_improvement_outlined),
-              ]),
-              
-              const SizedBox(height: 30),
-              
-              //botão para salvar
-              ElevatedButton(onPressed: () {
-                //ação para salvar
-              },
+            //botão para salvar
+            ElevatedButton(onPressed: () {
+              //ação para salvar
+            },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF9C27B0),
                 minimumSize: const Size(250, 50),
@@ -100,20 +63,20 @@ class _SintomasPageState extends State<SintomasPage> {
               child: Text(
                 "Salvar Registro",
                 style: GoogleFonts.poppins(fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.black),
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
               ),
-              ),
+            ),
 
-              const SizedBox(height: 40),
-            ],
-          ),
+            const SizedBox(height: 40),
+          ],
         ),
-      );
+      ),
+    );
   }
 
   //criar os widgets para os builds
-  Widget _buildCardSecao(String titulo, List<Widget> itens) {
+  Widget _buildCardSecao(String titulo, List listadoBanco) {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(bottom: 20),
@@ -128,14 +91,24 @@ class _SintomasPageState extends State<SintomasPage> {
           Text(
             titulo,
             style: GoogleFonts.poppins(
-              fontSize: 20,
-              fontWeight: FontWeight.w600
+                fontSize: 20,
+                fontWeight: FontWeight.w600
             ),
           ),
           const SizedBox(height: 15),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(children: itens),
+
+          //colocamos aqui o LISTVIEW, junto com um espaço para que o querido possa respirar
+          SizedBox(
+            height: 90,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal, //rola pro lado
+                itemCount: listadoBanco.length, //dinamiza a lista passada
+                itemBuilder: (context, index) {
+                  final item = listadoBanco[index];
+                  return _buildItemSintoma(item.nome, item.icone);
+                  //retorna o widget com o design
+                },
+            ),
           ),
         ],
       ),
@@ -160,8 +133,8 @@ class _SintomasPageState extends State<SintomasPage> {
           Text(
             nome,
             style: GoogleFonts.poppins(
-              fontSize: 12,
-              color: Colors.black87
+                fontSize: 12,
+                color: Colors.black87
             ),
           ),
         ],
