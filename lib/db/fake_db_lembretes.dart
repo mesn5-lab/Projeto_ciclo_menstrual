@@ -1,0 +1,39 @@
+import 'package:ciclo_menstrual/domain/lembretes.dart';
+import 'package:flutter/material.dart';
+
+class FakeDatabase_Lembretes {
+  static List<Lembretes> listaLembretes = [
+    Lembretes(
+      id: 1,
+      medicamento: "Pílula Anticoncepcional",
+      dose: "1 comprimido",
+      horario: "10:00",
+      motivo: "Prevenção de gravidez e controle do ciclo",
+      tipo_icone: Icons.medication,
+    ),
+    Lembretes(
+      id: 2,
+      medicamento: "Ácido Fólico 5mg",
+      dose: "1 comprimido",
+      horario: "08:00",
+      motivo: "Suplementação pré-concepcional",
+      tipo_icone: Icons.medication,
+    ),
+    Lembretes(
+      id: 3,
+      medicamento: "Meloxicam 500mg",
+      dose: "1 comprimido (se necessário)",
+      horario: "14:30",
+      motivo: "Alívio de cólicas menstruais intensas",
+      tipo_icone: Icons.local_hospital_outlined,
+    ),
+    Lembretes(
+      id: 4,
+      medicamento: "Sulfato Ferroso 40mg",
+      dose: "1 comprimido",
+      horario: "11:45",
+      motivo: "Prevenção de anemia devido ao fluxo intenso",
+      tipo_icone: Icons.medication,
+    ),
+  ];
+}
