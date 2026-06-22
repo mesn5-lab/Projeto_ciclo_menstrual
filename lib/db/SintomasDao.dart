@@ -1,18 +1,26 @@
-import 'package:ciclo_menstrual/domain/sintomas.dart';
+import 'package:ciclo_menstrual/domain/ciclo.dart';
 import 'package:sqflite/sqflite.dart';
 import 'db_helper_sintomas.dart';
 
-class SintomasDao {
-  Future<List<Sintomas>> listarSintomas() async {
+class CicloDao {
+
+  Future<List<Ciclo>> listarCiclos() async {
+
     Database db = await DBHelper().initDB();
 
-    var result = await db.rawQuery('SELECT * FROM SINTOMAS');
+    var result = await db.rawQuery(
+        'SELECT * FROM CICLO'
+    );
 
-    List<Sintomas> lista = [];
+    List<Ciclo> lista = [];
+
     for (var json in result) {
-      Sintomas sintomas = Sintomas.fromJson(json);
-      lista.add(sintomas);
+
+      Ciclo ciclo = Ciclo.fromMap(json);
+
+      lista.add(ciclo);
     }
+
     return lista;
   }
 }
