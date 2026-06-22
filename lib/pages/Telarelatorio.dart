@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 import  'package:google_fonts/google_fonts.dart';
+import 'package:ciclo_menstrual/domain/ciclo.dart';
+import 'package:ciclo_menstrual/db/ciclo_dao.dart';
 
 
-class TelaRelatorio extends StatelessWidget {
+
+class TelaRelatorio extends StatefulWidget {
   const TelaRelatorio({super.key});
 
   @override
+  State<TelaRelatorio> createState() => _TelaRelatorioState();
+}
+
+class _TelaRelatorioState extends State<TelaRelatorio> {
+
+  final CicloDao dao = CicloDao();
+
+  @override
   Widget build(BuildContext context) {
+
     return SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(18),
@@ -149,8 +161,60 @@ class TelaRelatorio extends StatelessWidget {
                         ],
                       ),
                     ),
+                    const SizedBox(height: 20),
 
-                    const Spacer(),
+                    Text(
+                      "Histórico de Ciclos",
+                      style: GoogleFonts.libreBaskerville(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: const Color(0xFF7B3FB5),
+                      ),
+                    ),
+
+                    const SizedBox(height: 10),
+
+                    Expanded(
+                      child: FutureBuilder<List<Ciclo>>(
+                        future: dao.listar(),
+                        builder: (context, snapshot) {
+
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+
+                          if (!snapshot.hasData ||
+                              snapshot.data!.isEmpty) {
+                            return const Center(
+                              child: Text("Nenhum ciclo cadastrado"),
+                            );
+                          }
+
+                          List<Ciclo> ciclos = snapshot.data!;
+
+                          return ListView.builder(
+                            itemCount: ciclos.length,
+                            itemBuilder: (context, index) {
+
+                              Ciclo ciclo = ciclos[index];
+
+                              return Card(
+                                child: ListTile(
+                                  title: Text(ciclo.sintoma),
+                                  subtitle: Text(ciclo.data),
+                                  trailing: Text(
+                                    "${ciclo.duracao} dias",
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
