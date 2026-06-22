@@ -20,26 +20,6 @@ class _TelaConfigState extends State<TelaConfig> {
                   padding: const EdgeInsets.all(18),
                   child: Column(
                     children: [
-                      Row(
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.white,
-                            radius: 24,
-                            child: IconButton(
-                              icon: const Icon(
-                                Icons.arrow_back_ios_new,
-                                color: Color(0xFF8E5CC8),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-
-                      const SizedBox(height: 10),
-
                       const Text(
                         "Configurações",
                         style: TextStyle(
