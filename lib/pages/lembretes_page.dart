@@ -1,16 +1,39 @@
+import 'package:ciclo_menstrual/db/fake_db_lembretes.dart';
+import 'package:ciclo_menstrual/domain/lembretes.dart';
+import 'package:ciclo_menstrual/widget/container_lembretes.dart';
+import 'package:ciclo_menstrual/db/LembretesDao.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LembretesPage extends StatefulWidget {
-  const LembretesPage({super.key});
+  final Lembretes? lembretes;
+  const LembretesPage({super.key, this.lembretes});
 
   @override
   State<LembretesPage> createState() => _LembretesPage();
 }
 
 class _LembretesPage extends State<LembretesPage>{
+  List<Lembretes> listaLembretes = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    listaLembretes = await LembretesDao().listarLembretes();
+    await Future.delayed(Duration(seconds: 2));
+    setState(() {
+
+    });
+  }
+
   @override
   Widget build(BuildContext context){
+    final listaLembretes = FakeDatabase_Lembretes.listaLembretes;
+
     return SingleChildScrollView(
         padding: const EdgeInsets.only(left: 20.0, right: 20.0),
         child: Column(
@@ -39,6 +62,44 @@ class _LembretesPage extends State<LembretesPage>{
             ),
             const SizedBox(height: 15),
 
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: listaLembretes.length,
+              itemBuilder: (context, index) {
+                return ContainerLembretes(
+                  lembretes: listaLembretes[index],
+                  aoEditar: () {},
+                  aoDeletar: () {
+                    //remove
+                    setState(() {
+                      listaLembretes.removeAt(index);
+                    });
+                  },
+                );
+              },
+            ),
+            const SizedBox(height: 20),
+
+            SizedBox(
+              width: 250,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                ),
+                child: Text(
+                  "Adicionar lembrete",
+                  style: GoogleFonts.libreBaskerville(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
 
           ],
         ),
