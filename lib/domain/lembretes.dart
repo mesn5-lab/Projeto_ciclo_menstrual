@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
 class Lembretes {
-  late int? id;
   late String medicamento;
   late String dose;
   late String horario;
@@ -9,11 +8,19 @@ class Lembretes {
   late String motivo;
 
   Lembretes({
-   this.id,
    required this.medicamento,
    required this.dose,
    required this.horario,
    required this.tipo_icone,
    required this.motivo,
 });
+
+  Lembretes.fromJson(Map<String, dynamic> json){
+    medicamento = json['medicamento'];
+    dose = json['dose'];
+    horario = json['horario'];
+    tipo_icone = json['tipo_icone'];
+    motivo = json['motivo'];
+  }
 }
+
