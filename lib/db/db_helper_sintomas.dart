@@ -24,6 +24,17 @@ class DBHelper{
     ); ''';
 
     await db.execute(sql);
+
+    sql = '''
+CREATE TABLE ciclo (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  data TEXT NOT NULL,
+  sintoma TEXT NOT NULL,
+  duracao INTEGER NOT NULL
+);
+''';
+
+    await db.execute(sql);
     //===SEÇÃO FLUXO==
     sql = "INSERT INTO Sintomas (nome, icone) VALUES ('Leve', 'water_drop_outlined', 'fluxo');";
     await db.execute(sql);
