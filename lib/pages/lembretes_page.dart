@@ -4,7 +4,7 @@ import 'package:ciclo_menstrual/widget/container_lembretes.dart';
 import 'package:ciclo_menstrual/db/LembretesDao.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+//
 class LembretesPage extends StatefulWidget {
   final Lembretes? lembretes; //final define que o valor é imutável, ? diz que a variável pode ficar vazia sem interferir no código
   const LembretesPage({super.key, this.lembretes});

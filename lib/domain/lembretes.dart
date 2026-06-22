@@ -16,7 +16,7 @@ class Lembretes {
    required this.tipo_icone,
    required this.motivo,
 });
-
+//
   //construtor criado para reconstruir o objeto a partir do formato JSON
   Lembretes.fromJson(Map<String, dynamic> json){ //parâmetro que espera receber a estrutura de dados Map: dicionário ou lista, com as chaves do tipo String e os valores de qualquer tipo (dynamic)
     //o código faz o mapeamento "de um pra um", pegando o dado bruto que está guardado no mapa e injetando dentro das variáveis

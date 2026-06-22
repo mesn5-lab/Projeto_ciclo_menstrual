@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-
+//
 class DbHelperLembretes {
   //Future<Database> significa que no futuro vai efetuar uma tarefa em segundo plano e quando terminar vai entregar o objeto do tipo Database pronto
   //initDB() localiza o espaço correto
