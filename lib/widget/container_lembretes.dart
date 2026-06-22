@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ContainerLembretes extends StatefulWidget {
-  Lembretes lembretes;
-  final VoidCallback aoEditar;
+  //informações que o card recebe de fora
+  Lembretes lembretes; //objeto com seus dados
+  final VoidCallback aoEditar; //VoidCallback não retorna nada é apenas um clique vazio
   final VoidCallback aoDeletar;
 
+  //required define que são parâmetros obrigatórios
   ContainerLembretes({super.key, required this.lembretes, required this.aoEditar, required this.aoDeletar});
 
   @override
@@ -17,19 +19,7 @@ class ContainerLembretes extends StatefulWidget {
 class _ContainerLembretesState extends State<ContainerLembretes> {
   @override
   Widget build(BuildContext context){
-    return InkWell(
-      onTap: () {
-        /*Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return LembretesPage(lembretes: widget.lembretes);
-            }
-          ),
-        );*/
-      },
-
-      child: Container(
+    return Container(
         padding: EdgeInsets.all(16),
         margin: EdgeInsets.only(bottom: 16),
         width: double.infinity,
@@ -45,7 +35,7 @@ class _ContainerLembretesState extends State<ContainerLembretes> {
           ],
         ),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               padding: EdgeInsets.all(10),
@@ -54,15 +44,17 @@ class _ContainerLembretesState extends State<ContainerLembretes> {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
+                //widget. permite que a classe de Estado acesse as variáveis que estão guardadas na classe principal, vai lá no objeto 'lembretes' e pega o valor contido em 'tipo_icone'
                 widget.lembretes.tipo_icone,
                 color: Color(0xFF9C27B0),
-                size: 26,
+                size: 40,
               ),
             ),
-            const SizedBox(width: 15),
+            const SizedBox(width: 10),
 
             Expanded(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     widget.lembretes.medicamento,
@@ -75,9 +67,10 @@ class _ContainerLembretesState extends State<ContainerLembretes> {
                   const SizedBox(height: 3),
 
                   Text(
-                    'Dose: ${widget.lembretes.dose}',
+                    'Dose: ${widget.lembretes.dose}', //opera a função dita anterior
                     style: GoogleFonts.libreBaskerville(fontSize: 12, color: Colors.black87),
                   ),
+                  const SizedBox(height: 3),
                   Text(
                     'Próxima: ${widget.lembretes.horario}',
                     style: GoogleFonts.libreBaskerville(fontSize: 12, color: Colors.black87),
@@ -93,12 +86,12 @@ class _ContainerLembretesState extends State<ContainerLembretes> {
             ),
             const SizedBox(width: 8),
 
-            Row(
+            Column(
               children: [
-                //botão de editar
+                //botão de editar: irá conectar a uma tela de edição futuramente
                 Container(
-                  width: 20,
-                  height: 20,
+                  width: 25,
+                  height: 25,
                   decoration: BoxDecoration(
                     color: Colors.purple,
                     borderRadius: BorderRadius.circular(12),
@@ -114,12 +107,12 @@ class _ContainerLembretesState extends State<ContainerLembretes> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(height: 8),
 
                 //botão de deletar
                 Container(
-                  width: 20,
-                  height: 20,
+                  width: 25,
+                  height: 25,
                   decoration: BoxDecoration(
                     color: Colors.purple,
                     borderRadius: BorderRadius.circular(12),
@@ -127,9 +120,9 @@ class _ContainerLembretesState extends State<ContainerLembretes> {
                   child: Center(
                     child: IconButton(
                       icon: Icon(Icons.delete_outline, color: Colors.white, size: 14),
-                      constraints: const BoxConstraints(),
+                      constraints: const BoxConstraints(), //remove as restrições do tamanho do ícone
                       padding: EdgeInsets.all(2),
-                      onPressed: widget.aoDeletar,
+                      onPressed: widget.aoDeletar, //executa a ação presente na página principal
                     ),
                   ),
                 ),
@@ -137,7 +130,6 @@ class _ContainerLembretesState extends State<ContainerLembretes> {
             ),
           ],
         ),
-      ),
     );
   }
 }

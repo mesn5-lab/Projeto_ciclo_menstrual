@@ -54,7 +54,7 @@ class _HomeFixedState extends State<HomeFixed> {
           BottomNavigationBarItem(icon: Icon(Icons.calendar_month_outlined), label: 'Calendário'),
           BottomNavigationBarItem(icon: Icon(Icons.assessment_outlined), label: "Relatório"),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Configurações'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Lembretes'),
+          BottomNavigationBarItem(icon: Icon(Icons.alarm), label: 'Lembretes'),
         ],
       ),
 

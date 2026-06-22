@@ -1,6 +1,7 @@
 import 'package:ciclo_menstrual/domain/lembretes.dart';
 import 'package:flutter/material.dart';
 
+//essa é uma classe com uma lista estática que serve para ver como os cards ficam quando são criados, é um teste
 class FakeDatabase_Lembretes {
   static List<Lembretes> listaLembretes = [
     Lembretes(
