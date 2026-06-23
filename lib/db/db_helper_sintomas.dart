@@ -17,11 +17,22 @@ class DBHelper{
   }
 
   Future<void> onCreateDB(Database db, int version) async {
-    String sql = '''CREATE TABLE PROPRIEDADE (
+    String sql = '''CREATE TABLE SINTOMAS (
       id INTERGER PRIMARY KEY AUTOINCREMENT,
       nome TEXT NOT NULL,
       icone TEXT NOT NULL
     ); ''';
+
+    await db.execute(sql);
+
+    sql = '''
+CREATE TABLE ciclo (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  data TEXT NOT NULL,
+  sintoma TEXT NOT NULL,
+  duracao INTEGER NOT NULL
+);
+''';
 
     await db.execute(sql);
     //===SEÇÃO FLUXO==
