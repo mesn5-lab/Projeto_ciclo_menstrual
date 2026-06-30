@@ -20,7 +20,8 @@ class DBHelper{
     String sql = '''CREATE TABLE SINTOMAS (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       nome TEXT NOT NULL,
-      icone TEXT NOT NULL
+      icone TEXT NOT NULL,
+      categoria TEXT NOT NULL
     ); ''';
 
     await db.execute(sql);
@@ -36,46 +37,46 @@ CREATE TABLE ciclo (
 
     await db.execute(sql);
     //===SEÇÃO FLUXO==
-    sql = "INSERT INTO Sintomas (nome, icone) VALUES ('Leve', 'water_drop_outlined', 'fluxo');";
+    sql = "INSERT INTO Sintomas (nome, icone, categoria ) VALUES ('Leve', 'water_drop_outlined', 'fluxo');";
     await db.execute(sql);
 
-    sql = "INSERT INTO Sintomas (nome, icone) VALUES ('Médio', 'opacity', 'fluxo');";
+    sql = "INSERT INTO Sintomas (nome, icone, categoria ) VALUES ('Médio', 'opacity', 'fluxo');";
     await db.execute(sql);
 
-    sql = "INSERT INTO Sintomas (nome, icone) VALUES ('Forte', 'water_drop', 'fluxo');";
+    sql = "INSERT INTO Sintomas (nome, icone, categoria) VALUES ('Forte', 'water_drop', 'fluxo');";
     await db.execute(sql);
 
 
     //===SEÇÃO SINTOMAS==
-    sql = "INSERT INTO Sintomas (nome, icone) VALUES ('Cólica', 'local_fire_department_outlined', 'sintomas');";
+    sql = "INSERT INTO Sintomas (nome, icone, categoria) VALUES ('Cólica', 'local_fire_department_outlined', 'sintomas');";
     await db.execute(sql);
 
-    sql = "INSERT INTO Sintomas (nome, icone) VALUES ('Fadiga', 'battery_alert', 'sintomas');";
+    sql = "INSERT INTO Sintomas (nome, icone, categoria) VALUES ('Fadiga', 'battery_alert', 'sintomas');";
     await db.execute(sql);
 
-    sql = "INSERT INTO Sintomas (nome, icone) VALUES ('Dor de cabeça', 'psychology', 'sintomas');";
+    sql = "INSERT INTO Sintomas (nome, icone, categoria) VALUES ('Dor de cabeça', 'psychology', 'sintomas');";
     await db.execute(sql);
 
-    sql = "INSERT INTO Sintomas (nome, icone) VALUES ('Acne', 'face', 'sintomas');";
+    sql = "INSERT INTO Sintomas (nome, icone, categoria) VALUES ('Acne', 'face', 'sintomas');";
     await db.execute(sql);
 
-    sql = "INSERT INTO Sintomas (nome, icone) VALUES ('Inchaço', 'monitor_weight_outlined', 'sintomas');";
+    sql = "INSERT INTO Sintomas (nome, icone, categoria) VALUES ('Inchaço', 'monitor_weight_outlined', 'sintomas');";
     await db.execute(sql);
 
     //===SEÇÃO HUMOR==
-    sql = "INSERT INTO Sintomas (nome, icone) VALUES ('Triste', 'sentiment_dissatisfied', 'humor');";
+    sql = "INSERT INTO Sintomas (nome, icone, categoria) VALUES ('Triste', 'sentiment_dissatisfied', 'humor');";
     await db.execute(sql);
 
-    sql = "INSERT INTO Sintomas (nome, icone) VALUES ('Irritada', 'sentiment_very_dissatisfied_outlined', 'humor');";
+    sql = "INSERT INTO Sintomas (nome, icone, categoria) VALUES ('Irritada', 'sentiment_very_dissatisfied_outlined', 'humor');";
     await db.execute(sql);
 
-    sql = "INSERT INTO Sintomas (nome, icone) VALUES ('Feliz', 'sentiment_sastified_alt_rounded', 'humor');";
+    sql = "INSERT INTO Sintomas (nome, icone, categoria) VALUES ('Feliz', 'sentiment_sastified_alt_rounded', 'humor');";
     await db.execute(sql);
 
-    sql = "INSERT INTO Sintomas (nome, icone) VALUES ('Ansiosa', 'mood_bad_outlined', 'humor');";
+    sql = "INSERT INTO Sintomas (nome, icone, categoria) VALUES ('Ansiosa', 'mood_bad_outlined', 'humor');";
     await db.execute(sql);
 
-    sql = "INSERT INTO Sintomas (nome, icone) VALUES ('Calma', 'self_improvement_outlined', 'humor');";
+    sql = "INSERT INTO Sintomas (nome, icone, categoria) VALUES ('Calma', 'self_improvement_outlined', 'humor');";
     await db.execute(sql);
   }
 }
