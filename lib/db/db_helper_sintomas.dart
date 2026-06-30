@@ -18,7 +18,7 @@ class DBHelper{
 
   Future<void> onCreateDB(Database db, int version) async {
     String sql = '''CREATE TABLE SINTOMAS (
-      id INTERGER PRIMARY KEY AUTOINCREMENT,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       nome TEXT NOT NULL,
       icone TEXT NOT NULL
     ); ''';
