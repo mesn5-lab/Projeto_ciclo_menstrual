@@ -34,7 +34,7 @@ class _LembretesPage extends State<LembretesPage>{
 
   @override
   Widget build(BuildContext context){
-    final listaLembretes = FakeDatabase_Lembretes.listaLembretes;
+   // final listaLembretes = FakeDatabase_Lembretes.listaLembretes;
 
     return SingleChildScrollView(
         padding: const EdgeInsets.only(left: 20.0, right: 20.0),
