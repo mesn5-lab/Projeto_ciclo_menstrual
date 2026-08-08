@@ -30,7 +30,7 @@ class DbHelperLembretes {
       dose TEXT NOT NULL,
       horario TEXT NOT NULL,
       motivo TEXT NOT NULL,
-      tipo_icone TEXT NOT NULL,
+      tipo_icone TEXT NOT NULL
     )''';
     //espera a criação da tabela e pega os comandos e joga no banco
     await db.execute(sqlLembretes);

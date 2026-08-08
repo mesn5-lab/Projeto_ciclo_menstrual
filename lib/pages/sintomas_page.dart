@@ -19,15 +19,30 @@ class _SintomasPageState extends State<SintomasPage> {
     final listaDeSintomas = FakeDatabase.secaoSintomas;
     final listaDeHumor = FakeDatabase.secaoHumor;
 
-    return HomeFixed(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+    return SingleChildScrollView(
+        padding: const EdgeInsets.only(left: 20.0, right: 20.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 50),
             //a cabeça, a seta e o título
             Row(
               children: [
+                Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 13),
+                      child: Text(
+                        "Sintomas",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.poppins(
+                          color: const Color.fromRGBO(157, 88, 209, 1),
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          height: 1.3,
+                          shadows: [Shadow(color: Colors.black26, blurRadius: 4.0)],
+                        ),
+                      ),
+                    ),
+                ),
                 IconButton(
                   icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF9C27B0)),
                   onPressed: () => Navigator.pop(context),
@@ -71,7 +86,6 @@ class _SintomasPageState extends State<SintomasPage> {
             const SizedBox(height: 40),
           ],
         ),
-      ),
     );
   }
 
