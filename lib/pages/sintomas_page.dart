@@ -1,82 +1,134 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ciclo_menstrual/pages/home_fixed.dart';
-import 'package:ciclo_menstrual/domain/sintomas.dart';
-import 'package:ciclo_menstrual/db/fake_db_sintomas.dart';
 
 class SintomasPage extends StatefulWidget{
-  final Sintomas? sintomas;
-  const SintomasPage({super.key, this.sintomas});
+  const SintomasPage({super.key});
 
   @override
-  State<SintomasPage> createState() => _SintomasPageState();
+  State<SintomasPage> createState() => _SintomasPage();
 }
 
-class _SintomasPageState extends State<SintomasPage> {
+class _SintomasPage extends State<SintomasPage>{
   @override
-  Widget build(BuildContext context) {
-    final listaDeFluxo = FakeDatabase.secaoFluxo;
-    final listaDeSintomas = FakeDatabase.secaoSintomas;
-    final listaDeHumor = FakeDatabase.secaoHumor;
-
-    return HomeFixed(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
+  Widget build(BuildContext context){
+    return Scaffold(
+      body: SizedBox.expand(
+        child: Stack(
           children: [
-            const SizedBox(height: 50),
-            //a cabeça, a seta e o título
-            Row(
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF9C27B0)),
-                  onPressed: () => Navigator.pop(context),
-                ),
-                Text(
-                  "Registrar Sintomas",
-                  style: GoogleFonts.poppins(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: const Color(0xFF9C27B0),
-                  ),
-                ),
-              ],
+            Container(
+              color: const Color.fromRGBO(216, 180, 226, 1.0),
             ),
 
-            const SizedBox(height: 20),
-
-            _buildCardSecao("Fluxo", listaDeFluxo),
-            _buildCardSecao("Sintomas", listaDeSintomas),
-            _buildCardSecao("Humor", listaDeHumor),
-
-            const SizedBox(height: 30),
-
-            //botão para salvar
-            ElevatedButton(onPressed: () {
-              //ação para salvar
-            },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF9C27B0),
-                minimumSize: const Size(250, 50),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(30)),
-              ),
-              child: Text(
-                "Salvar Registro",
-                style: GoogleFonts.poppins(fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: IgnorePointer(
+                child: Image.asset(
+                  'assets/images/topo.png',
+                  fit: BoxFit.fill,
+                  width: double.infinity,
+                ),
               ),
             ),
 
-            const SizedBox(height: 40),
-          ],
-        ),
-      ),
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: IgnorePointer(
+                child: Image.asset(
+                  'assets/images/rodape.png',
+                  fit: BoxFit.fill,
+                  height: 800,
+                ),
+              ),
+            ),
+
+            SafeArea(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.only(top: 10, left: 20.0, right: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          IconButton(
+                              icon: const Icon(Icons.arrow_back_ios,
+                                  color: Color.fromRGBO(157, 88, 209, 1.0),
+                                  size: 30,
+                                  fontWeight: FontWeight.bold),
+                              onPressed: () {
+                                Navigator.pop(context);
+                              }
+                          ),
+                          Text(
+                            "Registrar Sintomas",
+                            style: GoogleFonts.poppins(
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                              color: const Color(0xFF9C27B0),
+                            ),
+                          ),
+                      ],
+                    ),
+                      const SizedBox(height: 40),
+
+                      _buildCardSecao("Fluxo", [
+                        _buildItemSintoma("Leve", Icons.water_drop_outlined),
+                        _buildItemSintoma("Médio", Icons.opacity),
+                        _buildItemSintoma("Forte", Icons.water_drop),
+                      ]),
+
+                      //seção dos sintomas
+                      _buildCardSecao("Sintomas", [
+                        _buildItemSintoma("Cólica", Icons.local_fire_department_outlined),
+                        _buildItemSintoma("Fadiga", Icons.battery_alert),
+                        _buildItemSintoma("Dor de cabeça", Icons.psychology),
+                        _buildItemSintoma("Acne", Icons.face),
+                        _buildItemSintoma("Inchaço", Icons.monitor_weight_outlined),
+                      ]),
+
+                      //seção humor
+                      _buildCardSecao("Humor", [
+                        _buildItemSintoma("Triste", Icons.sentiment_dissatisfied),
+                        _buildItemSintoma("Irritada", Icons.sentiment_very_dissatisfied_outlined),
+                        _buildItemSintoma("Feliz", Icons.sentiment_satisfied_alt_rounded),
+                        _buildItemSintoma("Ansiosa", Icons.sentiment_neutral_outlined),
+                      ]),
+                      
+                      const SizedBox(height: 35),
+
+                    Align(
+                      alignment: Alignment.center,
+                      child: ElevatedButton(onPressed: () {
+
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF9C27B0),
+                        minimumSize: const Size(250, 50),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(30)),
+                      ),
+                        child: Text(
+                          "Salvar Registro",
+                          style: GoogleFonts.poppins(fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                        ),
+                      ),
+                    ),
+                      const SizedBox(height: 40),
+                ],
+            ),
+            ),
+            ),
+      ],
+      )
+      )
     );
   }
 
-  //criar os widgets para os builds
-  Widget _buildCardSecao(String titulo, List listadoBanco) {
+  Widget _buildCardSecao(String titulo, List<Widget> itens) {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(bottom: 20),
@@ -96,19 +148,9 @@ class _SintomasPageState extends State<SintomasPage> {
             ),
           ),
           const SizedBox(height: 15),
-
-          //colocamos aqui o LISTVIEW, junto com um espaço para que o querido possa respirar
-          SizedBox(
-            height: 90,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal, //rola pro lado
-                itemCount: listadoBanco.length, //dinamiza a lista passada
-                itemBuilder: (context, index) {
-                  final item = listadoBanco[index];
-                  return _buildItemSintoma(item.nome, item.icone);
-                  //retorna o widget com o design
-                },
-            ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(children: itens),
           ),
         ],
       ),
