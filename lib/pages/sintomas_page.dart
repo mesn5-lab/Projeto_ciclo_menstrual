@@ -74,7 +74,6 @@ class _SintomasPage extends State<SintomasPage>{
                     ),
                       const SizedBox(height: 40),
 
-
                       _buildCardSecao("Fluxo", [
                         _buildItemSintoma("Leve", Icons.water_drop_outlined),
                         _buildItemSintoma("Médio", Icons.opacity),
