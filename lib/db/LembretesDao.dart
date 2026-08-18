@@ -1,13 +1,13 @@
 import 'package:ciclo_menstrual/domain/lembretes.dart';
 import 'package:sqflite/sqflite.dart';
-import 'db_helper_lembretes.dart';
+import 'db_helper.dart';
 
 //isola a lógica, fazendo com que todas ações passem primeiro por aqui
 class LembretesDao {
   //quando terminar o trabalho vai retornar uma lista de lembretes
   Future<List<Lembretes>> listarLembretes() async {
     //chama a classe auxiliar
-    Database db = await DbHelperLembretes().initDB();
+    Database db = await DBHelper().initDB();
 
     //o resultado vai ser o comando no banco, retornando uma lista de mapas por db.rawQuery
     var result = await db.rawQuery('SELECT * FROM LEMBRETES');
