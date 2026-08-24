@@ -20,7 +20,7 @@ class ContainerSintomas extends StatefulWidget {
             context,
             MaterialPageRoute(
               builder: (context) {
-                return SintomasPage(sintomas: widget.sintomas);
+                return SintomasPage();
               },
             ),
           );
