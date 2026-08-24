@@ -1,6 +1,6 @@
 import 'package:ciclo_menstrual/domain/ciclo.dart';
 import 'package:sqflite/sqflite.dart';
-import 'db_helper_sintomas.dart';
+import 'db_helper.dart';
 
 class CicloDao {
 
