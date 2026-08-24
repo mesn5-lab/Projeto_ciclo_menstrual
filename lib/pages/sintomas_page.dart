@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ciclo_menstrual/domain/sintomas.dart';
 
 class SintomasPage extends StatefulWidget{
   const SintomasPage({super.key});
@@ -40,7 +41,7 @@ class _SintomasPage extends State<SintomasPage>{
                 child: Image.asset(
                   'assets/images/rodape.png',
                   fit: BoxFit.fill,
-                  height: 800,
+                  height: 900,
                 ),
               ),
             ),
@@ -72,29 +73,29 @@ class _SintomasPage extends State<SintomasPage>{
                           ),
                       ],
                     ),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 65),
 
                       _buildCardSecao("Fluxo", [
-                        _buildItemSintoma("Leve", Icons.water_drop_outlined),
-                        _buildItemSintoma("Médio", Icons.opacity),
-                        _buildItemSintoma("Forte", Icons.water_drop),
+                        Sintomas(nome: "Leve", icone: Icons.water_drop_outlined),
+                        Sintomas(nome: "Médio", icone: Icons.opacity),
+                        Sintomas(nome: "Forte", icone: Icons.water_drop),
                       ]),
 
                       //seção dos sintomas
                       _buildCardSecao("Sintomas", [
-                        _buildItemSintoma("Cólica", Icons.local_fire_department_outlined),
-                        _buildItemSintoma("Fadiga", Icons.battery_alert),
-                        _buildItemSintoma("Dor de cabeça", Icons.psychology),
-                        _buildItemSintoma("Acne", Icons.face),
-                        _buildItemSintoma("Inchaço", Icons.monitor_weight_outlined),
+                        Sintomas(nome: "Cólica", icone: Icons.local_fire_department_outlined),
+                        Sintomas(nome: "Fadiga", icone: Icons.battery_alert),
+                        Sintomas(nome: "Dor de cabeça", icone: Icons.psychology),
+                        Sintomas(nome: "Acne", icone: Icons.face),
+                        Sintomas(nome: "Inchaço", icone: Icons.monitor_weight_outlined),
                       ]),
 
                       //seção humor
                       _buildCardSecao("Humor", [
-                        _buildItemSintoma("Triste", Icons.sentiment_dissatisfied),
-                        _buildItemSintoma("Irritada", Icons.sentiment_very_dissatisfied_outlined),
-                        _buildItemSintoma("Feliz", Icons.sentiment_satisfied_alt_rounded),
-                        _buildItemSintoma("Ansiosa", Icons.sentiment_neutral_outlined),
+                        Sintomas(nome: "Triste", icone: Icons.sentiment_dissatisfied),
+                        Sintomas(nome: "Irritada", icone: Icons.sentiment_very_dissatisfied_outlined),
+                        Sintomas(nome: "Feliz", icone: Icons.sentiment_satisfied_alt_rounded),
+                        Sintomas(nome: "Ansiosa", icone: Icons.sentiment_neutral_outlined),
                       ]),
                       
                       const SizedBox(height: 35),
@@ -128,7 +129,7 @@ class _SintomasPage extends State<SintomasPage>{
     );
   }
 
-  Widget _buildCardSecao(String titulo, List<Widget> itens) {
+  Widget _buildCardSecao(String titulo, List<Sintomas> itens) {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(bottom: 20),
@@ -147,11 +148,19 @@ class _SintomasPage extends State<SintomasPage>{
                 fontWeight: FontWeight.w600
             ),
           ),
-          const SizedBox(height: 15),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(children: itens),
-          ),
+
+          SizedBox(
+            height: 90,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: itens.length,
+              itemBuilder: (context, index) {
+                final item = itens[index];
+                return _buildItemSintoma(item.nome, item.icone);
+              }
+            ),
+          )
         ],
       ),
     );
@@ -160,18 +169,18 @@ class _SintomasPage extends State<SintomasPage>{
   //criar cada ícone com o texto, o build
   Widget _buildItemSintoma(String nome, IconData icone) {
     return Padding(
-      padding: const EdgeInsets.only(right: 20),
+      padding: const EdgeInsets.only(right: 16),
       child: Column(
         children: [
           Container(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.grey.shade200),
               borderRadius: BorderRadiusGeometry.circular(15),
             ),
             child: Icon(icone, size: 30, color: Colors.grey[700]),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 6),
           Text(
             nome,
             style: GoogleFonts.poppins(
