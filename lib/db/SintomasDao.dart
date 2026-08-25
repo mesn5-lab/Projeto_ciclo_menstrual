@@ -13,6 +13,8 @@ class SintomasDao {
       Sintomas sintomas = Sintomas.fromJson(json);
       lista.add(sintomas);
     }
+
+    await Future.delayed(Duration(seconds: 5));
     return lista;
   }
 }

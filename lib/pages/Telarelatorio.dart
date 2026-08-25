@@ -102,7 +102,7 @@ class _TelaRelatorioState extends State<TelaRelatorio> {
                     Text(
                       'Tendências Trimestrais',
                       style: GoogleFonts.libreBaskerville(
-                        fontSize: 20,
+                        //fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF7B3FB5),
                       ),
