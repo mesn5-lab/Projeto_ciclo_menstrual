@@ -14,7 +14,8 @@ class LembretesPage extends StatefulWidget {
 }
 
 class _LembretesPage extends State<LembretesPage>{
-  List<Lembretes> listaLembretes = [];
+  //List<Lembretes> listaLembretes = [];
+  late Future<List<Lembretes>> futureListaLembretes;
 
   @override
   //método executado apenas na hora de criação, para fazer configurações iniciais
@@ -25,7 +26,7 @@ class _LembretesPage extends State<LembretesPage>{
 
   loadData() async {
     //a tarefa assíncrona vai até o banco de dados, puxa todas as linhas da tabela e joga nas variáveis
-    listaLembretes = await LembretesDao().listarLembretes();
+    futureListaLembretes = LembretesDao().listarLembretes();
     await Future.delayed(Duration(seconds: 2)); //cria uma pausa forçada
     setState(() { //serve pra preencher a tela, quando há atualização
 
@@ -65,7 +66,7 @@ class _LembretesPage extends State<LembretesPage>{
             const SizedBox(height: 15),
 
             //lista que cria e destrói os cards de forma fácil e prática
-            ListView.builder(
+            /*ListView.builder(
               shrinkWrap: true, //calcula o tamanho exato da lista, baseado na soma dos cards
               physics: const NeverScrollableScrollPhysics(), //desativa o poder de rolagem da lista, porque como a tela já tem reolagem se a lista também tivesse acabaria travando
               itemCount: listaLembretes.length, //define quantos itens há na lista
@@ -81,6 +82,18 @@ class _LembretesPage extends State<LembretesPage>{
                   },
                 );
               },
+            ),*/
+
+            FutureBuilder(
+              future: futureListaLembretes,
+              builder: (context, snapshot){
+                if(snapshot.hasData){
+                  List<Lembretes> listaLembretes = snapshot.requireData;
+                  return  buildListView(listaLembretes);
+                }
+
+                return Center(child: CircularProgressIndicator());
+              }
             ),
             const SizedBox(height: 20),
 
@@ -110,5 +123,16 @@ class _LembretesPage extends State<LembretesPage>{
         ),
     );
 
+  }
+
+  buildListView(listaLembretes){
+    return ListView.builder(
+      // Num de repeticoes
+      itemCount: listaLembretes.length,
+      // Children
+      itemBuilder: (context, i) {
+        return ContainerLembretes(lembretes: listaLembretes[i], aoDeletar: () {}, aoEditar: () {},);
+      },
+    );
   }
 }

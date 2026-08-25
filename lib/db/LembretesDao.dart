@@ -21,6 +21,7 @@ class LembretesDao {
       //adiciona os lembretes à lista vazia
       lista.add(lembretes);
     }
+    await Future.delayed(Duration(seconds: 5));
     return lista;
   }
 }//
