@@ -14,6 +14,14 @@ class TelaRelatorio extends StatefulWidget {
 
 class _TelaRelatorioState extends State<TelaRelatorio> {
 
+  late Future<List<Ciclo>> futureListaCiclo;
+
+  @override
+  void initState() {
+    super.initState();
+    futureListaCiclo = CicloDao().listar();
+  }
+
   final CicloDao dao = CicloDao();
 
   @override
