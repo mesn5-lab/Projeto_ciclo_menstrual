@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 
 //classe de domínio, que define o objeto
 class Lembretes {
-  late String
-  medicamento; //late: define que as variáveis são inicializadas depois da criação do objeto
+  late String medicamento; //late: define que as variáveis são inicializadas depois da criação do objeto
   late String dose;
   late String horario;
   late IconData tipo_icone;
