@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import  'package:google_fonts/google_fonts.dart';
 import 'package:ciclo_menstrual/domain/ciclo.dart';
 import 'package:ciclo_menstrual/db/ciclo_dao.dart';
-
+import 'package:ciclo_menstrual/api/requisicao_api.dart';
 
 
 class TelaRelatorio extends StatefulWidget {
@@ -19,7 +19,9 @@ class _TelaRelatorioState extends State<TelaRelatorio> {
   @override
   void initState() {
     super.initState();
-    futureListaCiclo = CicloDao().listar();
+    //futureListaCiclo = CicloDao().listar();
+   // futureListaCiclo = RequisicaoApi().listar();
+
   }
 
   final CicloDao dao = CicloDao();
@@ -227,15 +229,15 @@ class _TelaRelatorioState extends State<TelaRelatorio> {
                 ),
               ),
             );
-  }
-  Widget barra(double altura){
-    return Container(
-      width: 12,
-      height: altura,
-      decoration: BoxDecoration(
-        color: Colors.purple[200],
-        borderRadius: BorderRadius.circular(6),
-      ),
-    );
-  }
-}
+        }
+        Widget barra(double altura){
+          return Container(
+            width: 12,
+            height: altura,
+            decoration: BoxDecoration(
+              color: Colors.purple[200],
+              borderRadius: BorderRadius.circular(6),
+            ),
+          );
+        }
+      }
