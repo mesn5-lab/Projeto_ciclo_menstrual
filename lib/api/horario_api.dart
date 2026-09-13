@@ -25,7 +25,7 @@ class HorarioApi {
 
   findAll() async {
     late Horario horario;
-    final response = await dio.get('$baseUrl/timezone/America/Brasilia');
+    final response = await dio.get('$baseUrl/timezone/America/Maceio');
 
     if (response.statusCode == 200) {
       horario = Horario.fromJson(response.data);

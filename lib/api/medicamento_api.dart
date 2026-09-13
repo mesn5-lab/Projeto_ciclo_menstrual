@@ -32,4 +32,26 @@ class MedicamentoApi {
 
     return lista;
   }
+
+  Future<bool> salvar(Medicamento medicamento) async {
+    try{
+      final response = await dio.post(
+        'baseUrl/medicamentos',
+        data: {
+          'nome': medicamento.nome,
+          'dose': medicamento.dose,
+          'tipo_icone': medicamento.tipo_icone,
+          'motivo': medicamento.motivo,
+        },
+      );
+
+      if(response.statusCode == 200 || response.statusCode == 201) {
+        return true;
+      }
+      return false;
+    } catch(e) {
+      print('Erro ao salvar medicamento via Dio: $e');
+      return false;
+    }
+  }
 }
