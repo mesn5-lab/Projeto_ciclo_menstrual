@@ -1,4 +1,7 @@
-class Medicamento {
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/icon_data.dart';
+
+/*class Medicamento {
   final String? nomeFabricante;
   final String? unii;
   final String? tipoDeProduto;
@@ -13,6 +16,8 @@ class Medicamento {
   final String? eEmbaladorOriginal;
   final String? originalPackagerProduct;
   final String? upc;
+  final String? tipo_icone;
+  final String? motivo;
 
   Medicamento({
     this.nomeFabricante,
@@ -29,6 +34,8 @@ class Medicamento {
     this.eEmbaladorOriginal,
     this.originalPackagerProduct,
     this.upc,
+    this.tipo_icone,
+    this.motivo,
   });
 
   factory Medicamento.fromJson(Map<String, dynamic> json) {
@@ -47,6 +54,45 @@ class Medicamento {
       eEmbaladorOriginal: json['é_embalador_original'] ?? json['e_embalador_original'] ?? '',
       originalPackagerProduct: json['original_packager_product'] ?? '',
       upc: json['upc'] ?? '',
+      tipo_icone: getIcon(json['tipo_icone']),
+      motivo: json['motivo'] ?? '',
     );
+  }
+
+  static getIcon(String? tipoIcone) {
+    if (tipoIcone == 'pilula') {
+      return Icons.medical_services;
+    } else if (tipoIcone == 'dor') {
+      return Icons.eighteen_up_rating_outlined;
+    }
+  }
+}*/
+
+class Medicamento {
+  late String nome;
+  late String dose;
+  late String tipo_icone;
+  late String motivo;
+
+  Medicamento({
+    required this.nome,
+    required this.dose,
+    required this.tipo_icone,
+    required this.motivo,
+  });
+
+  Medicamento.fromJson(Map<String, dynamic> json) {
+    nome = json['nome'];
+    dose = json['dose'];
+    tipo_icone = json['tipo_icone'];
+    motivo = json['motivo'];
+  }
+
+  static getIcon(String? tipoIcone) {
+    if (tipoIcone == 'pilula') {
+      return Icons.medical_services;
+    } else if (tipoIcone == 'dor') {
+      return Icons.eighteen_up_rating_outlined;
+    }
   }
 }

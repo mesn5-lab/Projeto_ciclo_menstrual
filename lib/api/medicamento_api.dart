@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 
 class MedicamentoApi {
   final dio = Dio();
-  final String baseUrl = 'https://api.fda.gov/drug/drugsfda.json';
+  /*final String baseUrl = 'https://api.fda.gov/drug/drugsfda.json';
 
   findByName(String name) async {
     late Medicamento medicamento;
@@ -14,5 +14,22 @@ class MedicamentoApi {
     }
 
     return medicamento;
+  }*/
+
+  final String baseUrl = 'https://my-json-server.typicode.com/mesn5-lab/Fake_api';
+
+  Future<List<Medicamento>> listarMedicamento() async {
+    final response = await dio.get('$baseUrl/medicamentos');
+
+    List<Medicamento> lista = [];
+
+    if (response.statusCode == 200) {
+      for (var json in response.data) {
+        Medicamento medicamento = Medicamento.fromJson(json);
+        lista.add(medicamento);
+      }
+    }
+
+    return lista;
   }
 }
