@@ -7,6 +7,7 @@ import 'package:ciclo_menstrual/pages/Telarelatorio.dart';
 import 'package:ciclo_menstrual/pages/lembretes_page.dart';
 
 
+
 //importar as outras telas aqui
 
 //criando uma classe para o arquivo, no caso o arquivo que vai mudar confome

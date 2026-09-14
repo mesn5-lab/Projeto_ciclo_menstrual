@@ -185,6 +185,7 @@ class _LoginPageState extends State<LoginPage> {
     bool loginValido = await UserDao().login(
       email,
       senha,
+
     );
 
     if (loginValido) {

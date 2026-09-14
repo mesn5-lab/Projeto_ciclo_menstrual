@@ -8,6 +8,7 @@ import 'db_helper.dart';
         String nome,
         String email,
         String senha,
+        String endereco,
         ) async {
       Database db = await dbHelper.initDB();
 
@@ -17,11 +18,12 @@ import 'db_helper.dart';
           'nome': nome,
           'email': email,
           'senha': senha,
+          'endereco' : endereco,
         },
         conflictAlgorithm: ConflictAlgorithm.abort,
       );
     }
-    Future<bool> login(String email, String senha) async{
+    Future<bool> login(String email, String senha,) async{
       Database db = await dbHelper.initDB();
 
       List<Map<String, dynamic>> resultado = await db.query(
