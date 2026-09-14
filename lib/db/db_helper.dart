@@ -12,7 +12,7 @@ class DBHelper{
     String dbPath = join(path, dbName);
 
     //criando o banco de dados
-    Database db = await openDatabase(dbPath, version: 1, onCreate: onCreateDB);
+    Database db = await openDatabase(dbPath, version: 2, onCreate: onCreateDB);
     return db;
   }
 
@@ -23,11 +23,10 @@ class DBHelper{
     nome TEXT NOT NULL,
     email TEXT PRIMARY KEY,
     senha TEXT NOT NULL,
-    endereco TEXT
+ 
   );
 ''';
 
-      await db.execute(sqlUsuarios);
     await db.execute(sqlUsuarios);
 
 

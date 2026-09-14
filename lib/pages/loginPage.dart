@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ciclo_menstrual/pages/cadastro_page.dart';
 import 'package:ciclo_menstrual/pages/home_fixed.dart';
 import '../db/user_dao.dart';
+import '../api/frase_api.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,6 +14,28 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController userController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  String frase = '';
+
+  @override
+  void initState() {
+    super.initState();
+    carregarFrase();
+  }
+
+  Future<void> carregarFrase() async {
+    try {
+      final resultado = await FraseApi().buscarFrase();
+
+      setState(() {
+        frase = resultado;
+      });
+    } catch (e) {
+      setState(() {
+        frase = 'Cuide de você todos os dias.';
+      });
+    }
+  }
 
   @override
   void dispose() {
@@ -60,7 +83,6 @@ class _LoginPageState extends State<LoginPage> {
               child: Center(
                 child: SingleChildScrollView(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       const Text(
@@ -157,6 +179,19 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
+
+                      const SizedBox(height: 25),
+
+                      if (frase.isNotEmpty)
+                        Text(
+                          frase,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.purple,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
                     ],
                   ),
                 ),
@@ -185,7 +220,6 @@ class _LoginPageState extends State<LoginPage> {
     bool loginValido = await UserDao().login(
       email,
       senha,
-
     );
 
     if (loginValido) {
@@ -204,4 +238,3 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 }
-

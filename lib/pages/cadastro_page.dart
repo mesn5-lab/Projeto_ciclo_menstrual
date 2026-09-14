@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../db/user_dao.dart';
-import '../api/endereco_api.dart';
 
 class CadastroPage extends StatefulWidget {
   const CadastroPage({super.key});
@@ -9,47 +8,53 @@ class CadastroPage extends StatefulWidget {
   State<CadastroPage> createState() => _CadastroPageState();
 }
 
+
 class _CadastroPageState extends State<CadastroPage> {
   final nomeController = TextEditingController();
   final emailController = TextEditingController();
   final senhaController = TextEditingController();
-  final enderecoController = TextEditingController();
-  final cepController = TextEditingController();
 
-  Future<void> buscarCep() async {
+  Future<void> cadastrar() async {
+    String nome = nomeController.text.trim();
+    String email = emailController.text.trim();
+    String senha = senhaController.text;
+
+    if (nome.isEmpty || email.isEmpty || senha.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Preencha todos os campos.'),
+        ),
+      );
+      return;
+    }
+
     try {
-      final endereco = await EnderecoApi().buscarEndereco(
-        cepController.text,
+      await UserDao().cadastrarUsuario(
+        nome,
+        email,
+        senha,
       );
 
-      setState(() {
-        enderecoController.text =
-        '${endereco.logradouro}, ${endereco.bairro}, '
-            '${endereco.localidade} - ${endereco.uf}';
-      });
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Usuário cadastrado com sucesso!'),
+        ),
+      );
+
+      Navigator.pop(context);
     } catch (e) {
+      if (!mounted) return;
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Erro: $e'),
         ),
       );
+
+      print('ERRO AO CADASTRAR: $e');
     }
-  }
-
-  Future<void> cadastrar() async {
-    String nome = nomeController.text;
-    String email = emailController.text;
-    String senha = senhaController.text;
-    String endereco = enderecoController.text;
-
-    await UserDao().cadastrarUsuario(
-      nome,
-      email,
-      senha,
-      endereco,
-    );
-
-    Navigator.pop(context);
   }
 
   @override
@@ -57,8 +62,6 @@ class _CadastroPageState extends State<CadastroPage> {
     nomeController.dispose();
     emailController.dispose();
     senhaController.dispose();
-    enderecoController.dispose();
-    cepController.dispose();
     super.dispose();
   }
 
@@ -101,9 +104,11 @@ class _CadastroPageState extends State<CadastroPage> {
               child: Center(
                 child: SingleChildScrollView(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       const Text(
                         'Criar conta',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -115,10 +120,14 @@ class _CadastroPageState extends State<CadastroPage> {
 
                       TextField(
                         controller: nomeController,
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           hintText: 'Nome',
                           filled: true,
                           fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide.none,
+                          ),
                         ),
                       ),
 
@@ -126,10 +135,15 @@ class _CadastroPageState extends State<CadastroPage> {
 
                       TextField(
                         controller: emailController,
-                        decoration: const InputDecoration(
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
                           hintText: 'E-mail',
                           filled: true,
                           fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide.none,
+                          ),
                         ),
                       ),
 
@@ -138,40 +152,14 @@ class _CadastroPageState extends State<CadastroPage> {
                       TextField(
                         controller: senhaController,
                         obscureText: true,
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           hintText: 'Senha',
                           filled: true,
                           fillColor: Colors.white,
-                        ),
-                      ),
-
-                      const SizedBox(height: 12),
-
-                      TextField(
-                        controller: cepController,
-                        keyboardType: TextInputType.number,
-                        decoration: const InputDecoration(
-                          hintText: 'CEP',
-                          filled: true,
-                          fillColor: Colors.white,
-                        ),
-                      ),
-
-                      const SizedBox(height: 12),
-
-                      ElevatedButton(
-                        onPressed: buscarCep,
-                        child: const Text('Buscar endereço'),
-                      ),
-
-                      const SizedBox(height: 12),
-
-                      TextField(
-                        controller: enderecoController,
-                        decoration: const InputDecoration(
-                          hintText: 'Endereço',
-                          filled: true,
-                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide.none,
+                          ),
                         ),
                       ),
 
@@ -179,7 +167,23 @@ class _CadastroPageState extends State<CadastroPage> {
 
                       ElevatedButton(
                         onPressed: cadastrar,
-                        child: const Text('Cadastrar'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 15,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        child: const Text(
+                          'Cadastrar',
+                          style: TextStyle(
+                            color: Color(0xFF7B3FB5),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                       ),
                     ],
                   ),
