@@ -17,6 +17,20 @@ class DBHelper{
   }
 
   Future<void> onCreateDB(Database db, int version) async {
+
+    String sqlUsuarios = '''
+  CREATE TABLE USUARIOS (
+     username TEXT PRIMARY KEY,
+     password TEXT
+  );
+''';
+    await db.execute(sqlUsuarios);
+
+    sqlUsuarios = "INSERT INTO Sintomas (username, password ) VALUES ('joao@gmail.com', '12345');";
+    await db.execute(sqlUsuarios);
+
+
+
     String sqlSintomas = '''CREATE TABLE SINTOMAS (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       nome TEXT NOT NULL,
