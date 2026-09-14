@@ -1,7 +1,13 @@
-import 'package:ciclo_menstrual/db/fake_db_lembretes.dart';
+//import 'package:ciclo_menstrual/db/fake_db_lembretes.dart';
 import 'package:ciclo_menstrual/domain/lembretes.dart';
+import 'package:ciclo_menstrual/api/lembretes_api.dart';
 import 'package:ciclo_menstrual/widget/container_lembretes.dart';
-import 'package:ciclo_menstrual/db/LembretesDao.dart';
+//import 'package:ciclo_menstrual/db/LembretesDao.dart';
+import 'package:ciclo_menstrual/api/medicamento_api.dart';
+import 'package:ciclo_menstrual/api/horario_api.dart';
+import 'package:ciclo_menstrual/domain/medicamento.dart';
+import 'package:ciclo_menstrual/domain/horario.dart';
+//import 'package:ciclo_menstrual/pages/criar_lembrete_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 //
@@ -26,12 +32,41 @@ class _LembretesPage extends State<LembretesPage>{
 
   loadData() async {
     //a tarefa assíncrona vai até o banco de dados, puxa todas as linhas da tabela e joga nas variáveis
-    futureListaLembretes = LembretesDao().listarLembretes();
+    futureListaLembretes = LembreteService().obterLembretesCompletos();
     await Future.delayed(Duration(seconds: 2)); //cria uma pausa forçada
     setState(() { //serve pra preencher a tela, quando há atualização
 
     });
   }
+
+  /*Future<List<Lembretes>> carregarLembretesDasApis() async {
+    try {
+      List<Medicamento> listaMedicamentos = await MedicamentoApi().listarMedicamento();
+
+      List<Horario> respostaHorario = await HorarioApi().findAll();
+
+      String horaAtualExterna = respostaHorario.isNotEmpty ? respostaHorario.first.hora : '08:00';
+
+      List<Lembretes> listaFinal = [];
+
+      for (int i = 0; i < listaMedicamentos.length; i++) {
+        listaFinal.add(
+          Lembretes(
+            medicamento: listaMedicamentos[i].nome ?? 'Medicamento',
+            dose: listaMedicamentos[i].dose ?? '1 comprimido',
+            horario: horaAtualExterna,
+            tipo_icone: Icons.medication,
+            motivo: listaMedicamentos[i].motivo ?? 'Uso contínuo',
+          ),
+        );
+      }
+
+      return listaFinal;
+    } catch (e) {
+      print('Erro ao carregar dados das APIs: $e');
+      rethrow;
+    }
+  }*/
 
   @override
   Widget build(BuildContext context){
@@ -92,6 +127,16 @@ class _LembretesPage extends State<LembretesPage>{
                   return  buildListView(listaLembretes);
                 }
 
+                if (snapshot.hasError) {
+                  print('Erro no FutureBuilder: ${snapshot.error}');
+                  return Center(
+                    child: Text(
+                      'Erro ao carregar dados: ${snapshot.error}',
+                      style: GoogleFonts.libreBaskerville(color: Colors.red),
+                    ),
+                  );
+                }
+
                 return Center(child: CircularProgressIndicator());
               }
             ),
@@ -127,6 +172,8 @@ class _LembretesPage extends State<LembretesPage>{
 
   buildListView(listaLembretes){
     return ListView.builder(
+      shrinkWrap: true, // Obriga a ListView a ocupar apenas o espaço dos seus itens
+      physics: const NeverScrollableScrollPhysics(),
       // Num de repeticoes
       itemCount: listaLembretes.length,
       // Children

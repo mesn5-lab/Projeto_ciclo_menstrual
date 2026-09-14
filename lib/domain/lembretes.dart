@@ -29,11 +29,10 @@ class Lembretes {
     motivo = json['motivo'];
   }
 
-  getIcon(String tipoIcone) {
+  static getIcon(String tipoIcone) {
     if (tipoIcone == 'pilula') {
       return Icons.medical_services;
-    } else if (tipoIcone == 'dor') {
-      return Icons.eighteen_up_rating_outlined;
     }
+    return Icons.medication;
   }
 }
