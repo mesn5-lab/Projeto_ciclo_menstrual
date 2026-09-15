@@ -3,6 +3,7 @@ import 'package:ciclo_menstrual/pages/cadastro_page.dart';
 import 'package:ciclo_menstrual/pages/home_fixed.dart';
 import '../db/user_dao.dart';
 import '../api/frase_api.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -207,34 +208,24 @@ class _LoginPageState extends State<LoginPage> {
     String email = userController.text.trim();
     String senha = passwordController.text;
 
-    if (email.isEmpty || senha.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Preencha o e-mail e a senha.'),
-        ),
-      );
+    bool loginValido = await UserDao().login(email, senha);
 
-      return;
-    }
+    if(loginValido){
+      final prefs = await SharedPreferences.getInstance();
 
-    bool loginValido = await UserDao().login(
-      email,
-      senha,
-    );
+      await prefs.setBool('Logado', true);
 
-    if (loginValido) {
       Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const HomeFixed(),
-        ),
-      );
-    } else {
+        context(
+          MaterialPageRoute(
+            builder: (context) => const HomeFixed(),
+          ,
+        );
+    }else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('E-mail ou senha incorretos.'),
+      const SnackBar(
+       content: Text('Email ou senha incorretos. '),
         ),
       );
     }
   }
-}
