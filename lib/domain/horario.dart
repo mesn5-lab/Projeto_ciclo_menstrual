@@ -1,24 +1,3 @@
-/*class Horario {
-  late String id;
-  late String hora;
-  late String periodo;
-  late bool disponivel;
-
-  Horario({
-    required this.id,
-    required this.hora,
-    required this.periodo,
-    required this.disponivel,
-  });
-
-  Horario.fromJson(Map<String, dynamic> json) {
-    id = json['id'].toString();
-    hora = json['hora'];
-    periodo = json['periodo'];
-    disponivel = json['disponivel'] ?? true;
-  }
-}*/
-
 class Horario {
   late String abreviacao;
   late String datetime;
@@ -32,7 +11,6 @@ class Horario {
   late String utcOffset;
   late int numeroDaSemana;
 
-  // Propriedade utilitária para pegar apenas a hora formatada (ex: "14:30")
   String get hora {
     if (datetime.isEmpty) return '08:00';
     try {
@@ -57,7 +35,6 @@ class Horario {
     required this.numeroDaSemana,
   });
 
-  // Construtor FROM JSON mapeando os nomes das chaves do mapa/imagem
   Horario.fromJson(Map<String, dynamic> json) {
     abreviacao = json['abreviação'] ?? '';
     datetime = json['datetime'] ?? '';
