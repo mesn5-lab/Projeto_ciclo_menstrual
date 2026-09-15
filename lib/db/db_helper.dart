@@ -12,21 +12,21 @@ class DBHelper{
     String dbPath = join(path, dbName);
 
     //criando o banco de dados
-    Database db = await openDatabase(dbPath, version: 1, onCreate: onCreateDB);
+    Database db = await openDatabase(dbPath, version: 2, onCreate: onCreateDB);
     return db;
   }
 
   Future<void> onCreateDB(Database db, int version) async {
 
-    String sqlUsuarios = '''
+      String sqlUsuarios = '''
   CREATE TABLE USUARIOS (
-     username TEXT PRIMARY KEY,
-     password TEXT
+    nome TEXT NOT NULL,
+    email TEXT PRIMARY KEY,
+    senha TEXT NOT NULL,
+ 
   );
 ''';
-    await db.execute(sqlUsuarios);
 
-    sqlUsuarios = "INSERT INTO Sintomas (username, password ) VALUES ('joao@gmail.com', '12345');";
     await db.execute(sqlUsuarios);
 
 
