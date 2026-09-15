@@ -43,7 +43,7 @@ class LembreteService {
 
   Future<List<Lembretes>> obterLembretesCompletos() async {
     List<Medicamento> medicamentos = [];
-    List<Horario> horarios = [];
+    Horario? horarios;
 
     try {
       medicamentos = await _medicamentoApi.listarMedicamento();
@@ -54,12 +54,12 @@ class LembreteService {
 
     try {
       horarios = await _horarioApi.findAll();
-      print('Horários carregados: ${horarios.length}');
+      print('Horários carregados');
     } catch (e) {
       print('ERRO na API de Horário: $e');
     }
 
-    String horaExterna = horarios.isNotEmpty ? horarios.first.hora : '08:00';
+    String horaExterna =  horarios!.hora ?? '08:00';
     List<Lembretes> listaFinal = [];
 
     for (var med in medicamentos) {

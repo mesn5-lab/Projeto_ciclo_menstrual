@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class Horario {
   late String abreviacao;
   late String datetime;
@@ -14,7 +16,15 @@ class Horario {
   String get hora {
     if (datetime.isEmpty) return '08:00';
     try {
-      DateTime parsed = DateTime.parse(datetime);
+      // DateTime dateTime = inputFormat.parse(dateString);
+      DateTime parsed = DateTime.parse(datetime).toUtc();
+
+      // Subtrai manualmente as 3 horas do fuso da string original
+      DateTime forcedOffset = parsed.subtract(Duration(hours: 3));
+
+      // Formata para exibição final
+      String formatted = DateFormat("HH:mm").format(forcedOffset);
+      return formatted;
       return "${parsed.hour.toString().padLeft(2, '0')}:${parsed.minute.toString().padLeft(2, '0')}";
     } catch (_) {
       return '08:00';
@@ -38,6 +48,8 @@ class Horario {
   Horario.fromJson(Map<String, dynamic> json) {
     abreviacao = json['abreviação'] ?? '';
     datetime = json['datetime'] ?? '';
+    print('TESTE');
+    print(json['datetime']);
     diaDaSemana = json['dia_da_semana'] ?? 0;
     diaDoAno = json['dia_do_ano'] ?? 0;
     dst = json['dst'] ?? false;
