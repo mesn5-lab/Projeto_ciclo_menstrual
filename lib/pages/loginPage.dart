@@ -216,16 +216,17 @@ class _LoginPageState extends State<LoginPage> {
       await prefs.setBool('Logado', true);
 
       Navigator.pushReplacement(
-        context(
-          MaterialPageRoute(
+        context,
+        MaterialPageRoute(
             builder: (context) => const HomeFixed(),
-          ,
-        );
+        )
+      );
     }else {
       ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-       content: Text('Email ou senha incorretos. '),
+       content: Text('Email ou senha incorretos. ')
         ),
       );
     }
   }
+}

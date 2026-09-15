@@ -17,8 +17,8 @@ class UserDao {
         'nome': nome,
         'email': email,
         'senha': senha,
-      },
-      conflictAlgorithm: ConflictAlgorithm.abort,
+      }, conflictAlgorithm: ConflictAlgorithm.abort,
+
     );
   }
 
