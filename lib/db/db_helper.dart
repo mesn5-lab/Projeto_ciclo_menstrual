@@ -6,7 +6,7 @@ class DBHelper{
   //se usar o await, é obrigatório usar o async e o Future<TipoDeRetorno>
   Future<Database> initDB() async {
     String path = await getDatabasesPath();
-    String dbName = 'ciclo_menstrual-0.db';
+    String dbName = 'ciclo_menstrual11-.db';
 
     //path é o caminho para o banco de dados. Criando
     String dbPath = join(path, dbName);
@@ -22,7 +22,7 @@ class DBHelper{
   CREATE TABLE USUARIOS (
     nome TEXT NOT NULL,
     email TEXT PRIMARY KEY,
-    senha TEXT NOT NULL,
+    senha TEXT NOT NULL
  
   );
 ''';

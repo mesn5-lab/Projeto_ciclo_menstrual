@@ -1,23 +1,4 @@
-/*class Horario {
-  late String id;
-  late String hora;
-  late String periodo;
-  late bool disponivel;
-
-  Horario({
-    required this.id,
-    required this.hora,
-    required this.periodo,
-    required this.disponivel,
-  });
-
-  Horario.fromJson(Map<String, dynamic> json) {
-    id = json['id'].toString();
-    hora = json['hora'];
-    periodo = json['periodo'];
-    disponivel = json['disponivel'] ?? true;
-  }
-}*/
+import 'package:intl/intl.dart';
 
 class Horario {
   late String abreviacao;
@@ -32,11 +13,18 @@ class Horario {
   late String utcOffset;
   late int numeroDaSemana;
 
-  // Propriedade utilitária para pegar apenas a hora formatada (ex: "14:30")
   String get hora {
     if (datetime.isEmpty) return '08:00';
     try {
-      DateTime parsed = DateTime.parse(datetime);
+      // DateTime dateTime = inputFormat.parse(dateString);
+      DateTime parsed = DateTime.parse(datetime).toUtc();
+
+      // Subtrai manualmente as 3 horas do fuso da string original
+      DateTime forcedOffset = parsed.subtract(Duration(hours: 3));
+
+      // Formata para exibição final
+      String formatted = DateFormat("HH:mm").format(forcedOffset);
+      return formatted;
       return "${parsed.hour.toString().padLeft(2, '0')}:${parsed.minute.toString().padLeft(2, '0')}";
     } catch (_) {
       return '08:00';
@@ -57,10 +45,11 @@ class Horario {
     required this.numeroDaSemana,
   });
 
-  // Construtor FROM JSON mapeando os nomes das chaves do mapa/imagem
   Horario.fromJson(Map<String, dynamic> json) {
     abreviacao = json['abreviação'] ?? '';
     datetime = json['datetime'] ?? '';
+    print('TESTE');
+    print(json['datetime']);
     diaDaSemana = json['dia_da_semana'] ?? 0;
     diaDoAno = json['dia_do_ano'] ?? 0;
     dst = json['dst'] ?? false;

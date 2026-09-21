@@ -16,7 +16,7 @@ class RequisicaoApi {
       List<int> duracao = listaCiclos.map((c) => c.duracao).toList();
 
       final Map<String, dynamic> chartConfig = {
-        'type': 'polarArea',
+        'type': 'bar',
         'data': {
           'labels': meses,
           'datasets': [
