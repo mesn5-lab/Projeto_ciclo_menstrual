@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ciclo_menstrual/pages/cadastro_page.dart';
-import 'package:ciclo_menstrual/pages/home_fixed.dart';
 import '../db/user_dao.dart';
 import '../api/frase_api.dart';
+import '../db/shared_prefs.dart';
+import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -223,10 +224,12 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     if (loginValido) {
+      await SharedPrefs().setUserStatus(true);
+
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const HomeFixed(),
+          builder: (context) => HomePage(),
         ),
       );
     } else {
