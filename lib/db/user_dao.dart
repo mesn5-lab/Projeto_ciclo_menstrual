@@ -1,5 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'db_helper.dart';
+import 'usuario.dart';
 
 class UserDao {
   final DBHelper dbHelper = DBHelper();
@@ -11,14 +12,20 @@ class UserDao {
       ) async {
     Database db = await dbHelper.initDB();
 
+    Usuario usuario = Usuario(
+      nome: nome,
+      email: email,
+      senha: senha,
+    );
+
     await db.insert(
       'USUARIOS',
       {
-        'nome': nome,
-        'email': email,
-        'senha': senha,
-      }, conflictAlgorithm: ConflictAlgorithm.abort,
-
+        'nome': usuario.nome,
+        'email': usuario.email,
+        'senha': usuario.senha,
+      },
+      conflictAlgorithm: ConflictAlgorithm.abort,
     );
   }
 
