@@ -1,16 +1,16 @@
-class Grafico {
+class Requisicao {
   final String url;
   final String titulo;
   final int totalCiclos;
 
-  Grafico({
+  Requisicao({
     required this.url,
     required this.titulo,
     required this.totalCiclos,
 });
 
-  factory Grafico.fromJson(Map<String, dynamic> json) {
-    return Grafico(
+  factory Requisicao.fromJson(Map<String, dynamic> json) {
+    return Requisicao(
         url: json['url'] ?? '',
         titulo: json['titulo'] ?? '',
         totalCiclos: json['totalCiclos'] ?? 0,

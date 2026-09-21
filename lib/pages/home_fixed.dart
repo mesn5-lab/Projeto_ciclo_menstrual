@@ -29,9 +29,9 @@ class _HomeFixedState extends State<HomeFixed> {
     const HomePage(),
     const BibliotecaPage(),
     const Calendario(),
+    const LembretesPage(),
     const TelaRelatorio(),
     const TelaConfig(),
-    const LembretesPage(),
 
 
 
@@ -57,9 +57,9 @@ class _HomeFixedState extends State<HomeFixed> {
           BottomNavigationBarItem(icon: Icon(Icons.water_drop), label: 'Diário'),
           BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Biblioteca'),
           BottomNavigationBarItem(icon: Icon(Icons.calendar_month_outlined), label: 'Calendário'),
+          BottomNavigationBarItem(icon: Icon(Icons.alarm), label: 'Lembretes'),
           BottomNavigationBarItem(icon: Icon(Icons.assessment_outlined), label: "Relatório"),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Configurações'),
-          BottomNavigationBarItem(icon: Icon(Icons.alarm), label: 'Lembretes'),
         ],
       ),
 

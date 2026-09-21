@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ciclo_menstrual/pages/cadastro_page.dart';
+import 'package:ciclo_menstrual/pages/home_fixed.dart';
 import '../db/user_dao.dart';
 import '../api/frase_api.dart';
 import '../db/shared_prefs.dart';
@@ -28,10 +29,14 @@ class _LoginPageState extends State<LoginPage> {
     try {
       final resultado = await FraseApi().buscarFrase();
 
+      if (!mounted) return;
+
       setState(() {
         frase = resultado;
       });
     } catch (e) {
+      if (!mounted) return;
+
       setState(() {
         frase = 'Cuide de você todos os dias.';
       });
@@ -223,8 +228,12 @@ class _LoginPageState extends State<LoginPage> {
       senha,
     );
 
+    if (!mounted) return;
+
     if (loginValido) {
       await SharedPrefs().setUserStatus(true);
+
+      if (!mounted) return;
 
       Navigator.pushReplacement(
         context,
