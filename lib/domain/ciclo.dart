@@ -35,7 +35,7 @@ class Ciclo {
     sintoma: map['sintoma'] ?? '',
     duracao: map['duracao'] is int
         ? map['duracao']
-        : int.tryParse(map['id']?.toString() ?? '') ?? 0,
+        : int.tryParse(map['duracao']?.toString() ?? '') ?? 0,
     obs: map['obs'] ?? '',
     url: map['url'] ?? '',
     );
@@ -49,8 +49,8 @@ class Ciclo {
       dataInicio: json['dataInicio'] ?? json['data'] ?? '',
       sintoma: json['sintoma'] ?? '',
       duracao: json['duracao'] ?? '' is int
-          ? json['id']
-          : int.tryParse(json['id']?.toString() ?? '') ?? 0,
+          ? json['duracao']
+          : int.tryParse(json['duracao']?.toString() ?? '') ?? 0,
       obs: json['obs'] ?? '',
       url: json['url'] ?? '',
     );
