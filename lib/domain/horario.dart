@@ -16,13 +16,10 @@ class Horario {
   String get hora {
     if (datetime.isEmpty) return '08:00';
     try {
-      // DateTime dateTime = inputFormat.parse(dateString);
       DateTime parsed = DateTime.parse(datetime).toUtc();
 
-      // Subtrai manualmente as 3 horas do fuso da string original
       DateTime forcedOffset = parsed.subtract(Duration(hours: 3));
 
-      // Formata para exibição final
       String formatted = DateFormat("HH:mm").format(forcedOffset);
       return formatted;
       return "${parsed.hour.toString().padLeft(2, '0')}:${parsed.minute.toString().padLeft(2, '0')}";
