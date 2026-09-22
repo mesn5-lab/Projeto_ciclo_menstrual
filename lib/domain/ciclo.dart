@@ -1,16 +1,15 @@
 class Ciclo {
 
-  int? id; //? -> significa que ela pode ser nula pq é gerado automaticamente pelo BD
+  int? id; 
   String dataInicio;
   String sintoma;
   int duracao;
   String obs;
   String url;
 
-  //construtor
+
   Ciclo({
     this.id,
-    //informações obrigatórias:
     required this.dataInicio,
     required this.sintoma,
     required this.duracao,
